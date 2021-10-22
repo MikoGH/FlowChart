@@ -29,10 +29,15 @@ namespace BlockDiagram
             pictureBox.Height = 2000;
             bitmap = new Bitmap(2000, 2000);
             Graphics graphic = Graphics.FromImage(bitmap);
+
             // создание и отрисовка элементов блок-схемы
+            Terminator terminatorStart = new Terminator("Начало");
+            terminatorStart.SetPosition(300, 100);
+            terminatorStart.DrawShape(graphic);
+            terminatorStart.DrawText(graphic);
 
             Process process1 = new Process("123abc");
-            process1.SetPosition(200, 100);
+            process1.SetPosition(300, 400);
             process1.DrawShape(graphic);
             process1.DrawText(graphic);
 
