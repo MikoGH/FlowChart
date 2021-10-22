@@ -33,6 +33,7 @@ namespace BlockDiagram
 			this.btnCreateBD = new System.Windows.Forms.Button();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.btnSave = new System.Windows.Forms.Button();
+			this.txtboxName = new System.Windows.Forms.TextBox();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.panel1.SuspendLayout();
 			this.SuspendLayout();
@@ -47,9 +48,9 @@ namespace BlockDiagram
 			// 
 			// btnCreateBD
 			// 
-			this.btnCreateBD.Location = new System.Drawing.Point(681, 12);
+			this.btnCreateBD.Location = new System.Drawing.Point(941, 38);
 			this.btnCreateBD.Name = "btnCreateBD";
-			this.btnCreateBD.Size = new System.Drawing.Size(129, 35);
+			this.btnCreateBD.Size = new System.Drawing.Size(174, 35);
 			this.btnCreateBD.TabIndex = 1;
 			this.btnCreateBD.Text = "Create";
 			this.btnCreateBD.UseVisualStyleBackColor = true;
@@ -61,24 +62,34 @@ namespace BlockDiagram
 			this.panel1.Controls.Add(this.pictureBox);
 			this.panel1.Location = new System.Drawing.Point(20, 12);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(655, 540);
+			this.panel1.Size = new System.Drawing.Size(915, 801);
 			this.panel1.TabIndex = 2;
 			// 
 			// btnSave
 			// 
-			this.btnSave.Location = new System.Drawing.Point(681, 53);
+			this.btnSave.Location = new System.Drawing.Point(941, 79);
 			this.btnSave.Name = "btnSave";
-			this.btnSave.Size = new System.Drawing.Size(129, 35);
+			this.btnSave.Size = new System.Drawing.Size(174, 35);
 			this.btnSave.TabIndex = 3;
 			this.btnSave.Text = "Save Image";
 			this.btnSave.UseVisualStyleBackColor = true;
 			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
 			// 
+			// txtboxName
+			// 
+			this.txtboxName.Location = new System.Drawing.Point(941, 12);
+			this.txtboxName.Name = "txtboxName";
+			this.txtboxName.Size = new System.Drawing.Size(174, 20);
+			this.txtboxName.TabIndex = 4;
+			this.txtboxName.Text = "BlockDiagramName";
+			this.txtboxName.TextChanged += new System.EventHandler(this.txtboxName_TextChanged);
+			// 
 			// FormMain
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(822, 564);
+			this.ClientSize = new System.Drawing.Size(1127, 825);
+			this.Controls.Add(this.txtboxName);
 			this.Controls.Add(this.btnSave);
 			this.Controls.Add(this.btnCreateBD);
 			this.Controls.Add(this.panel1);
@@ -87,6 +98,7 @@ namespace BlockDiagram
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);
+			this.PerformLayout();
 
 		}
 
@@ -96,6 +108,7 @@ namespace BlockDiagram
 		private System.Windows.Forms.Button btnCreateBD;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button btnSave;
+		private System.Windows.Forms.TextBox txtboxName;
 	}
 }
 
