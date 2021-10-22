@@ -12,7 +12,7 @@ namespace BlockDiagram
 {
 	public partial class FormMain : Form
 	{
-        Bitmap targetBitmap;
+        Bitmap bitmap;
         string textNameBD = "";
 
         public FormMain()
@@ -27,18 +27,17 @@ namespace BlockDiagram
             // создание пустого рисунка
             pictureBox.Width = 2000;
             pictureBox.Height = 2000;
-            targetBitmap = new Bitmap(2000, 2000);
+            bitmap = new Bitmap(2000, 2000);
+            Graphics graphic = Graphics.FromImage(bitmap);
             // создание и отрисовка элементов блок-схемы
-            using (Graphics graphic = Graphics.FromImage(targetBitmap))
-            {
-                Process process1 = new Process("123abc");
-                process1.SetPosition(200, 100);
-                process1.DrawShape(graphic);
-                process1.DrawText(graphic);
-            }
+
+            Process process1 = new Process("123abc");
+            process1.SetPosition(200, 100);
+            process1.DrawShape(graphic);
+            process1.DrawText(graphic);
 
             if (pictureBox.Image != null) pictureBox.Image.Dispose();
-			pictureBox.Image = targetBitmap;
+			pictureBox.Image = bitmap;
 
 		}
 
@@ -47,7 +46,7 @@ namespace BlockDiagram
 		{
 			if (textNameBD != "")
 			{
-                targetBitmap.Save(textNameBD + ".jpeg");
+                bitmap.Save(textNameBD + ".jpeg");
                 MessageBox.Show(
                     "Блок-схема успешно сохранена",
                     "Сообщение",
