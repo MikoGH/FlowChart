@@ -36,10 +36,15 @@ namespace BlockDiagram
             terminatorStart.DrawShape(graphic);
             terminatorStart.DrawText(graphic);
 
-            Process process1 = new Process("123abc");
-            process1.SetPosition(300, 400);
+            Process process1 = new Process("int a = 91883718464");
+            process1.SetPosition(300, 300);
             process1.DrawShape(graphic);
             process1.DrawText(graphic);
+
+            Condition condition1 = new Condition("123 > abc");
+            condition1.SetPosition(300, 500);
+            condition1.DrawShape(graphic);
+            condition1.DrawText(graphic);
 
             if (pictureBox.Image != null) pictureBox.Image.Dispose();
 			pictureBox.Image = bitmap;
