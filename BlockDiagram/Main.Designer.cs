@@ -81,7 +81,6 @@ namespace BlockDiagram
 			this.txtboxName.Name = "txtboxName";
 			this.txtboxName.Size = new System.Drawing.Size(174, 20);
 			this.txtboxName.TabIndex = 4;
-			this.txtboxName.Text = "BlockDiagramName";
 			this.txtboxName.TextChanged += new System.EventHandler(this.txtboxName_TextChanged);
 			// 
 			// FormMain

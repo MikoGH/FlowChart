@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace BlockDiagram
 {
-	public partial class FormMain : Form
+    public partial class FormMain : Form
 	{
         Bitmap bitmap;
         string textNameBD = "";
@@ -30,25 +30,24 @@ namespace BlockDiagram
             bitmap = new Bitmap(2000, 2000);
             Graphics graphic = Graphics.FromImage(bitmap);
 
-            // создание и отрисовка элементов блок-схемы
-            Terminator terminatorStart = new Terminator("Начало");
-            terminatorStart.SetPosition(300, 100);
-            terminatorStart.DrawShape(graphic);
-            terminatorStart.DrawText(graphic);
-
-            Process process1 = new Process("int a = 91883718464");
-            process1.SetPosition(300, 300);
-            process1.DrawShape(graphic);
-            process1.DrawText(graphic);
-
-            Condition condition1 = new Condition("123 > abc");
-            condition1.SetPosition(300, 500);
-            condition1.DrawShape(graphic);
-            condition1.DrawText(graphic);
-
+            // тут будет алгоритм преобразования кода в список объектов
+            List<IBlock> blocks = new List<IBlock>
+            {
+                new Terminator("Начало"),
+                new Process("int a = 91883718464"),
+                new Condition("123 > abc")
+            };
+            
+            // отрисовка элементов блок-схемы
+            for (int i = 0; i<blocks.Count; i++)
+			{
+                blocks[i].SetPosition(300, i*150);
+				blocks[i].DrawShape(graphic);
+				blocks[i].DrawText(graphic);
+			}
+            
             if (pictureBox.Image != null) pictureBox.Image.Dispose();
 			pictureBox.Image = bitmap;
-
 		}
 
 		private void btnSave_Click(object sender, EventArgs e)

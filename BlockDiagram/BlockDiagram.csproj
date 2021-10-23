@@ -46,7 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Shapes.cs" />
+    <Compile Include="ClassCondition.cs" />
+    <Compile Include="ClassProcess.cs" />
+    <Compile Include="ClassTerminator.cs" />
+    <Compile Include="ClassShape.cs" />
+    <Compile Include="InterfaceBlock.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
