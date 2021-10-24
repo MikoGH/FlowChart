@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BlockDiagram
+namespace FlowChart
 {
     public class Terminator : Shape, IBlock
     //элемент блок-схемы - терминатор
@@ -19,11 +19,17 @@ namespace BlockDiagram
         int yDown;
         int xCenter;
         int yCenter;
+        bool isStart;
 
-        public Terminator(string _text)
+        int shiftRightBlocks; // на сколько по x сдвигать блоки справа
+        int shift; // на сколько по x сдвигать текущий блок
+        List<Point[]> connectorsPoints = new List<Point[]> { };
+
+        public Terminator(string _text, bool _isStart = false)
         {
             text = _text;
             ySizeShape = ySizeShape / 2; // по ГОСТу высота терминатора в 2 раза меньше других элементов
+            isStart = _isStart;
         }
 
         public void SetPosition(int _xLeft, int _yUp)
@@ -31,10 +37,33 @@ namespace BlockDiagram
         {
             xLeft = _xLeft;
             xRight = xLeft + xSizeShape;
-            yUp = _yUp;
-            yDown = yUp + ySizeShape;
-            xCenter = xLeft + xRight / 2;
-            yCenter = yUp + yDown / 2;
+            xCenter = xLeft + xSizeShape / 2;
+
+			if (isStart)
+			{
+                yUp = _yUp + ySizeShape;
+                yDown = yUp + ySizeShape;
+                yCenter = yUp + ySizeShape / 2;
+            }
+			else
+			{
+                yUp = _yUp;
+                yDown = yUp + ySizeShape;
+                yCenter = yUp + ySizeShape / 2;
+            }
+            
+        }
+
+        public void SetConnectorsPosition()
+        {
+			if (isStart)
+            {
+                connectorsPoints.Add(new Point[]
+                    {
+                    new Point(xCenter, yDown),
+                    new Point(xCenter, yDown + ySizeDistance)
+                    });
+            }
         }
 
         public void DrawShape(Graphics graphic)
@@ -59,6 +88,14 @@ namespace BlockDiagram
         {
             SetStringFormatCenter();
             graphic.DrawString(text, fontMain, brushText, new RectangleF(xLeft, yUp, xSizeShape, ySizeShape), stringFormatMain);
+        }
+
+        public void DrawConnectors(Graphics graphic)
+        {
+            foreach (Point[] connector in connectorsPoints)
+            {
+                graphic.DrawLine(penMain, connector[0], connector[1]);
+            }
         }
     }
 }

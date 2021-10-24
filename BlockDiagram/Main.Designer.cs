@@ -1,5 +1,5 @@
 ﻿
-namespace BlockDiagram
+namespace FlowChart
 {
 	partial class FormMain
 	{
@@ -93,7 +93,7 @@ namespace BlockDiagram
 			this.Controls.Add(this.btnCreateBD);
 			this.Controls.Add(this.panel1);
 			this.Name = "FormMain";
-			this.Text = "BlockDiagram";
+			this.Text = "FlowChart";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
 			this.panel1.ResumeLayout(false);
 			this.ResumeLayout(false);

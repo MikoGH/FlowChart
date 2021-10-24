@@ -1,0 +1,10 @@
+C:\Users\Vlada\Documents\GitHub\BlockDiagram\BlockDiagram\BlockDiagram\obj\Debug\FlowChart.FormMain.resources
+C:\Users\Vlada\Documents\GitHub\BlockDiagram\BlockDiagram\BlockDiagram\obj\Debug\BlockDiagram.Properties.Resources.resources
+C:\Users\Vlada\Documents\GitHub\BlockDiagram\BlockDiagram\BlockDiagram\obj\Debug\FlowChart.csproj.GenerateResource.cache
+C:\Users\Vlada\Documents\GitHub\BlockDiagram\BlockDiagram\BlockDiagram\obj\Debug\FlowChart.csproj.CoreCompileInputs.cache
+C:\Users\Vlada\Documents\GitHub\BlockDiagram\BlockDiagram\BlockDiagram\obj\Debug\BlockDiagram.exe
+C:\Users\Vlada\Documents\GitHub\BlockDiagram\BlockDiagram\BlockDiagram\obj\Debug\BlockDiagram.pdb
+C:\Users\Vlada\Documents\GitHub\BlockDiagram\BlockDiagram\BlockDiagram\bin\Debug\BlockDiagram.exe.config
+C:\Users\Vlada\Documents\GitHub\BlockDiagram\BlockDiagram\BlockDiagram\bin\Debug\BlockDiagram.exe
+C:\Users\Vlada\Documents\GitHub\BlockDiagram\BlockDiagram\BlockDiagram\bin\Debug\BlockDiagram.pdb
+C:\Users\Vlada\Documents\GitHub\BlockDiagram\BlockDiagram\BlockDiagram\obj\Debug\FlowChart.csproj.AssemblyReference.cache

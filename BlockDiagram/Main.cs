@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BlockDiagram
+namespace FlowChart
 {
     public partial class FormMain : Form
 	{
@@ -21,7 +21,7 @@ namespace BlockDiagram
 			InitializeComponent();
 		}
 
-		private void btnCreateBD_Click(object sender, EventArgs e)
+        private void btnCreateBD_Click(object sender, EventArgs e)
             // создание блок-схемы
 		{
             // создание пустого рисунка
@@ -31,20 +31,41 @@ namespace BlockDiagram
             Graphics graphic = Graphics.FromImage(bitmap);
 
             // тут будет алгоритм преобразования кода в список объектов
-            List<IBlock> blocks = new List<IBlock>
-            {
-                new Terminator("Начало"),
-                new Process("int a = 91883718464"),
-                new Condition("123 > abc")
-            };
-            
+            List<IBlock> branchingRight = new List<IBlock> { };
+            List<IBlock> branchingLeft = new List<IBlock> { };
+            List<IBlock> blocks = new List<IBlock> { };
+
+            // пока нет алгоритма, так что объекты создаются вручную
+            // в алгоритме в список blocks последовательно будут добавляться объекты
+            // если объект находится в теле цикла/условия:
+            // 1. в массивы тела всех внешних циклов/условий будет добавлена ссылка на этот объект
+            // 2. в массив, содержащий внешние циклы/условия, будут добавлены ссылки на объекты цикла/условия, в которые входит данный объект
+            // у объекта условия два тела: для if и для else
+
+            blocks.Add(new Terminator("Начало", true)); // begin
+
+            blocks.Add(new Decision("123 > abc")); // if
+
+            blocks.Add(new Process("int a = 91883718464")); // then
+
+			blocks.Add(new Decision("987 > sdf")); // then if
+
+            blocks.Add(new Process("int a = 0")); // then then
+
+            blocks.Add(new Process("int a = 1")); // else
+
+            blocks.Add(new Terminator("Конец")); // end
+
+
             // отрисовка элементов блок-схемы
             for (int i = 0; i<blocks.Count; i++)
 			{
                 blocks[i].SetPosition(300, i*150);
-				blocks[i].DrawShape(graphic);
+                blocks[i].SetConnectorsPosition();
+                blocks[i].DrawShape(graphic);
 				blocks[i].DrawText(graphic);
-			}
+                blocks[i].DrawConnectors(graphic);
+            }
             
             if (pictureBox.Image != null) pictureBox.Image.Dispose();
 			pictureBox.Image = bitmap;

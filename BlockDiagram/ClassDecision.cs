@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BlockDiagram
+namespace FlowChart
 {
-    public class Condition : Shape, IBlock
+    public class Decision : Shape, IBlock
     //элемент блок-схемы - условие
     {
         public SolidBrush brush = new SolidBrush(Color.LightGreen);
@@ -20,7 +20,15 @@ namespace BlockDiagram
         int xCenter;
         int yCenter;
 
-        public Condition(string _text)
+        int shiftRightBlocks; // на сколько по x сдвигать блоки справа
+        int shift; // на сколько по x сдвигать текущий блок
+        List<Point[]> connectorsPoints = new List<Point[]> { }; // точки начала и конца линий связи блоков
+
+        List<IBlock> blocksDecisionOut = new List<IBlock> { }; // блоки условия, в которых находится данный
+        List<IBlock> blocksBody1 = new List<IBlock> { }; // блоки, входящие в тело если
+        List<IBlock> blocksBody2 = new List<IBlock> { }; // блоки, входящие в тело иначе
+
+        public Decision(string _text)
         {
             text = _text;
         }
@@ -30,11 +38,22 @@ namespace BlockDiagram
         {
             xLeft = _xLeft;
             xRight = xLeft + xSizeShape;
+            xCenter = xLeft + xSizeShape / 2;
+
             yUp = _yUp;
             yDown = yUp + ySizeShape;
-            xCenter = xLeft + xSizeShape / 2;
             yCenter = yUp + ySizeShape / 2;
+
         }
+
+        public void SetConnectorsPosition()
+		{
+            connectorsPoints.Add(new Point[]
+                {
+                    new Point(xCenter, yDown),
+                    new Point(xCenter, yDown + ySizeDistance)
+                });
+		}
 
         public void DrawShape(Graphics graphic)
         // отрисовать фигуру
@@ -56,5 +75,13 @@ namespace BlockDiagram
             SetStringFormatCenter();
             graphic.DrawString(text, fontMain, brushText, new RectangleF(xLeft, yUp, xSizeShape, ySizeShape), stringFormatMain);
         }
+
+        public void DrawConnectors(Graphics graphic)
+		{
+			foreach (Point[] connector in connectorsPoints)
+			{
+                graphic.DrawLine(penMain, connector[0], connector[1]);
+			}
+		}
     }
 }

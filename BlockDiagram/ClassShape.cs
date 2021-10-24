@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace BlockDiagram
+namespace FlowChart
 {
     public class Shape
         // родительский класс для всех элементов блок-схемы
@@ -15,6 +15,8 @@ namespace BlockDiagram
         // размеры фигур
         public int xSizeShape = 300;
         public int ySizeShape = 100;
+        public int xSizeDistance = 50;
+        public int ySizeDistance = 50;
 
         // кисти, шрифты, заливка
         public Pen penMain = new Pen(Color.Black, 2);
