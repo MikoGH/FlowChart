@@ -22,8 +22,8 @@ namespace FlowChart
 
         // кисти, шрифты, заливка
         public Pen penMain = new Pen(Color.Black, 2);
-        public SolidBrush brushText = new SolidBrush(Color.Black);
         public Font fontMain = new Font("Courier New", 20);
+        public SolidBrush brushText = new SolidBrush(Color.Black);
         public StringFormat stringFormatMain = new StringFormat();
 
         public void SetStringFormatCenter()

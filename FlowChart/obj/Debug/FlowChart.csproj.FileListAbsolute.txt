@@ -28,3 +28,13 @@ C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\BlockDiagram\obj\Debug\Fl
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\BlockDiagram\obj\Debug\FlowChart.csproj.CoreCompileInputs.cache
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\BlockDiagram\obj\Debug\BlockDiagram.exe
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\BlockDiagram\obj\Debug\BlockDiagram.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\bin\Debug\BlockDiagram.exe.config
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\bin\Debug\BlockDiagram.exe
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\bin\Debug\BlockDiagram.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\FlowChart.csproj.AssemblyReference.cache
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\FlowChart.FormMain.resources
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\BlockDiagram.Properties.Resources.resources
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\FlowChart.csproj.GenerateResource.cache
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\FlowChart.csproj.CoreCompileInputs.cache
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\BlockDiagram.exe
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\BlockDiagram.pdb

@@ -22,7 +22,7 @@ namespace FlowChart
 		}
 
         private void btnCreateBD_Click(object sender, EventArgs e)
-            // создание блок-схемы
+        // создание блок-схемы
 		{
             // создание пустого рисунка
             pictureBox.Width = 2000;
@@ -69,7 +69,7 @@ namespace FlowChart
 		{
 			if (textNameBD != "")
 			{
-                bitmap.Save(textNameBD + ".jpeg");
+                bitmap.Save($@"..\..\..\Saved Diagrams\{textNameBD}.jpeg");
                 MessageBox.Show(
                     "Блок-схема успешно сохранена",
                     "Сообщение",
