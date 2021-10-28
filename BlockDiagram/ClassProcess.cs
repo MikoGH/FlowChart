@@ -20,8 +20,6 @@ namespace FlowChart
         int xCenter;
         int yCenter;
 
-        int shiftRightBlocks; // на сколько по x сдвигать блоки справа
-        int shift; // на сколько по x сдвигать текущий блок
         List<Point[]> connectorsPoints = new List<Point[]> { };
 
         public Process(string _text)
@@ -46,7 +44,7 @@ namespace FlowChart
             connectorsPoints.Add(new Point[]
                 {
                     new Point(xCenter, yDown),
-                    new Point(xCenter, yDown + ySizeDistance)
+                    new Point(xCenter, yDown + yDistance)
                 });
         }
 

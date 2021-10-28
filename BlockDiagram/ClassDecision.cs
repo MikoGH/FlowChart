@@ -20,8 +20,6 @@ namespace FlowChart
         int xCenter;
         int yCenter;
 
-        int shiftRightBlocks; // на сколько по x сдвигать блоки справа
-        int shift; // на сколько по x сдвигать текущий блок
         List<Point[]> connectorsPoints = new List<Point[]> { }; // точки начала и конца линий связи блоков
 
         List<IBlock> blocksDecisionOut = new List<IBlock> { }; // блоки условия, в которых находится данный
@@ -43,7 +41,6 @@ namespace FlowChart
             yUp = _yUp;
             yDown = yUp + ySizeShape;
             yCenter = yUp + ySizeShape / 2;
-
         }
 
         public void SetConnectorsPosition()
@@ -51,7 +48,7 @@ namespace FlowChart
             connectorsPoints.Add(new Point[]
                 {
                     new Point(xCenter, yDown),
-                    new Point(xCenter, yDown + ySizeDistance)
+                    new Point(xCenter, yDown + yDistance)
                 });
 		}
 

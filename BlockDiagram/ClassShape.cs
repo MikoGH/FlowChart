@@ -15,8 +15,10 @@ namespace FlowChart
         // размеры фигур
         public int xSizeShape = 300;
         public int ySizeShape = 100;
-        public int xSizeDistance = 50;
-        public int ySizeDistance = 50;
+
+        // дистанция между фигурами
+        public int xDistance = 50;
+        public int yDistance = 50;
 
         // кисти, шрифты, заливка
         public Pen penMain = new Pen(Color.Black, 2);

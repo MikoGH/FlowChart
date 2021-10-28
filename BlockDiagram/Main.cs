@@ -30,17 +30,10 @@ namespace FlowChart
             bitmap = new Bitmap(2000, 2000);
             Graphics graphic = Graphics.FromImage(bitmap);
 
-            // тут будет алгоритм преобразования кода в список объектов
-            List<IBlock> branchingRight = new List<IBlock> { };
-            List<IBlock> branchingLeft = new List<IBlock> { };
             List<IBlock> blocks = new List<IBlock> { };
 
+            // тут будет алгоритм преобразования кода в список объектов 
             // пока нет алгоритма, так что объекты создаются вручную
-            // в алгоритме в список blocks последовательно будут добавляться объекты
-            // если объект находится в теле цикла/условия:
-            // 1. в массивы тела всех внешних циклов/условий будет добавлена ссылка на этот объект
-            // 2. в массив, содержащий внешние циклы/условия, будут добавлены ссылки на объекты цикла/условия, в которые входит данный объект
-            // у объекта условия два тела: для if и для else
 
             blocks.Add(new Terminator("Начало", true)); // begin
 
@@ -72,7 +65,7 @@ namespace FlowChart
 		}
 
 		private void btnSave_Click(object sender, EventArgs e)
-            // сохранение блок-схемы
+        // сохранение блок-схемы
 		{
 			if (textNameBD != "")
 			{
@@ -98,7 +91,7 @@ namespace FlowChart
         }
 
 		private void txtboxName_TextChanged(object sender, EventArgs e)
-            // изменение названия блок-схемы
+        // изменение названия блок-схемы
 		{
             textNameBD = txtboxName.Text;
         }
