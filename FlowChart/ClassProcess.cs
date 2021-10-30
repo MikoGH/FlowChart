@@ -12,15 +12,10 @@ namespace FlowChart
     // элемент блок-схемы - процесс
     {
         public SolidBrush brush = new SolidBrush(Color.FromArgb(180,230,250));
-        string text;
-        int xLeft;
-        int xRight;
-        int yUp;
-        int yDown;
-        int xCenter;
-        int yCenter;
 
-        List<Point[]> connectorsPoints = new List<Point[]> { };
+        // наличие ветвлений справа/слева
+        public bool isBranchLeft { get; set; } = false;
+        public bool isBranchRight { get; set; } = false;
 
         public Process(string _text)
         {
@@ -54,21 +49,6 @@ namespace FlowChart
             Rectangle rect = new Rectangle(xLeft, yUp, xSizeShape, ySizeShape);
             graphic.FillRectangle(brush, rect);
             graphic.DrawRectangle(penMain, rect);
-        }
-
-        public void DrawText(Graphics graphic)
-        // отрисовать текст
-        {
-            SetStringFormatCenter();
-            graphic.DrawString(text, fontMain, brushText, new RectangleF(xLeft, yUp, xSizeShape, ySizeShape), stringFormatMain);
-        }
-
-        public void DrawConnectors(Graphics graphic)
-        {
-            foreach (Point[] connector in connectorsPoints)
-            {
-                graphic.DrawLine(penMain, connector[0], connector[1]);
-            }
         }
     }
 

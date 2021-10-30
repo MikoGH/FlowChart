@@ -97,6 +97,7 @@ namespace FlowChart
 			this.Controls.Add(this.btnCreateBD);
 			this.Controls.Add(this.panel1);
 			this.Name = "FormMain";
+			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
 			this.Text = "FlowChart";
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
 			this.panel1.ResumeLayout(false);

@@ -12,16 +12,11 @@ namespace FlowChart
     //элемент блок-схемы - терминатор
     {
         public SolidBrush brush = new SolidBrush(Color.LightGray);
-        string text;
-        int xLeft;
-        int xRight;
-        int yUp;
-        int yDown;
-        int xCenter;
-        int yCenter;
         bool isStart;
 
-        List<Point[]> connectorsPoints = new List<Point[]> { };
+        // наличие ветвлений справа/слева
+        public bool isBranchLeft { get; set; } = false;
+        public bool isBranchRight { get; set; } = false;
 
         public Terminator(string _text, bool _isStart = false)
         {
@@ -79,21 +74,6 @@ namespace FlowChart
             graphic.FillRectangle(brush, rect);
             graphic.DrawLine(penMain, xLeft + ellipseDiameter / 2, yUp, xRight - ellipseDiameter / 2, yUp);
             graphic.DrawLine(penMain, xLeft + ellipseDiameter / 2, yDown, xRight - ellipseDiameter / 2, yDown);
-        }
-
-        public void DrawText(Graphics graphic)
-        // отрисовать текст
-        {
-            SetStringFormatCenter();
-            graphic.DrawString(text, fontMain, brushText, new RectangleF(xLeft, yUp, xSizeShape, ySizeShape), stringFormatMain);
-        }
-
-        public void DrawConnectors(Graphics graphic)
-        {
-            foreach (Point[] connector in connectorsPoints)
-            {
-                graphic.DrawLine(penMain, connector[0], connector[1]);
-            }
         }
     }
 }

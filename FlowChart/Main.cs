@@ -33,22 +33,11 @@ namespace FlowChart
             List<IBlock> blocks = new List<IBlock> { };
 
             // тут будет алгоритм преобразования кода в список объектов 
-            // пока нет алгоритма, так что объекты создаются вручную
+            // пока нет алгоритма, так что объекты в функции создаются вручную
+            blocks = ModuleCreate.CreateBlocks(blocks);
 
-            blocks.Add(new Terminator("Начало", true)); // begin
-
-            blocks.Add(new Decision("123 > abc")); // if
-
-            blocks.Add(new Process("int a = 91883718464")); // then
-
-			blocks.Add(new DecisionFull("987 > sdf")); // then if
-
-            blocks.Add(new Process("int a = 0")); // then then
-
-            blocks.Add(new Process("int a = 1")); // else
-
-            blocks.Add(new Terminator("Конец")); // end
-
+            // установка позиций блоков по X
+            ModulePos.SetPositionsX(blocks);
 
             // отрисовка элементов блок-схемы
             for (int i = 0; i<blocks.Count; i++)

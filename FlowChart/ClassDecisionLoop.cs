@@ -8,19 +8,18 @@ using System.Windows.Forms;
 
 namespace FlowChart
 {
-    public class DecisionFull : Shape, IBlock
-    //элемент блок-схемы - полное условие
+    public class DecisionLoop : Shape, IBlock
+    //элемент блок-схемы - цикл while
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(230,230,130));
+        public SolidBrush brush = new SolidBrush(Color.FromArgb(250, 180, 130));
 
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = false;
-        public bool isBranchRight { get; set; } = false;
+        public bool isBranchRight { get; set; } = true;
 
         public List<IBlock> blocksBody = new List<IBlock> { }; // блоки, входящие в тело если
-        public List<IBlock> blocksBodyElse = new List<IBlock> { }; // блоки, входящие в тело иначе
 
-        public DecisionFull(string _text)
+        public DecisionLoop(string _text)
         {
             text = _text;
         }
@@ -38,13 +37,18 @@ namespace FlowChart
         }
 
         public void SetConnectorsPosition()
-		{
+        {
             connectorsPoints.Add(new Point[]
-                {
-                    new Point(xCenter, yDown),
-                    new Point(xCenter, yDown + yDistance)
-                });
-		}
+            {
+                new Point(xCenter, yDown),
+                new Point(xCenter, yDown + yDistance)
+            });
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xRight, yCenter),
+                new Point(xRight + shiftRight, yCenter)
+            });
+        }
 
         public void DrawShape(Graphics graphic)
         // отрисовать фигуру

@@ -9,21 +9,15 @@ using System.Windows.Forms;
 namespace FlowChart
 {
     public class Decision : Shape, IBlock
-    //элемент блок-схемы - условие
+    //элемент блок-схемы - неполное условие
     {
         public SolidBrush brush = new SolidBrush(Color.FromArgb(230, 230, 130));
-        string text;
-        int xLeft;
-        int xRight;
-        int yUp;
-        int yDown;
-        int xCenter;
-        int yCenter;
 
-        List<Point[]> connectorsPoints = new List<Point[]> { }; // точки начала и конца линий связи блоков
+        // наличие ветвлений справа/слева
+        public bool isBranchLeft { get; set; } = false;
+        public bool isBranchRight { get; set; } = true;
 
-        List<IBlock> blocksDecisionOut = new List<IBlock> { }; // блоки условия, в которых находится данный
-        List<IBlock> blocksBody = new List<IBlock> { }; // блоки, входящие в тело если
+        public List<IBlock> blocksBody = new List<IBlock> { }; // блоки, входящие в тело если
 
         public Decision(string _text)
         {
@@ -45,10 +39,15 @@ namespace FlowChart
         public void SetConnectorsPosition()
         {
             connectorsPoints.Add(new Point[]
-                {
-                    new Point(xCenter, yDown),
-                    new Point(xCenter, yDown + yDistance)
-                });
+            {
+                new Point(xCenter, yDown),
+                new Point(xCenter, yDown + yDistance)
+            });
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xRight, yCenter),
+                new Point(xRight + shiftRight, yCenter)
+            });
         }
 
         public void DrawShape(Graphics graphic)
@@ -63,21 +62,6 @@ namespace FlowChart
             };
             graphic.FillPolygon(brush, points);
             graphic.DrawPolygon(penMain, points);
-        }
-
-        public void DrawText(Graphics graphic)
-        // отрисовать текст
-        {
-            SetStringFormatCenter();
-            graphic.DrawString(text, fontMain, brushText, new RectangleF(xLeft, yUp, xSizeShape, ySizeShape), stringFormatMain);
-        }
-
-        public void DrawConnectors(Graphics graphic)
-        {
-            foreach (Point[] connector in connectorsPoints)
-            {
-                graphic.DrawLine(penMain, connector[0], connector[1]);
-            }
         }
     }
 }

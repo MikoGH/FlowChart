@@ -46,7 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModulesPos.cs" />
+    <Compile Include="ClassDecisionLoop.cs" />
+    <Compile Include="ClassPreparation.cs" />
+    <Compile Include="ModuleCreate.cs" />
+    <Compile Include="ModulePos.cs" />
     <Compile Include="ClassDecision.cs" />
     <Compile Include="ClassDecisionFull.cs" />
     <Compile Include="ClassProcess.cs" />
