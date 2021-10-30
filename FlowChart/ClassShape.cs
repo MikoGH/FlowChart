@@ -13,16 +13,20 @@ namespace FlowChart
         // задает параметры, присущие всем элементам
     {
         // размеры фигур
-        public int xSizeShape = 300;
-        public int ySizeShape = 100;
+        public int xSizeShape { get; set; } = 300;
+        public int ySizeShape { get; set; } = 100;
 
         // дистанция между фигурами
-        public int xDistance = 50;
-        public int yDistance = 50;
+        public int xDistance { get; set; } = 50;
+        public int yDistance { get; set; } = 50;
+
+        // сдвиги ветвлений слева и справа
+        public int shiftLeft { get; set; } = 0;
+        public int shiftRight { get; set; } = 300; // равен xSizeShape
 
         // кисти, шрифты, заливка
-        public Pen penMain = new Pen(Color.Black, 2);
-        public Font fontMain = new Font("Courier New", 20);
+        public Pen penMain = new Pen(Color.Black, 3);
+        public Font fontMain = new Font("Nunito", 20);
         public SolidBrush brushText = new SolidBrush(Color.Black);
         public StringFormat stringFormatMain = new StringFormat();
 

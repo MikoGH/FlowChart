@@ -46,7 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModulesPos.cs" />
     <Compile Include="ClassDecision.cs" />
+    <Compile Include="ClassDecisionFull.cs" />
     <Compile Include="ClassProcess.cs" />
     <Compile Include="ClassTerminator.cs" />
     <Compile Include="ClassShape.cs" />

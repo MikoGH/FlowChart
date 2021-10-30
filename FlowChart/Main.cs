@@ -16,7 +16,7 @@ namespace FlowChart
         string textNameBD = "";
 
         public FormMain()
-            // инициализация формы
+        // инициализация формы
 		{
 			InitializeComponent();
 		}
@@ -41,7 +41,7 @@ namespace FlowChart
 
             blocks.Add(new Process("int a = 91883718464")); // then
 
-			blocks.Add(new Decision("987 > sdf")); // then if
+			blocks.Add(new DecisionFull("987 > sdf")); // then if
 
             blocks.Add(new Process("int a = 0")); // then then
 

@@ -8,10 +8,10 @@ using System.Windows.Forms;
 
 namespace FlowChart
 {
-    public class Decision : Shape, IBlock
+    public class DecisionFull : Shape, IBlock
     //элемент блок-схемы - условие
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(230, 230, 130));
+        public SolidBrush brush = new SolidBrush(Color.FromArgb(230,230,130));
         string text;
         int xLeft;
         int xRight;
@@ -24,8 +24,9 @@ namespace FlowChart
 
         List<IBlock> blocksDecisionOut = new List<IBlock> { }; // блоки условия, в которых находится данный
         List<IBlock> blocksBody = new List<IBlock> { }; // блоки, входящие в тело если
+        List<IBlock> blocksBodyElse = new List<IBlock> { }; // блоки, входящие в тело иначе
 
-        public Decision(string _text)
+        public DecisionFull(string _text)
         {
             text = _text;
         }
@@ -43,13 +44,13 @@ namespace FlowChart
         }
 
         public void SetConnectorsPosition()
-        {
+		{
             connectorsPoints.Add(new Point[]
                 {
                     new Point(xCenter, yDown),
                     new Point(xCenter, yDown + yDistance)
                 });
-        }
+		}
 
         public void DrawShape(Graphics graphic)
         // отрисовать фигуру
@@ -73,11 +74,11 @@ namespace FlowChart
         }
 
         public void DrawConnectors(Graphics graphic)
-        {
-            foreach (Point[] connector in connectorsPoints)
-            {
+		{
+			foreach (Point[] connector in connectorsPoints)
+			{
                 graphic.DrawLine(penMain, connector[0], connector[1]);
-            }
-        }
+			}
+		}
     }
 }

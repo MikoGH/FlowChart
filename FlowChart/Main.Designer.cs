@@ -48,7 +48,8 @@ namespace FlowChart
 			// 
 			// btnCreateBD
 			// 
-			this.btnCreateBD.Location = new System.Drawing.Point(941, 38);
+			this.btnCreateBD.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnCreateBD.Location = new System.Drawing.Point(941, 12);
 			this.btnCreateBD.Name = "btnCreateBD";
 			this.btnCreateBD.Size = new System.Drawing.Size(174, 35);
 			this.btnCreateBD.TabIndex = 1;
@@ -67,7 +68,8 @@ namespace FlowChart
 			// 
 			// btnSave
 			// 
-			this.btnSave.Location = new System.Drawing.Point(941, 79);
+			this.btnSave.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.btnSave.Location = new System.Drawing.Point(941, 53);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.Size = new System.Drawing.Size(174, 35);
 			this.btnSave.TabIndex = 3;
@@ -77,10 +79,12 @@ namespace FlowChart
 			// 
 			// txtboxName
 			// 
-			this.txtboxName.Location = new System.Drawing.Point(941, 12);
+			this.txtboxName.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.txtboxName.Location = new System.Drawing.Point(941, 94);
 			this.txtboxName.Name = "txtboxName";
-			this.txtboxName.Size = new System.Drawing.Size(174, 20);
+			this.txtboxName.Size = new System.Drawing.Size(174, 24);
 			this.txtboxName.TabIndex = 4;
+			this.txtboxName.Text = "FlowChart1";
 			this.txtboxName.TextChanged += new System.EventHandler(this.txtboxName_TextChanged);
 			// 
 			// FormMain

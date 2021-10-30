@@ -11,7 +11,7 @@ namespace FlowChart
     public class Process : Shape, IBlock
     // элемент блок-схемы - процесс
     {
-        public SolidBrush brush = new SolidBrush(Color.Aqua);
+        public SolidBrush brush = new SolidBrush(Color.FromArgb(180,230,250));
         string text;
         int xLeft;
         int xRight;
