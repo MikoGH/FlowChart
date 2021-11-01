@@ -20,30 +20,26 @@ namespace FlowChart
         // инициализация формы
 		{
 			InitializeComponent();
-		}
+        }
 
         private void btnCreateBD_Click(object sender, EventArgs e)
         // создание блок-схемы
 		{
+            List<IBlock> blocks = new List<IBlock> { };
+
+            // пока нет алгоритма преобразования кода в список объектов, так что объекты в функции создаются вручную
+            blocks = Module.CreateBlocks(blocks);
+
+            for (int i = 0; i < blocks.Count; i++) blocks[i].SetPosition(0, i * (blocks[1].ySizeShape + blocks[1].yDistance)); // временно
+
+            // установка позиций блоков по X
+            Module.SetPositionsX(blocks);
+
             // создание пустого рисунка
             pictureBox.Width = 2000;
             pictureBox.Height = 2000;
             bitmap = new Bitmap(2000, 2000);
             Graphics graphic = Graphics.FromImage(bitmap);
-
-            List<IBlock> blocks = new List<IBlock> { };
-
-            // тут будет алгоритм преобразования кода в список объектов 
-            // пока нет алгоритма, так что объекты в функции создаются вручную
-            blocks = Module.CreateBlocks(blocks);
-
-            for (int i = 0; i < blocks.Count; i++)
-            {
-                blocks[i].SetPosition(0, i * 150);
-            }
-
-            // установка позиций блоков по X
-            Module.SetPositionsX(blocks);
 
             // отрисовка элементов блок-схемы
             for (int i = 0; i<blocks.Count; i++)

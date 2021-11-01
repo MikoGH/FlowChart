@@ -15,6 +15,9 @@ namespace FlowChart
 	{
 		public static List<IBlock> CreateBlocks(List<IBlock> blocks)
 		{
+			// тут будет алгоритм преобразования кода в список объектов 
+			// пока что объекты создаются вручную
+
 			blocks.Add(new Terminator("Начало", true)); // 0 begin
 
 			blocks.Add(new Decision("k < 0")); // 1

@@ -12,8 +12,8 @@ namespace Shapes
         // задает параметры, присущие всем элементам
     {
         // размеры фигур
-        public int xSizeShape { get; set; } = 300;
-        public int ySizeShape { get; set; } = 100;
+        public int xSizeShape { get; set; } = 200;
+        public int ySizeShape { get; set; } = 80;
 
         // дистанция между фигурами
         public int xDistance { get; set; } = 50;
