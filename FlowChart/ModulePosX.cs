@@ -38,7 +38,7 @@ namespace FlowChart
 		{
 			block.shiftRight += block.xDistance;
 
-			if (CheckShiftLastBlock(block, block.xDistance))
+			if (CheckShiftRightLastBlock(block, block.xDistance))
 			{
 				foreach (IBlock blockDecision in block.blocksDecisionFullThen)
 				{
@@ -54,7 +54,31 @@ namespace FlowChart
 		static void SetPosBranchLeft(IBlock block)
 		// устанавливает позиции всех блоков, зависящих от данного блока, содержащего ветвление слева
 		{
+			block.shiftLeft += block.xDistance;
 
+			if (CheckShiftLeftLastBlock(block, block.xDistance))
+			{
+				if (block.blocksDecisionFullElse.Count == 0)
+				{
+					IncreaseShiftLeft(block.blocksDecisionLoop, block.xDistance);
+					IncreaseShiftLeft(block.blocksPreparation, block.xDistance);
+				}
+				else
+				{
+					DecisionFull last = (DecisionFull)GetLast(block.blocksDecisionFullElse);
+					IncreaseShiftLeft(block.blocksDecisionLoop.Intersect(last.blocksBodyElse).ToList(), block.xDistance);
+					IncreaseShiftLeft(block.blocksPreparation.Intersect(last.blocksBodyElse).ToList(), block.xDistance);
+
+					foreach (IBlock blockDecision in last.blocksDecisionFullThen)
+					{
+						IncreaseShift(((DecisionFull)blockDecision).blocksBodyElse, block.xDistance);
+					}
+					IncreaseShift(last.blocksBodyElse, block.xDistance);
+					IncreaseShiftRight(last.blocksDecision, block.xDistance);
+					IncreaseShiftRight(last.blocksDecisionLoop, block.xDistance);
+					IncreaseShiftRight(last.blocksPreparation, block.xDistance);
+				}
+			}
 		}
 
 		static void SetPosBranchBody(DecisionFull block)
@@ -62,7 +86,7 @@ namespace FlowChart
 		{
 			IncreaseShift(block.blocksBodyElse, block.xSizeShape + block.xDistance);
 
-			if (CheckShiftLastBlock(block, block.xSizeShape + block.xDistance))
+			if (CheckShiftRightLastBlock(block, block.xSizeShape + block.xDistance))
 			{
 				foreach (IBlock blockDecision in block.blocksDecisionFullThen)
 				{
@@ -95,8 +119,9 @@ namespace FlowChart
 			foreach (IBlock block in blocks) block.SetPosition(block.xLeft + shift, block.yUp);
 		}
 
-		static bool CheckShiftLastBlock(IBlock block, int shift)
-		// проверка, не были ли ветвления внешних циклов/условий сдвинуты ранее на заданное значение
+
+		static bool CheckShiftRightLastBlock(IBlock block, int shift)
+		// проверка, не были ли ветвления справа внешних циклов/условий сдвинуты ранее на заданное значение
 		{
 			bool isShift = false;
 			if (block.blocksDecisionFullThen.Count > 0)
@@ -118,6 +143,23 @@ namespace FlowChart
 			{
 				IBlock last = GetLast(block.blocksPreparation);
 				if (last.xRight + last.shiftRight <= block.xRight + shift) isShift = true;
+			}
+			return isShift;
+		}
+
+		static bool CheckShiftLeftLastBlock(IBlock block, int shift)
+		// проверка, не были ли ветвления слева внешних циклов сдвинуты ранее на заданное значение
+		{
+			bool isShift = false;
+			if (block.blocksDecisionLoop.Count > 0)
+			{
+				IBlock last = GetLast(block.blocksDecisionLoop);
+				if (last.xLeft - last.shiftLeft <= block.xLeft - shift) isShift = true;
+			}
+			if (block.blocksPreparation.Count > 0)
+			{
+				IBlock last = GetLast(block.blocksPreparation);
+				if (last.xLeft - last.shiftLeft <= block.xLeft - shift) isShift = true;
 			}
 			return isShift;
 		}

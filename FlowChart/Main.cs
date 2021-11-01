@@ -30,7 +30,7 @@ namespace FlowChart
             // пока нет алгоритма преобразования кода в список объектов, так что объекты в функции создаются вручную
             blocks = Module.CreateBlocks(blocks);
 
-            for (int i = 0; i < blocks.Count; i++) blocks[i].SetPosition(0, i * (blocks[1].ySizeShape + blocks[1].yDistance)); // временно
+            for (int i = 0; i < blocks.Count; i++) blocks[i].SetPosition(200, i * (blocks[1].ySizeShape + blocks[1].yDistance)); // временно
 
             // установка позиций блоков по X
             Module.SetPositionsX(blocks);

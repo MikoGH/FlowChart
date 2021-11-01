@@ -13,7 +13,7 @@ namespace Shapes
         public SolidBrush brush = new SolidBrush(Color.FromArgb(250, 130, 130));
 
         // наличие ветвлений справа/слева
-        public bool isBranchLeft { get; set; } = false;
+        public bool isBranchLeft { get; set; } = true;
         public bool isBranchRight { get; set; } = true;
         public bool isBranchBody { get; set; } = false;
 
@@ -47,6 +47,11 @@ namespace Shapes
             {
                 new Point(xRight, yCenter),
                 new Point(xRight + shiftRight, yCenter)
+            }); 
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xLeft, yCenter),
+                new Point(xLeft - shiftLeft, yCenter)
             });
         }
 
