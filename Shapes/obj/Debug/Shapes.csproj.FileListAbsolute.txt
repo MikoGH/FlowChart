@@ -1,0 +1,5 @@
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\Shapes.dll
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\Shapes.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.csproj.CoreCompileInputs.cache
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.dll
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.pdb

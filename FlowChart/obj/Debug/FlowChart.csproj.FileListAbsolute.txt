@@ -38,3 +38,6 @@ C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\FlowC
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\FlowChart.csproj.CoreCompileInputs.cache
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\BlockDiagram.exe
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\BlockDiagram.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\bin\Debug\Shapes.dll
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\bin\Debug\Shapes.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\FlowChart.csproj.CopyComplete

@@ -4,22 +4,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace FlowChart
+namespace Shapes
 {
-    public class Decision : Shape, IBlock
-    //элемент блок-схемы - неполное условие
+    public class DecisionLoop : Shape, IBlock
+    //элемент блок-схемы - цикл while
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(230, 230, 130));
+        public SolidBrush brush = new SolidBrush(Color.FromArgb(250, 180, 130));
 
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = false;
         public bool isBranchRight { get; set; } = true;
+        public bool isBranchBody { get; set; } = false;
 
         public List<IBlock> blocksBody = new List<IBlock> { }; // блоки, входящие в тело если
 
-        public Decision(string _text)
+        public DecisionLoop(string _text)
         {
             text = _text;
         }

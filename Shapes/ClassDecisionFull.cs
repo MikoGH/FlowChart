@@ -4,20 +4,23 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace FlowChart
+namespace Shapes
 {
-    public class Process : Shape, IBlock
-    // элемент блок-схемы - процесс
+    public class DecisionFull : Shape, IBlock
+    //элемент блок-схемы - полное условие
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(180,230,250));
+        public SolidBrush brush = new SolidBrush(Color.FromArgb(230,230,130));
 
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = false;
         public bool isBranchRight { get; set; } = false;
+        public bool isBranchBody { get; set; } = true;
 
-        public Process(string _text)
+        public List<IBlock> blocksBody = new List<IBlock> { }; // блоки, входящие в тело если
+        public List<IBlock> blocksBodyElse = new List<IBlock> { }; // блоки, входящие в тело иначе
+
+        public DecisionFull(string _text)
         {
             text = _text;
         }
@@ -35,21 +38,26 @@ namespace FlowChart
         }
 
         public void SetConnectorsPosition()
-        {
+		{
             connectorsPoints.Add(new Point[]
                 {
                     new Point(xCenter, yDown),
                     new Point(xCenter, yDown + yDistance)
                 });
-        }
+		}
 
         public void DrawShape(Graphics graphic)
         // отрисовать фигуру
         {
-            Rectangle rect = new Rectangle(xLeft, yUp, xSizeShape, ySizeShape);
-            graphic.FillRectangle(brush, rect);
-            graphic.DrawRectangle(penMain, rect);
+            Point[] points =
+            {
+                new Point(xCenter, yUp),
+                new Point(xLeft, yCenter),
+                new Point(xCenter, yDown),
+                new Point(xRight, yCenter)
+            };
+            graphic.FillPolygon(brush, points);
+            graphic.DrawPolygon(penMain, points);
         }
     }
-
 }

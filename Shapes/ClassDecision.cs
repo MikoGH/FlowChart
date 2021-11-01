@@ -4,22 +4,22 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace FlowChart
+namespace Shapes
 {
-    public class Preparation : Shape, IBlock
-    //элемент блок-схемы - цикл for
+    public class Decision : Shape, IBlock
+    //элемент блок-схемы - неполное условие
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(250, 130, 130));
+        public SolidBrush brush = new SolidBrush(Color.FromArgb(230, 230, 130));
 
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = false;
         public bool isBranchRight { get; set; } = true;
+        public bool isBranchBody { get; set; } = false;
 
         public List<IBlock> blocksBody = new List<IBlock> { }; // блоки, входящие в тело если
 
-        public Preparation(string _text)
+        public Decision(string _text)
         {
             text = _text;
         }
@@ -55,12 +55,10 @@ namespace FlowChart
         {
             Point[] points =
             {
-                new Point(xLeft+xSizeShape/6, yUp),
-                new Point(xRight-xSizeShape/6, yUp),
-                new Point(xRight, yCenter),
-                new Point(xRight-xSizeShape/6, yDown),
-                new Point(xLeft+xSizeShape/6, yDown),
-                new Point(xLeft, yCenter)
+                new Point(xCenter, yUp),
+                new Point(xLeft, yCenter),
+                new Point(xCenter, yDown),
+                new Point(xRight, yCenter)
             };
             graphic.FillPolygon(brush, points);
             graphic.DrawPolygon(penMain, points);

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlowChart
+namespace Shapes
 {
 	public interface IBlock
 	{
@@ -23,8 +23,10 @@ namespace FlowChart
 		int shiftRight { get; set; }
 		bool isBranchLeft { get; set; }
 		bool isBranchRight { get; set; }
+		bool isBranchBody { get; set; }
 		List<IBlock> blocksDecision { get; set; }
-		List<IBlock> blocksDecisionFull { get; set; }
+		List<IBlock> blocksDecisionFullThen { get; set; }
+		List<IBlock> blocksDecisionFullElse { get; set; }
 		List<IBlock> blocksDecisionLoop { get; set; }
 		List<IBlock> blocksPreparation { get; set; }
 		void SetPosition(int _xLeft, int _yUp);

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shapes;
 
 namespace FlowChart
 {
@@ -34,15 +35,19 @@ namespace FlowChart
 
             // тут будет алгоритм преобразования кода в список объектов 
             // пока нет алгоритма, так что объекты в функции создаются вручную
-            blocks = ModuleCreate.CreateBlocks(blocks);
+            blocks = Module.CreateBlocks(blocks);
+
+            for (int i = 0; i < blocks.Count; i++)
+            {
+                blocks[i].SetPosition(0, i * 150);
+            }
 
             // установка позиций блоков по X
-            ModulePos.SetPositionsX(blocks);
+            Module.SetPositionsX(blocks);
 
             // отрисовка элементов блок-схемы
             for (int i = 0; i<blocks.Count; i++)
 			{
-                blocks[i].SetPosition(300, i*150);
                 blocks[i].SetConnectorsPosition();
                 blocks[i].DrawShape(graphic);
 				blocks[i].DrawText(graphic);

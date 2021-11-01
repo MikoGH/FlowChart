@@ -4,9 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace FlowChart
+namespace Shapes
 {
     public class Terminator : Shape, IBlock
     //элемент блок-схемы - терминатор
@@ -17,6 +16,7 @@ namespace FlowChart
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = false;
         public bool isBranchRight { get; set; } = false;
+        public bool isBranchBody { get; set; } = false;
 
         public Terminator(string _text, bool _isStart = false)
         {

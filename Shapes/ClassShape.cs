@@ -4,9 +4,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace FlowChart
+namespace Shapes
 {
     public class Shape
         // родительский класс для всех элементов блок-схемы
@@ -26,7 +25,8 @@ namespace FlowChart
 
         // блоки ветвлений, в теле которых находится данный блок
         public List<IBlock> blocksDecision { get; set; } = new List<IBlock> { }; // блоки неполного условия, в которых находится данный
-        public List<IBlock> blocksDecisionFull { get; set; } = new List<IBlock> { }; // блоки полного условия, в которых находится данный
+        public List<IBlock> blocksDecisionFullThen { get; set; } = new List<IBlock> { }; // блоки полного условия, в теле then которых находится данный
+        public List<IBlock> blocksDecisionFullElse { get; set; } = new List<IBlock> { }; // блоки полного условия, в теле else которых находится данный
         public List<IBlock> blocksDecisionLoop { get; set; } = new List<IBlock> { }; // блоки цикла while, в которых находится данный
         public List<IBlock> blocksPreparation { get; set; } = new List<IBlock> { }; // блоки цикла for, в которых находится данный
 
