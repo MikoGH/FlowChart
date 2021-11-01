@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModuleCreate.cs" />
+    <Compile Include="ModulePicture.cs" />
     <Compile Include="ModulePosX.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>

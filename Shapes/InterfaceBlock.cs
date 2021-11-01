@@ -29,7 +29,8 @@ namespace Shapes
 		List<IBlock> blocksDecisionFullElse { get; set; }
 		List<IBlock> blocksDecisionLoop { get; set; }
 		List<IBlock> blocksPreparation { get; set; }
-		void SetPosition(int _xLeft, int _yUp);
+		void SetPositionX(int _xLeft);
+		void SetPositionY(int _yUp);
 		void DrawShape(Graphics graphic);
 		void DrawText(Graphics graphic);
 		void SetConnectorsPosition();

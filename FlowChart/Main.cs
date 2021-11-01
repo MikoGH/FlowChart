@@ -30,15 +30,21 @@ namespace FlowChart
             // пока нет алгоритма преобразования кода в список объектов, так что объекты в функции создаются вручную
             blocks = Module.CreateBlocks(blocks);
 
-            for (int i = 0; i < blocks.Count; i++) blocks[i].SetPosition(200, i * (blocks[1].ySizeShape + blocks[1].yDistance)); // временно
+            for (int i = 0; i < blocks.Count; i++) // временно
+            {
+                blocks[i].SetPositionX(blocks[1].xDistance);
+                blocks[i].SetPositionY(i * (blocks[1].ySizeShape + blocks[1].yDistance));
+            }
 
             // установка позиций блоков по X
             Module.SetPositionsX(blocks);
 
             // создание пустого рисунка
-            pictureBox.Width = 2000;
-            pictureBox.Height = 2000;
-            bitmap = new Bitmap(2000, 2000);
+            int pictureWidth = Module.GetPictureSizeX(blocks);
+            int pictureHeight = Module.GetPictureSizeY(blocks);
+            pictureBox.Width = pictureWidth;
+            pictureBox.Height = pictureHeight;
+            bitmap = new Bitmap(pictureWidth, pictureHeight);
             Graphics graphic = Graphics.FromImage(bitmap);
 
             // отрисовка элементов блок-схемы

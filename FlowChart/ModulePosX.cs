@@ -21,14 +21,23 @@ namespace FlowChart
 			foreach (IBlock block in blocks)
 			{
 				if (block.isBranchRight) SetPosBranchRight(block);
-			}
-			foreach (IBlock block in blocks)
-			{
 				if (block.isBranchLeft) SetPosBranchLeft(block);
-			}
-			foreach (IBlock block in blocks)
-			{
 				if (block.isBranchBody) SetPosBranchBody((DecisionFull)block);
+
+				if (block.blocksDecisionLoop.Count > 0)
+				{
+					if (block.blocksDecisionLoop[0].xLeft - block.blocksDecisionLoop[0].shiftLeft < block.xDistance)
+					{
+						IncreaseShift(blocks, block.xDistance);
+					}
+				}
+				if (block.blocksPreparation.Count > 0)
+				{
+					if (block.blocksPreparation[0].xLeft - block.blocksPreparation[0].shiftLeft < block.xDistance)
+					{
+						IncreaseShift(blocks, block.xDistance);
+					}
+				}
 			}
 		}
 
@@ -116,7 +125,7 @@ namespace FlowChart
 		static void IncreaseShift(List<IBlock> blocks, int shift)
 		// увеличивает сдвиг всех блоков из списка
 		{
-			foreach (IBlock block in blocks) block.SetPosition(block.xLeft + shift, block.yUp);
+			foreach (IBlock block in blocks) block.SetPositionX(block.xLeft + shift);
 		}
 
 

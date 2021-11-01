@@ -77,10 +77,10 @@ namespace FlowChart
 			// 
 			this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnSave.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnSave.Location = new System.Drawing.Point(9, 9);
+			this.btnSave.Location = new System.Drawing.Point(9, 50);
 			this.btnSave.Name = "btnSave";
 			this.btnSave.Size = new System.Drawing.Size(200, 35);
-			this.btnSave.TabIndex = 1;
+			this.btnSave.TabIndex = 2;
 			this.btnSave.Text = "Save Image";
 			this.btnSave.UseVisualStyleBackColor = true;
 			this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -89,10 +89,10 @@ namespace FlowChart
 			// 
 			this.btnCreateBD.Anchor = System.Windows.Forms.AnchorStyles.Top;
 			this.btnCreateBD.Font = new System.Drawing.Font("Century", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.btnCreateBD.Location = new System.Drawing.Point(9, 50);
+			this.btnCreateBD.Location = new System.Drawing.Point(9, 9);
 			this.btnCreateBD.Name = "btnCreateBD";
 			this.btnCreateBD.Size = new System.Drawing.Size(200, 35);
-			this.btnCreateBD.TabIndex = 2;
+			this.btnCreateBD.TabIndex = 1;
 			this.btnCreateBD.Text = "Create";
 			this.btnCreateBD.UseVisualStyleBackColor = true;
 			this.btnCreateBD.Click += new System.EventHandler(this.btnCreateBD_Click);

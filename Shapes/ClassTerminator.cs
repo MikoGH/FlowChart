@@ -25,37 +25,33 @@ namespace Shapes
             isStart = _isStart;
         }
 
-        public void SetPosition(int _xLeft, int _yUp)
+        public void SetPositionY(int _yUp)
         // установить позиции отрисовки
         {
-            xLeft = _xLeft;
-            xRight = xLeft + xSizeShape;
-            xCenter = xLeft + xSizeShape / 2;
-
-			if (isStart)
+            if (isStart)
 			{
-                yUp = _yUp + ySizeShape;
-                yDown = yUp + ySizeShape;
-                yCenter = yUp + ySizeShape / 2;
-            }
+				yUp = _yUp + ySizeShape;
+				yDown = yUp + ySizeShape;
+				yCenter = yUp + ySizeShape / 2;
+			}
 			else
 			{
-                yUp = _yUp;
+				yUp = _yUp;
                 yDown = yUp + ySizeShape;
                 yCenter = yUp + ySizeShape / 2;
-            }
-            
-        }
+			}
+
+		}
 
         public void SetConnectorsPosition()
         {
 			if (isStart)
             {
                 connectorsPoints.Add(new Point[]
-                    {
+                {
                     new Point(xCenter, yDown),
                     new Point(xCenter, yDown + yDistance)
-                    });
+                });
             }
         }
 

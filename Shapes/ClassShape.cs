@@ -47,6 +47,22 @@ namespace Shapes
         public int xCenter { get; set; }
         public int yCenter { get; set; }
 
+        public void SetPositionX(int _xLeft)
+        // установить позиции отрисовки
+        {
+            xLeft = _xLeft;
+            xRight = xLeft + xSizeShape;
+            xCenter = xLeft + xSizeShape / 2;
+        }
+
+        public void SetPositionY(int _yUp)
+        // установить позиции отрисовки
+        {
+            yUp = _yUp;
+            yDown = yUp + ySizeShape;
+            yCenter = yUp + ySizeShape / 2;
+        }
+
         public void SetStringFormatCenter()
         // установить выравнивание текста по центру
         {
