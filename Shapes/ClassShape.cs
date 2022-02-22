@@ -22,6 +22,7 @@ namespace Shapes
         // сдвиги ветвлений слева и справа
         public int shiftLeft { get; set; } = 0;
         public int shiftRight { get; set; } = 0;
+        public int shiftDown { get; set; } = 0;
 
         // блоки ветвлений, в теле которых находится данный блок
         public List<IBlock> blocksDecision { get; set; } = new List<IBlock> { }; // блоки неполного условия, в которых находится данный
@@ -47,7 +48,7 @@ namespace Shapes
         public int xCenter { get; set; }
         public int yCenter { get; set; }
 
-        public void SetPositionX(int _xLeft)
+        public virtual void SetPositionX(int _xLeft)
         // установить позиции отрисовки
         {
             xLeft = _xLeft;
@@ -55,7 +56,7 @@ namespace Shapes
             xCenter = xLeft + xSizeShape / 2;
         }
 
-        public void SetPositionY(int _yUp)
+        public virtual void SetPositionY(int _yUp)
         // установить позиции отрисовки
         {
             yUp = _yUp;

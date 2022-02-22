@@ -31,15 +31,42 @@ namespace Shapes
                 new Point(xCenter, yDown),
                 new Point(xCenter, yDown + yDistance)
             });
+
             connectorsPoints.Add(new Point[]
             {
                 new Point(xRight, yCenter),
                 new Point(xRight + shiftRight, yCenter)
-            }); 
+            });
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xRight + shiftRight, yCenter),
+                new Point(xRight + shiftRight, yDown + shiftDown - yDistance)
+            });
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xRight + shiftRight, yDown + shiftDown - yDistance),
+                new Point(xCenter, yDown + shiftDown - yDistance)
+            });
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xCenter, yDown + shiftDown - yDistance),
+                new Point(xCenter, yDown + shiftDown)
+            });
+
             connectorsPoints.Add(new Point[]
             {
                 new Point(xLeft, yCenter),
                 new Point(xLeft - shiftLeft, yCenter)
+            });
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xLeft - shiftLeft, yCenter),
+                new Point(xLeft - shiftLeft, yDown + shiftDown - 2*yDistance)
+            });
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xLeft - shiftLeft, yDown + shiftDown - 2*yDistance),
+                new Point(xCenter, yDown + shiftDown - 2*yDistance)
             });
         }
 

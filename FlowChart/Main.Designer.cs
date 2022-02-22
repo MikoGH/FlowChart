@@ -42,7 +42,7 @@ namespace FlowChart
 			// 
 			// pictureBox
 			// 
-			this.pictureBox.Location = new System.Drawing.Point(17, 13);
+			this.pictureBox.Location = new System.Drawing.Point(3, 3);
 			this.pictureBox.Name = "pictureBox";
 			this.pictureBox.Size = new System.Drawing.Size(351, 222);
 			this.pictureBox.TabIndex = 0;

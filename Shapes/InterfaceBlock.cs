@@ -21,6 +21,7 @@ namespace Shapes
 		int yDistance { get; set; }
 		int shiftLeft { get; set; }
 		int shiftRight { get; set; }
+		int shiftDown { get; set; }
 		bool isBranchLeft { get; set; }
 		bool isBranchRight { get; set; }
 		bool isBranchBody { get; set; }

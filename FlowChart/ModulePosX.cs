@@ -28,14 +28,14 @@ namespace FlowChart
 				{
 					if (block.blocksDecisionLoop[0].xLeft - block.blocksDecisionLoop[0].shiftLeft < block.xDistance)
 					{
-						IncreaseShift(blocks, block.xDistance);
+						IncreaseShiftX(blocks, block.xDistance);
 					}
 				}
 				if (block.blocksPreparation.Count > 0)
 				{
 					if (block.blocksPreparation[0].xLeft - block.blocksPreparation[0].shiftLeft < block.xDistance)
 					{
-						IncreaseShift(blocks, block.xDistance);
+						IncreaseShiftX(blocks, block.xDistance);
 					}
 				}
 			}
@@ -51,7 +51,7 @@ namespace FlowChart
 			{
 				foreach (IBlock blockDecision in block.blocksDecisionFullThen)
 				{
-					IncreaseShift(((DecisionFull)blockDecision).blocksBodyElse, block.xDistance);
+					IncreaseShiftX(((DecisionFull)blockDecision).blocksBodyElse, block.xDistance);
 				}
 
 				IncreaseShiftRight(block.blocksDecision, block.xDistance);
@@ -80,9 +80,9 @@ namespace FlowChart
 
 					foreach (IBlock blockDecision in last.blocksDecisionFullThen)
 					{
-						IncreaseShift(((DecisionFull)blockDecision).blocksBodyElse, block.xDistance);
+						IncreaseShiftX(((DecisionFull)blockDecision).blocksBodyElse, block.xDistance);
 					}
-					IncreaseShift(last.blocksBodyElse, block.xDistance);
+					IncreaseShiftX(last.blocksBodyElse, block.xDistance);
 					IncreaseShiftRight(last.blocksDecision, block.xDistance);
 					IncreaseShiftRight(last.blocksDecisionLoop, block.xDistance);
 					IncreaseShiftRight(last.blocksPreparation, block.xDistance);
@@ -93,13 +93,13 @@ namespace FlowChart
 		static void SetPosBranchBody(DecisionFull block)
 		// устанавливает позиции всех блоков, зависящих от данного блока, содержащего особое ветвление с телом
 		{
-			IncreaseShift(block.blocksBodyElse, block.xSizeShape + block.xDistance);
+			IncreaseShiftX(block.blocksBodyElse, block.xSizeShape + block.xDistance);
 
 			if (CheckShiftRightLastBlock(block, block.xSizeShape + block.xDistance))
 			{
 				foreach (IBlock blockDecision in block.blocksDecisionFullThen)
 				{
-					IncreaseShift(((DecisionFull)blockDecision).blocksBodyElse, block.xSizeShape + block.xDistance);
+					IncreaseShiftX(((DecisionFull)blockDecision).blocksBodyElse, block.xSizeShape + block.xDistance);
 				}
 
 				IncreaseShiftRight(block.blocksDecision, block.xSizeShape + block.xDistance);
@@ -122,8 +122,8 @@ namespace FlowChart
 		}
 
 
-		static void IncreaseShift(List<IBlock> blocks, int shift)
-		// увеличивает сдвиг всех блоков из списка
+		static void IncreaseShiftX(List<IBlock> blocks, int shift)
+		// увеличивает сдвиг по x всех блоков из списка
 		{
 			foreach (IBlock block in blocks) block.SetPositionX(block.xLeft + shift);
 		}

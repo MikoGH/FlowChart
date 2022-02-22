@@ -22,10 +22,10 @@ namespace Shapes
         {
             text = _text;
             ySizeShape = ySizeShape / 2; // по ГОСТу высота терминатора в 2 раза меньше других элементов
-            isStart = _isStart;
+			isStart = _isStart;
         }
 
-        public void SetPositionY(int _yUp)
+        public override void SetPositionY(int _yUp)
         // установить позиции отрисовки
         {
             if (isStart)

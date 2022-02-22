@@ -45,7 +45,7 @@ namespace FlowChart
 			blocks[5].blocksPreparation.Add(blocks[4]);
 			((Preparation)blocks[4]).blocksBody.Add(blocks[5]);
 
-			blocks.Add(new Terminator("Конец")); // 6 end
+			blocks.Add(new Terminator("Конец", false)); // 6 end
 			return blocks;
 		}
 	}

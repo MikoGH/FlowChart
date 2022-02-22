@@ -12,6 +12,9 @@ namespace Shapes
     {
         public SolidBrush brush = new SolidBrush(Color.FromArgb(230,230,130));
 
+        public int tmpShiftDownThen = 0;
+        public int tmpShiftDownElse = 0;
+
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = false;
         public bool isBranchRight { get; set; } = false;
@@ -32,6 +35,26 @@ namespace Shapes
                     new Point(xCenter, yDown),
                     new Point(xCenter, yDown + yDistance)
                 });
+            connectorsPoints.Add(new Point[]
+                {
+                    new Point(xRight, yCenter),
+                    new Point(blocksBodyElse[0].xCenter, yCenter)
+                });
+            connectorsPoints.Add(new Point[]
+                {
+                    new Point(blocksBodyElse[0].xCenter, yCenter),
+                    new Point(blocksBodyElse[0].xCenter, blocksBodyElse[0].yUp)
+                });
+			connectorsPoints.Add(new Point[]
+				{
+					new Point(blocksBodyElse[0].xCenter, yDown + shiftDown - yDistance),
+					new Point(xCenter, yDown + shiftDown - yDistance)
+				});
+			connectorsPoints.Add(new Point[]
+				{
+					new Point(xCenter, blocksBody[blocksBody.Count-1].yDown + yDistance),
+					new Point(xCenter, yDown + shiftDown)
+				});
 		}
 
         public void DrawShape(Graphics graphic)
