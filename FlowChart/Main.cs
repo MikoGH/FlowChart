@@ -33,15 +33,16 @@ namespace FlowChart
             blocks[0].SetPositionY(0);
             blocks[0].SetPositionX(blocks[1].xDistance);
             for (int i = 1; i < blocks.Count; i++) // временно
-            {
-                blocks[i].SetPositionX(blocks[1].xDistance);
+			{
+				blocks[i].SetPositionX(blocks[1].xDistance);
 				blocks[i].SetPositionY(blocks[1].ySizeShape + blocks[1].yDistance);
-                //blocks[i].SetPositionY(i * (blocks[1].ySizeShape + blocks[1].yDistance));
-                //blocks[i].SetPositionY(blocks[1].yDistance);
-            }
+				//blocks[i].SetPositionY(i * (blocks[1].ySizeShape + blocks[1].yDistance));
+				//blocks[i].SetPositionY(blocks[1].yDistance);
+			}
 
-            // установка позиций блоков по X
-            Module.SetPositionsX(blocks);
+			// установка позиций блоков по X
+			Module.SetPositionsX(blocks);
+            // установка позиций блоков по Y
             Module.SetPositionsY(blocks);
 
 			// создание пустого рисунка

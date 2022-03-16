@@ -55,7 +55,12 @@ namespace Shapes
 					new Point(xCenter, blocksBody[blocksBody.Count-1].yDown + yDistance),
 					new Point(xCenter, yDown + shiftDown)
 				});
-		}
+            connectorsPoints.Add(new Point[]
+                {
+                    new Point(blocksBodyElse[0].xCenter, blocksBodyElse[blocksBodyElse.Count-1].yDown + yDistance),
+                    new Point(blocksBodyElse[0].xCenter, yDown + shiftDown - yDistance)
+                });
+        }
 
         public void DrawShape(Graphics graphic)
         // отрисовать фигуру

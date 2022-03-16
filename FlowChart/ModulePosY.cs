@@ -75,7 +75,10 @@ namespace FlowChart
 				}
 			}
 
+
 			// сдвиг ветвей снизу
+			// нахождение первого блока, не входящего в текущее условие
+			// ветвление выстраивается относительно этого блока
 			for (int i = 1; i < blocks.Count; i++)
 			{
 				IBlock block = blocks[i];
@@ -83,7 +86,7 @@ namespace FlowChart
 				{
 					for (int j = i+1; j < blocks.Count; j++)
 					{
-						if (!(blocks[j].blocksDecisionLoop.Contains(block)))
+						if (!(blocks[j].blocksDecisionLoop.Contains(block)) && !CheckSameDecisionFull(block, blocks[j]))
 						{
 							block.shiftDown = blocks[j].yUp - block.yDown;
 							DecreaseShiftBranch(block, blocks[j]);
@@ -95,7 +98,7 @@ namespace FlowChart
 				{
 					for (int j = i + 1; j < blocks.Count; j++)
 					{
-						if (!(blocks[j].blocksPreparation.Contains(block)))
+						if (!(blocks[j].blocksPreparation.Contains(block)) && !CheckSameDecisionFull(block, blocks[j]))
 						{
 							block.shiftDown = blocks[j].yUp - block.yDown;
 							DecreaseShiftBranch(block, blocks[j]);
@@ -107,7 +110,7 @@ namespace FlowChart
 				{
 					for (int j = i + 1; j < blocks.Count; j++)
 					{
-						if (!(blocks[j].blocksDecision.Contains(block)))
+						if (!(blocks[j].blocksDecision.Contains(block)) && !CheckSameDecisionFull(block, blocks[j]))
 						{
 							block.shiftDown = blocks[j].yUp - block.yDown;
 							DecreaseShiftBranch(block, blocks[j]);
@@ -119,7 +122,7 @@ namespace FlowChart
 				{
 					for (int j = i + 1; j < blocks.Count; j++)
 					{
-						if (!(blocks[j].blocksDecisionFullThen.Contains(block)) && !(blocks[j].blocksDecisionFullElse.Contains(block)))
+						if (!(blocks[j].blocksDecisionFullThen.Contains(block)) && !(blocks[j].blocksDecisionFullElse.Contains(block)) && !CheckSameDecisionFull(block, blocks[j]))
 						{
 							block.shiftDown = blocks[j].yUp - block.yDown;
 							DecreaseShiftBranch(block, blocks[j]);
@@ -128,6 +131,17 @@ namespace FlowChart
 					}
 				}
 			}
+		}
+
+		static bool CheckSameDecisionFull(IBlock block1, IBlock block2)
+		// возвращает true, если два блока находятся в одном и том же полном условии, но в разных его телах if и else
+		{
+			foreach (DecisionFull decision in block1.blocksDecisionFullThen)
+			{
+				if (block2.blocksDecisionFullElse.Contains(decision))
+					return true;
+			}
+			return false;
 		}
 
 		static void DecreaseShiftBranch(IBlock block, IBlock block2)
@@ -163,137 +177,5 @@ namespace FlowChart
 		{
 			foreach (IBlock block in blocks) block.SetPositionY(block.yUp + shift);
 		}
-
-		//public static void SetPositionsY(List<IBlock> blocks)
-		//// устанавливает позиции по Y всех блоков
-		//{
-		//	for (int i = 1; i < blocks.Count; i++)
-		//	{
-		//		IBlock block = blocks[i];
-		//		IBlock blockPrev = blocks[i - 1];
-		//		SetPosBranchDown(block);
-
-		//		int maxShift = blockPrev.yDown + blockPrev.yDistance;
-		//		maxShift = Math.Max(maxShift, GetMaxShiftDown(blockPrev.blocksDecision.Except(block.blocksDecision).ToList()));
-		//		maxShift = Math.Max(maxShift, GetMaxShiftDown(blockPrev.blocksDecisionFullThen.Except(block.blocksDecisionFullThen).ToList()));
-		//		maxShift = Math.Max(maxShift, GetMaxShiftDown(blockPrev.blocksDecisionFullElse.Except(block.blocksDecisionFullElse).ToList()));
-		//		maxShift = Math.Max(maxShift, GetMaxShiftDown(blockPrev.blocksDecisionLoop.Except(block.blocksDecisionLoop).ToList()));
-		//		maxShift = Math.Max(maxShift, GetMaxShiftDown(blockPrev.blocksPreparation.Except(block.blocksPreparation).ToList()));
-		//		block.SetPositionY(maxShift);
-
-		//		if (block.blocksDecisionFullElse.Count > 0)
-		//		{
-		//			DecisionFull last = (DecisionFull)GetLast(block.blocksDecisionFullElse);
-		//			if (block == last.blocksBodyElse[0]) block.SetPositionY(last.yDown + last.yDistance);
-		//		}
-
-		//		if (block is DecisionLoop) block.SetPositionY(block.yUp + block.yDistance);
-		//	}
-		//}
-
-		//public static void SetPosBranchDown(IBlock block)
-		//// устанавливает сдвиг снизу всех блоков, зависящих от данного блока
-		//{
-		//	int shift;
-		//	if (block is DecisionLoop | block is Preparation)
-		//	{
-		//		block.shiftDown = block.yDistance * 3;
-		//		shift = block.ySizeShape + block.yDistance * 3;
-		//	}
-		//	else if (block is Decision | block is DecisionFull)
-		//	{
-		//		block.shiftDown = block.yDistance * 2; 
-		//		shift = block.ySizeShape + block.yDistance * 2;
-		//	}
-		//	else
-		//	{
-		//		block.shiftDown = block.yDistance;
-		//		shift = block.ySizeShape + block.yDistance;
-		//	}
-		//	IncreaseShiftDown(block.blocksDecisionLoop);
-		//	IncreaseShiftDown(block.blocksPreparation);
-		//	IncreaseShiftDown(block.blocksDecision);
-		//	IncreaseShiftDown(block.blocksDecisionFullThen);
-		//	IncreaseShiftDown(block.blocksDecisionFullElse);
-		//	//IncreaseShiftDown(block.blocksDecisionLoop, shift);
-		//	//IncreaseShiftDown(block.blocksPreparation, shift);
-		//	//IncreaseShiftDown(block.blocksDecision, shift);
-		//	//IncreaseShiftDown(block.blocksDecisionFullThen, shift);
-		//	//IncreaseShiftDown(block.blocksDecisionFullElse, shift);
-		//}
-
-
-		//static void IncreaseShiftDown(List<IBlock> blocks)
-		//// увеличивает сдвиг снизу всех блоков из списка
-		//{
-		//	foreach (IBlock block in blocks)
-		//	{
-		//		//if (CheckShiftDown(block, shift)) block.shiftDown += shift;
-		//		int maxShift = 0;
-		//		if (block is Decision) maxShift = GetMaxShiftDown(((Decision)block).blocksBody) + block.yDistance;
-		//		if (block is DecisionLoop) maxShift = GetMaxShiftDown(((DecisionLoop)block).blocksBody) + block.yDistance * 2;
-		//		if (block is Preparation) maxShift = GetMaxShiftDown(((Preparation)block).blocksBody) + block.yDistance * 2;
-		//		if (block is DecisionFull)
-		//		{
-		//			maxShift = GetMaxShiftDown(((DecisionFull)block).blocksBody) + block.yDistance;
-		//			maxShift = Math.Max(maxShift, GetMaxShiftDown(((DecisionFull)block).blocksBodyElse)) + block.yDistance;
-		//		}
-
-		//		block.shiftDown = Math.Max(block.shiftDown, block.shiftDown + (maxShift - (block.yDown + block.shiftDown)));
-		//	}
-		//}
-
-		//static void IncreaseShiftY(List<IBlock> blocks, int shift)
-		//// увеличивает сдвиг по y всех блоков из списка
-		//{
-		//	foreach (IBlock block in blocks) block.SetPositionY(block.yUp + shift);
-		//}
-
-
-		//static int GetMaxShiftDown(List<IBlock> blocks)
-		//// находит максимальный сдвиг снизу у блоков из заданного списка
-		//{
-		//	int maxShift = 0;
-		//	foreach (IBlock block in blocks)
-		//	{
-		//		maxShift = Math.Max(maxShift, block.yDown + block.shiftDown);
-		//	}
-		//	return maxShift;
-		//}
-
-
-		////static bool CheckShiftDown(IBlock block, int shift)
-		//// проверяет, нужно ли увеличивать сдвиг снизу всех внешних циклов/условий
-		////{
-		////	bool isShift = true;
-		////	//if (block.blocksDecisionFullThen.Count > 0)
-		////	//{
-		////	//	IBlock last = GetLast(block.blocksDecisionFullThen);
-		////	//	if (last.yDown + last.shiftDown > block.yDown + shift) isShift = false;
-		////	//}
-		////	if (block.blocksDecisionFullElse.Count > 0)
-		////	{
-		////		IBlock last = GetLast(block.blocksDecisionFullElse);
-		////		if (last.yDown + last.shiftDown > block.yDown + shift) isShift = false;
-		////	}
-		////	return isShift;
-		////}
-
-		//static bool CheckShiftDown(IBlock block, int shift)
-		//// проверяет, нужно ли увеличивать сдвиг снизу внешнего цикла/условия
-		//{
-		//	bool isShift = true;
-		//	List<IBlock> blocksBody = new List<IBlock> { };
-		//	if (block is Decision) blocksBody = ((Decision)block).blocksBody;
-		//	if (block is DecisionLoop) blocksBody = ((DecisionLoop)block).blocksBody;
-		//	if (block is Preparation) blocksBody = ((Preparation)block).blocksBody;
-		//	if (block is DecisionFull) blocksBody = ((DecisionFull)block).blocksBody.Intersect(((DecisionFull)block).blocksBodyElse).ToList();
-		//	//if (blockShift.yDown + blockShift.shiftDown > block.yDown + shift) isShift = false;
-		//	foreach (IBlock blockBody in blocksBody)
-		//	{
-		//		if (block.yDown + block.shiftDown > blockBody.yDown + blockBody.shiftDown + shift) isShift = false;
-		//	}
-		//	return isShift;
-		//}
 	}
 }

@@ -36,6 +36,21 @@ namespace Shapes
                 new Point(xRight, yCenter),
                 new Point(xRight + shiftRight, yCenter)
             });
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xRight + shiftRight, yCenter),
+                new Point(xRight + shiftRight, yDown + shiftDown - yDistance) // ?
+            });
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xRight + shiftRight, yDown + shiftDown - yDistance), // ?
+                new Point(xCenter, yDown + shiftDown - yDistance)
+            });
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xCenter, yDown + shiftDown - yDistance),
+                new Point(xCenter, yDown + shiftDown)
+            });
         }
 
         public void DrawShape(Graphics graphic)
