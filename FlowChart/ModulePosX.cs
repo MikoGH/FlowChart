@@ -153,6 +153,10 @@ namespace FlowChart
 				IBlock last = GetLast(block.blocksPreparation);
 				if (last.xRight + last.shiftRight <= block.xRight + shift) isShift = true;
 			}
+			else
+			{
+				isShift = true;
+			}
 			return isShift;
 		}
 
@@ -169,6 +173,10 @@ namespace FlowChart
 			{
 				IBlock last = GetLast(block.blocksPreparation);
 				if (last.xLeft - last.shiftLeft <= block.xLeft - shift) isShift = true;
+			}
+			else
+			{
+				isShift = true;
 			}
 			return isShift;
 		}

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 using Shapes;
 
 namespace FlowChart
@@ -25,19 +26,27 @@ namespace FlowChart
         private void btnCreateBD_Click(object sender, EventArgs e)
         // создание блок-схемы
 		{
-            List<IBlock> blocks = new List<IBlock> { };
+            List<IBlock> blocks = new List<IBlock>();
 
-            // пока нет алгоритма преобразования кода в список объектов, так что объекты в функции создаются вручную
-            blocks = Module.CreateBlocks(blocks);
+			// string code = "for (int i = 1; i < count; i++) { z++; while (b < count) { if (a == 0) { a = a+1; } else { b = b+2; } } } k--; ";
+			 //string code = "if (true) { if() { a = 1; } else { a = 2; } } else { for(int i = 1; i < count; i++) { a = 0; } }";
+			//string code = "if (true) { if() { a = 1; } } else { for(int i = 1; i < count; i++) { a = 0; } }";
+            string textNameFile = "code01";
+			string code = new StreamReader($@"..\..\..\Files\{ textNameFile }.txt").ReadToEnd();
 
-            blocks[0].SetPositionY(0);
+			// создание массива блоков из кода
+			blocks = Module.CreateBlocks(code);
+			blocks.Insert(0, new Terminator("Начало", true));
+			blocks.Add(new Terminator("Конец", false));
+
+			//blocks = Module.CreateBlocks(blocks);
+
+			blocks[0].SetPositionY(0);
             blocks[0].SetPositionX(blocks[1].xDistance);
-            for (int i = 1; i < blocks.Count; i++) // временно
+            for (int i = 1; i < blocks.Count; i++) // временно, но теперь уже навсегда
 			{
 				blocks[i].SetPositionX(blocks[1].xDistance);
 				blocks[i].SetPositionY(blocks[1].ySizeShape + blocks[1].yDistance);
-				//blocks[i].SetPositionY(i * (blocks[1].ySizeShape + blocks[1].yDistance));
-				//blocks[i].SetPositionY(blocks[1].yDistance);
 			}
 
 			// установка позиций блоков по X

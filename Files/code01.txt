@@ -1,0 +1,32 @@
+if (true) 
+{ 
+	if(asd == 0) 
+	{ 
+		a = 1; 
+		for (int i = 1; i < count; i++) 
+		{ 
+			while (int j = 0; j < count; j++)
+			{
+				if(false)
+				{
+					a = 1; 
+				}
+			}
+			k = 12;
+		} 
+	} 
+} 
+else 
+{ 
+	for (int i = 1; i < count; i++) 
+	{ 
+		while (int j = 0; j < count; j++)
+		{
+			if(a == 0)
+			{
+				a = 0; 
+			}
+		}
+		k = 12;
+	} 
+}

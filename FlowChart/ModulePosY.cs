@@ -64,6 +64,7 @@ namespace FlowChart
 				}
 
 				// сдвиг всех последующих блоков на разницу между телом if и else непосредственно после полного условия
+				//
 				foreach (DecisionFull blockDecision in blockPrev.blocksDecisionFullElse.Except(block.blocksDecisionFullElse).ToList())
 				{
 					blocksForShift = blocks.Skip(i).ToList();
