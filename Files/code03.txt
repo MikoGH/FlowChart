@@ -1,0 +1,28 @@
+if (lst.Length == 0)
+			{
+				PrintAndColor("Массив пуст.", colorError);
+				return lst;
+			}
+			int k = Input("Введите значение");
+			int i = 0, count = 0;
+			while (i < lst.Length)
+			{
+				if (IsContain(lst[i],k))
+				{
+					lst = Intersect(Section(lst, 0, i), Section(lst, i + 1, lst.Length));
+					count++;
+				}
+				else 
+				{
+					i++;
+				}
+			}
+			if (count == 0) 
+			{
+				PrintAndColor("Элементы, равные заданному значению, отсутствуют.", colorError);
+			}
+			else 
+			{
+				PrintAndColor("Строки, содержащие заданное значение, успешно удалены.", colorSuccess);
+			}
+			return lst;

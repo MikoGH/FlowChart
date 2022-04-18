@@ -65,14 +65,55 @@ namespace FlowChart
 
 				// сдвиг всех последующих блоков на разницу между телом if и else непосредственно после полного условия
 				//
-				foreach (DecisionFull blockDecision in blockPrev.blocksDecisionFullElse.Except(block.blocksDecisionFullElse).ToList())
+				//foreach (DecisionFull blockDecision in blockPrev.blocksDecisionFullElse.Except(block.blocksDecisionFullElse).ToList())
+				//{
+				//	blocksForShift = blocks.Skip(i).ToList();
+				//	foreach (DecisionFull blockDecision2 in block.blocksDecisionFullThen)
+				//	{
+				//		blocksForShift = blocksForShift.Except(blockDecision2.blocksBodyElse).ToList();
+				//	}
+				//	IncreaseYPos(blocksForShift, -Math.Min(blockDecision.tmpShiftDownThen, blockDecision.tmpShiftDownElse));
+				//}
+				//foreach (DecisionFull blockDecision in blockPrev.blocksDecisionFullElse.Except(block.blocksDecisionFullElse).ToList())
+				//{
+				//	blocksForShift = blocks.Skip(i).ToList();
+				//	foreach (DecisionFull blockDecision2 in blockPrev.blocksDecisionFullThen)
+				//	{
+				//		blocksForShift = blocksForShift.Except(blockDecision2.blocksBodyElse).ToList();
+				//	}
+				//	IncreaseYPos(blocksForShift, -Math.Min(blockDecision.tmpShiftDownThen, blockDecision.tmpShiftDownElse));
+				//	foreach (DecisionFull blockDecision2 in blockPrev.blocksDecisionFullThen)
+				//	{
+				//		blockDecision2.tmpShiftDownThen -= Math.Min(blockDecision.tmpShiftDownThen, blockDecision.tmpShiftDownElse);
+				//	}
+				//	foreach (DecisionFull blockDecision2 in blockPrev.blocksDecisionFullElse)
+				//	{
+				//		blockDecision2.tmpShiftDownElse -= Math.Min(blockDecision.tmpShiftDownThen, blockDecision.tmpShiftDownElse);
+				//	}
+				//}
+				List<IBlock> blocks2 = blockPrev.blocksDecisionFullElse.Except(block.blocksDecisionFullElse).ToList();
+				blocks2.Reverse();
+				foreach (DecisionFull blockDecision in blocks2)
 				{
 					blocksForShift = blocks.Skip(i).ToList();
-					foreach (IBlock blockDecision2 in block.blocksDecisionFullThen)
+					for (int j = i; j < blocks.Count; j++)
 					{
-						blocksForShift = blocksForShift.Except(((DecisionFull)blockDecision2).blocksBodyElse).ToList();
+						if (CheckSameDecisionFull(blockPrev, blocks[j]))
+						{
+							blocksForShift.Remove(blocks[j]);
+						}
 					}
 					IncreaseYPos(blocksForShift, -Math.Min(blockDecision.tmpShiftDownThen, blockDecision.tmpShiftDownElse));
+					foreach (DecisionFull blockDecision2 in blockPrev.blocksDecisionFullThen)
+					{
+						if (blockDecision2!=blockDecision)
+							blockDecision2.tmpShiftDownThen -= Math.Min(blockDecision.tmpShiftDownThen, blockDecision.tmpShiftDownElse);
+					}
+					foreach (DecisionFull blockDecision2 in blockPrev.blocksDecisionFullElse)
+					{
+						if (blockDecision2 != blockDecision)
+							blockDecision2.tmpShiftDownElse -= Math.Min(blockDecision.tmpShiftDownThen, blockDecision.tmpShiftDownElse);
+					}
 				}
 			}
 

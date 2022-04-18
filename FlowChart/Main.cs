@@ -28,10 +28,12 @@ namespace FlowChart
 		{
             List<IBlock> blocks = new List<IBlock>();
 
-			// string code = "for (int i = 1; i < count; i++) { z++; while (b < count) { if (a == 0) { a = a+1; } else { b = b+2; } } } k--; ";
-			 //string code = "if (true) { if() { a = 1; } else { a = 2; } } else { for(int i = 1; i < count; i++) { a = 0; } }";
-			//string code = "if (true) { if() { a = 1; } } else { for(int i = 1; i < count; i++) { a = 0; } }";
-            string textNameFile = "code01";
+			//string code = "for (int i = 1; i < count; i++) { z++; while (b < count) { if (a == 0) { a = a+1; } else { b = b+2; } } } k--; ";
+			//string code = "if (true) { if() { a = 1; } else { a = 2; } } else { for(int i = 1; i < count; i++) { a = 0; } }";
+            //string code = "if (true) { if() { a = 1; } else { a = 2; } k--; } else { for(int i = 1; i < count; i++) { a = 0; } l++; }";
+            //string code = "if (true) { if() { a = 1; } k--; k--; } else { for(int i = 1; i < count; i++) { if() { a = 0; } else { b = 1; } } }";
+            //string code = "if (true) { if() { a = 1; } } else { for(int i = 1; i < count; i++) { a = 0; } }";
+            string textNameFile = "code02";
 			string code = new StreamReader($@"..\..\..\Files\{ textNameFile }.txt").ReadToEnd();
 
 			// создание массива блоков из кода
