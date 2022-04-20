@@ -55,18 +55,18 @@ namespace Shapes
 
             connectorsPoints.Add(new Point[]
             {
-                new Point(xLeft, yCenter),
-                new Point(xLeft - shiftLeft, yCenter)
-            });
-            connectorsPoints.Add(new Point[]
-            {
                 new Point(xLeft - shiftLeft, yCenter),
-                new Point(xLeft - shiftLeft, yDown + shiftDown - 2*yDistance)
+                new Point(xLeft, yCenter)
             });
             connectorsPoints.Add(new Point[]
             {
                 new Point(xLeft - shiftLeft, yDown + shiftDown - 2*yDistance),
-                new Point(xCenter, yDown + shiftDown - 2*yDistance)
+                new Point(xLeft - shiftLeft, yCenter)
+            });
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xCenter, yDown + shiftDown - 2*yDistance),
+                new Point(xLeft - shiftLeft, yDown + shiftDown - 2*yDistance)
             });
         }
 

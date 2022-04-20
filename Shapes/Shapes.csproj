@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassData.cs" />
     <Compile Include="ClassDecision.cs" />
     <Compile Include="ClassDecisionFull.cs" />
     <Compile Include="ClassDecisionLoop.cs" />

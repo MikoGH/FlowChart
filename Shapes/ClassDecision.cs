@@ -10,7 +10,7 @@ namespace Shapes
     public class Decision : Shape, IBlock
     //элемент блок-схемы - неполное условие
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(230, 230, 130));
+        public SolidBrush brush = new SolidBrush(Color.FromArgb(240, 250, 130));
 
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = false;

@@ -62,6 +62,28 @@ namespace FlowChart
 			}
 			return false;
 		}
+
+		/// <summary>
+		/// Проверка, является ли начало текста кода вводом/выводом данных.
+		/// </summary>
+		public static bool IsData(string code)
+		{
+			if ((code.StartsWith("Console.WriteLine") ||
+				code.StartsWith("Console.Write") ||
+				code.StartsWith("Console.ReadLine") ||
+				code.StartsWith("Console.Read"))
+				&& code.Count(x => x == ';') != 0)
+				return true;
+			return false;
+		}
+
+		/// <summary>
+		/// Проверка, является ли начало текста кода процессом.
+		/// </summary>
+		public static bool IsProcess(string code)
+		{
+			return code.Count(x => x == ';') != 0;
+		}
 		#endregion
 
 		#region Работа со скобками и пробелами
@@ -254,13 +276,25 @@ namespace FlowChart
 			code = code.Substring(FindEndBracket(code, '{', '}') + 1);
 			code = DeleteSpaces(code);
 		}
+		
+		/// <summary>
+		/// Создание блока ввод/вывод данных
+		/// </summary>
+		public static void CreateData(ref List<IBlock> blocks, ref string code)
+		{
+			Data data = new Data(GetTextInBrackets(code, '(', ')'));
+			blocks.Add(data);
+
+			// срез строки. Обрезание начала кода, содержащего последний блок
+			code = code.Substring(code.IndexOf(";") + 1);
+			code = DeleteSpaces(code);
+		}
 
 		/// <summary>
 		/// Создание блока процесс
 		/// </summary>
 		public static void CreateProcess(ref List<IBlock> blocks, ref string code)
 		{
-			// ! Сделать проверку, что ; не в строке
 			Process process = new Process(code.Substring(0, code.IndexOf(";")));
 			blocks.Add(process);
 
@@ -274,7 +308,7 @@ namespace FlowChart
 		public static List<IBlock> CreateBlocks(string code)
 		{
 			List<IBlock> blocks = new List<IBlock>();
-			while (code != "")
+			while (code!="")
 			{
 				if (IsPreparation(code)) // если цикл for
 				{
@@ -295,11 +329,17 @@ namespace FlowChart
 				{
 					CreateDecisionFull(ref blocks, ref code);
 				}
-				else // иначе процесс
+				else
+				if (IsData(code)) // если ввод/вывод данных
+				{
+					CreateData(ref blocks, ref code);
+				}
+				else
+				if (IsProcess(code)) // если процесс
 				{
 					CreateProcess(ref blocks, ref code);
 				}
-				// ...
+				else break;
 			}
 			return blocks;
 		}

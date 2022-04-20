@@ -36,7 +36,7 @@ namespace Shapes
 
         // кисти, шрифты, заливка
         public Pen penMain = new Pen(Color.Black, 3);
-        public Font fontMain = new Font("Nunito", 20);
+        public Font fontMain = new Font("Nunito", 16);
         public SolidBrush brushText = new SolidBrush(Color.Black);
         public StringFormat stringFormatMain = new StringFormat();
 
@@ -83,7 +83,17 @@ namespace Shapes
             foreach (Point[] connector in connectorsPoints)
             {
                 graphic.DrawLine(penMain, connector[0], connector[1]);
-            }
+				if (connector[0].X > connector[1].X)
+				{
+                    graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + 10, connector[1].Y - 5));
+                    graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + 10, connector[1].Y + 5));
+                }
+                if (connector[0].Y > connector[1].Y)
+				{
+					graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + 5, connector[1].Y + 10));
+					graphic.DrawLine(penMain, connector[1], new Point(connector[1].X - 5, connector[1].Y + 10));
+				}
+			}
         }
     }
 }

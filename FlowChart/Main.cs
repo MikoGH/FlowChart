@@ -33,7 +33,7 @@ namespace FlowChart
             //string code = "if (true) { if() { a = 1; } else { a = 2; } k--; } else { for(int i = 1; i < count; i++) { a = 0; } l++; }";
             //string code = "if (true) { if() { a = 1; } k--; k--; } else { for(int i = 1; i < count; i++) { if() { a = 0; } else { b = 1; } } }";
             //string code = "if (true) { if() { a = 1; } } else { for(int i = 1; i < count; i++) { a = 0; } }";
-            string textNameFile = "code02";
+            string textNameFile = "code03";
 			string code = new StreamReader($@"..\..\..\Files\{ textNameFile }.txt").ReadToEnd();
 
 			// создание массива блоков из кода

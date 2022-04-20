@@ -1,9 +1,9 @@
 if (lst.Length == 0)
 			{
-				PrintAndColor("Массив пуст.", colorError);
+				Console.WriteLine("Массив пуст.");
 				return lst;
 			}
-			int k = Input("Введите значение");
+			int k = Console.ReadLine("Введите значение");
 			int i = 0, count = 0;
 			while (i < lst.Length)
 			{
@@ -19,10 +19,10 @@ if (lst.Length == 0)
 			}
 			if (count == 0) 
 			{
-				PrintAndColor("Элементы, равные заданному значению, отсутствуют.", colorError);
+				Console.WriteLine("Элементы, равные заданному значению, отсутствуют.");
 			}
 			else 
 			{
-				PrintAndColor("Строки, содержащие заданное значение, успешно удалены.", colorSuccess);
+				Console.WriteLine("Строки, содержащие заданное значение, успешно удалены.");
 			}
 			return lst;

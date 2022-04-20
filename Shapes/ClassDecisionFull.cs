@@ -10,7 +10,7 @@ namespace Shapes
     public class DecisionFull : Shape, IBlock
     //элемент блок-схемы - полное условие
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(230,230,130));
+        public SolidBrush brush = new SolidBrush(Color.FromArgb(240, 250, 130));
 
         public int tmpShiftDownThen = 0;
         public int tmpShiftDownElse = 0;
