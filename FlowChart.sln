@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlowChart", "FlowChart\Flow
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shapes", "Shapes\Shapes.csproj", "{F74863CB-A700-4506-90CA-9D8DC54CD15A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules", "Module\Modules.csproj", "{FE09E546-9914-4BE1-BBD9-C2AEFCD90528}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{F74863CB-A700-4506-90CA-9D8DC54CD15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F74863CB-A700-4506-90CA-9D8DC54CD15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F74863CB-A700-4506-90CA-9D8DC54CD15A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE09E546-9914-4BE1-BBD9-C2AEFCD90528}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE09E546-9914-4BE1-BBD9-C2AEFCD90528}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE09E546-9914-4BE1-BBD9-C2AEFCD90528}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE09E546-9914-4BE1-BBD9-C2AEFCD90528}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

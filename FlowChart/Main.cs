@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using Shapes;
+using Modules;
 
 namespace FlowChart
 {
@@ -26,22 +27,14 @@ namespace FlowChart
         private void btnCreateBD_Click(object sender, EventArgs e)
         // создание блок-схемы
 		{
-            List<IBlock> blocks = new List<IBlock>();
-
-			//string code = "for (int i = 1; i < count; i++) { z++; while (b < count) { if (a == 0) { a = a+1; } else { b = b+2; } } } k--; ";
-			//string code = "if (true) { if() { a = 1; } else { a = 2; } } else { for(int i = 1; i < count; i++) { a = 0; } }";
-            //string code = "if (true) { if() { a = 1; } else { a = 2; } k--; } else { for(int i = 1; i < count; i++) { a = 0; } l++; }";
-            //string code = "if (true) { if() { a = 1; } k--; k--; } else { for(int i = 1; i < count; i++) { if() { a = 0; } else { b = 1; } } }";
-            //string code = "if (true) { if() { a = 1; } } else { for(int i = 1; i < count; i++) { a = 0; } }";
+            // считывание текста кода из файла
             string textNameFile = "code03";
 			string code = new StreamReader($@"..\..\..\Files\{ textNameFile }.txt").ReadToEnd();
 
-			// создание массива блоков из кода
-			blocks = Module.CreateBlocks(code);
+            // создание массива блоков из кода
+            List<IBlock> blocks = Module.CreateBlocks(code);
 			blocks.Insert(0, new Terminator("Начало", true));
 			blocks.Add(new Terminator("Конец", false));
-
-			//blocks = Module.CreateBlocks(blocks);
 
 			blocks[0].SetPositionY(0);
             blocks[0].SetPositionX(blocks[1].xDistance);

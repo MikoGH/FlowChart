@@ -10,9 +10,9 @@ using System.Windows.Forms;
 using Shapes;
 using System.Text.RegularExpressions;
 
-namespace FlowChart
+namespace Modules
 {
-	partial class Module
+	public partial class Module
 	{
 		#region Проверка типа
 		/// <summary>

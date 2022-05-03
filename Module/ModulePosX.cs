@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Shapes;
 
-namespace FlowChart
+namespace Modules
 {
-	partial class Module
+	public partial class Module
 	{
 		static IBlock GetLast(List<IBlock> lst)
 		// возвращает последний объект из заданного списка

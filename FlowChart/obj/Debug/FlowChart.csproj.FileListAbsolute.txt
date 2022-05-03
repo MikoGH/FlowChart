@@ -41,3 +41,5 @@ C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\Block
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\bin\Debug\Shapes.dll
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\bin\Debug\Shapes.pdb
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\obj\Debug\FlowChart.csproj.CopyComplete
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\bin\Debug\Module.dll
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\bin\Debug\Module.pdb

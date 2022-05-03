@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Shapes;
 
-namespace FlowChart
+namespace Modules
 {
-	partial class Module
+	public partial class Module
 	{
 		public static void SetPositionsY(List<IBlock> blocks)
 		// устанавливает позиции по Y всех блоков
