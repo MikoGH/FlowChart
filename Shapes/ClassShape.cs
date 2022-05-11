@@ -35,8 +35,8 @@ namespace Shapes
         public List<Point[]> connectorsPoints = new List<Point[]> { };
 
         // длины проекций стрелок на оси координат
-        public int longProjection { get; set; } = 10;
-        public int shortProjection { get; set; } = 5;
+        public int longProj { get; set; } = 10;
+        public int shortProj { get; set; } = 5;
 
         // кисти, шрифты, заливка
         public Pen penMain = new Pen(Color.Black, 3);
@@ -89,13 +89,13 @@ namespace Shapes
                 graphic.DrawLine(penMain, connector[0], connector[1]);
 				if (connector[0].X > connector[1].X)
 				{
-                    graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + longProjection, connector[1].Y - shortProjection));
-                    graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + longProjection, connector[1].Y + shortProjection));
+                    graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + longProj, connector[1].Y - shortProj));
+                    graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + longProj, connector[1].Y + shortProj));
                 }
                 if (connector[0].Y > connector[1].Y)
 				{
-					graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + shortProjection, connector[1].Y + longProjection));
-					graphic.DrawLine(penMain, connector[1], new Point(connector[1].X - shortProjection, connector[1].Y + longProjection));
+					graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + shortProj, connector[1].Y + longProj));
+					graphic.DrawLine(penMain, connector[1], new Point(connector[1].X - shortProj, connector[1].Y + longProj));
 				}
 			}
         }
