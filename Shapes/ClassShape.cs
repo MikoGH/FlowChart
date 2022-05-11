@@ -34,6 +34,10 @@ namespace Shapes
         // точки начала и конца линий связи блоков
         public List<Point[]> connectorsPoints = new List<Point[]> { };
 
+        // длины проекций стрелок на оси координат
+        public int longProjection { get; set; } = 10;
+        public int shortProjection { get; set; } = 5;
+
         // кисти, шрифты, заливка
         public Pen penMain = new Pen(Color.Black, 3);
         public Font fontMain = new Font("Nunito", 16);
@@ -85,13 +89,13 @@ namespace Shapes
                 graphic.DrawLine(penMain, connector[0], connector[1]);
 				if (connector[0].X > connector[1].X)
 				{
-                    graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + 10, connector[1].Y - 5));
-                    graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + 10, connector[1].Y + 5));
+                    graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + longProjection, connector[1].Y - shortProjection));
+                    graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + longProjection, connector[1].Y + shortProjection));
                 }
                 if (connector[0].Y > connector[1].Y)
 				{
-					graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + 5, connector[1].Y + 10));
-					graphic.DrawLine(penMain, connector[1], new Point(connector[1].X - 5, connector[1].Y + 10));
+					graphic.DrawLine(penMain, connector[1], new Point(connector[1].X + shortProjection, connector[1].Y + longProjection));
+					graphic.DrawLine(penMain, connector[1], new Point(connector[1].X - shortProjection, connector[1].Y + longProjection));
 				}
 			}
         }
