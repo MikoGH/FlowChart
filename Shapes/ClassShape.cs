@@ -35,6 +35,7 @@ namespace Shapes
         public List<Point[]> connectorsPoints = new List<Point[]> { };
 
         // длины проекций стрелок на оси координат
+        // здесь были внесены правки
         public int longProj { get; set; } = 10;
         public int shortProj { get; set; } = 5;
 
