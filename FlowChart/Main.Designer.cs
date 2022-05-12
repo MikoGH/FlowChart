@@ -35,9 +35,9 @@ namespace FlowChart
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCreateBD = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.rtxtBoxCode = new System.Windows.Forms.RichTextBox();
-            this.nameLabel = new System.Windows.Forms.Label();
             this.btnDownload = new System.Windows.Forms.Button();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.rtxtBoxCode = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.panelPicture.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -46,7 +46,7 @@ namespace FlowChart
             // pictureBox
             // 
             this.pictureBox.Location = new System.Drawing.Point(4, 4);
-            this.pictureBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(468, 273);
             this.pictureBox.TabIndex = 0;
@@ -62,7 +62,7 @@ namespace FlowChart
             this.panelPicture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelPicture.Controls.Add(this.pictureBox);
             this.panelPicture.Location = new System.Drawing.Point(16, 15);
-            this.panelPicture.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelPicture.Margin = new System.Windows.Forms.Padding(4);
             this.panelPicture.Name = "panelPicture";
             this.panelPicture.Size = new System.Drawing.Size(1003, 780);
             this.panelPicture.TabIndex = 2;
@@ -72,7 +72,7 @@ namespace FlowChart
             this.txtboxName.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtboxName.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtboxName.Location = new System.Drawing.Point(67, 653);
-            this.txtboxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtboxName.Margin = new System.Windows.Forms.Padding(4);
             this.txtboxName.Name = "txtboxName";
             this.txtboxName.Size = new System.Drawing.Size(211, 28);
             this.txtboxName.TabIndex = 3;
@@ -84,7 +84,7 @@ namespace FlowChart
             this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnSave.Font = new System.Drawing.Font("Century", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSave.Location = new System.Drawing.Point(11, 700);
-            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(267, 64);
             this.btnSave.TabIndex = 2;
@@ -97,7 +97,7 @@ namespace FlowChart
             this.btnCreateBD.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnCreateBD.Font = new System.Drawing.Font("Century", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCreateBD.Location = new System.Drawing.Point(12, 505);
-            this.btnCreateBD.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCreateBD.Margin = new System.Windows.Forms.Padding(4);
             this.btnCreateBD.Name = "btnCreateBD";
             this.btnCreateBD.Size = new System.Drawing.Size(267, 118);
             this.btnCreateBD.TabIndex = 1;
@@ -117,30 +117,10 @@ namespace FlowChart
             this.panel2.Controls.Add(this.btnSave);
             this.panel2.Controls.Add(this.txtboxName);
             this.panel2.Location = new System.Drawing.Point(1041, 15);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(288, 780);
             this.panel2.TabIndex = 6;
-            // 
-            // rtxtBoxCode
-            // 
-            this.rtxtBoxCode.Location = new System.Drawing.Point(12, 48);
-            this.rtxtBoxCode.Name = "rtxtBoxCode";
-            this.rtxtBoxCode.Size = new System.Drawing.Size(267, 428);
-            this.rtxtBoxCode.TabIndex = 4;
-            this.rtxtBoxCode.Text = "";
-            this.rtxtBoxCode.TextChanged += new System.EventHandler(this.rtxtBoxCode_TextChanged);
-            // 
-            // nameLabel
-            // 
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.nameLabel.Location = new System.Drawing.Point(11, 660);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(49, 17);
-            this.nameLabel.TabIndex = 5;
-            this.nameLabel.Text = "Name:";
-            this.nameLabel.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnDownload
             // 
@@ -155,6 +135,28 @@ namespace FlowChart
             this.btnDownload.UseVisualStyleBackColor = true;
             this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
+            this.nameLabel.Location = new System.Drawing.Point(11, 660);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(49, 17);
+            this.nameLabel.TabIndex = 5;
+            this.nameLabel.Text = "Name:";
+            this.nameLabel.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // rtxtBoxCode
+            // 
+            this.rtxtBoxCode.AcceptsTab = true;
+            this.rtxtBoxCode.AutoWordSelection = true;
+            this.rtxtBoxCode.Location = new System.Drawing.Point(12, 48);
+            this.rtxtBoxCode.Name = "rtxtBoxCode";
+            this.rtxtBoxCode.Size = new System.Drawing.Size(267, 428);
+            this.rtxtBoxCode.TabIndex = 4;
+            this.rtxtBoxCode.Text = "";
+            this.rtxtBoxCode.TextChanged += new System.EventHandler(this.rtxtBoxCode_TextChanged);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -163,7 +165,7 @@ namespace FlowChart
             this.ClientSize = new System.Drawing.Size(1343, 811);
             this.Controls.Add(this.panelPicture);
             this.Controls.Add(this.panel2);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FlowChart";
