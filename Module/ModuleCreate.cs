@@ -68,6 +68,9 @@ namespace Modules
 		/// </summary>
 		public static bool IsData(string code)
 		{
+			if (code.Contains("="))
+				code = code.Substring(code.IndexOf("=")+1);
+			code = DeleteSpaces(code);
 			if ((code.StartsWith("Console.WriteLine") ||
 				code.StartsWith("Console.Write") ||
 				code.StartsWith("Console.ReadLine") ||
@@ -121,9 +124,13 @@ namespace Modules
 		public static string GetTextInBrackets(string code, char bracketStart, char bracketEnd)
 		{
 			// индексы начала и конца подстроки
-			int start = code.IndexOf(bracketStart) + 1;
-			int end = FindEndBracket(code, bracketStart, bracketEnd) - start;
-			return code.Substring(start, end);
+			if (code.Contains(bracketStart) && code.Contains(bracketEnd))
+			{
+				int start = code.IndexOf(bracketStart) + 1;
+				int end = FindEndBracket(code, bracketStart, bracketEnd) - start;
+				return code.Substring(start, end);
+			}
+			return "";
 		}
 
 		/// <summary>
@@ -150,6 +157,7 @@ namespace Modules
 		/// </summary>
 		public static void CreatePreparation(ref List<IBlock> blocks, ref string code)
 		{
+			code = DeleteSpaces(code);
 			// создание объекта типа цикл for
 			Preparation preparation = new Preparation(GetTextInBrackets(code, '(', ')'));
 			blocks.Add(preparation);
@@ -179,6 +187,7 @@ namespace Modules
 		/// </summary>
 		public static void CreateDecisionLoop(ref List<IBlock> blocks, ref string code)
 		{
+			code = DeleteSpaces(code);
 			// создание объекта типа цикл while
 			DecisionLoop decisionLoop = new DecisionLoop(GetTextInBrackets(code, '(', ')'));
 			blocks.Add(decisionLoop);
@@ -208,6 +217,7 @@ namespace Modules
 		/// </summary>
 		public static void CreateDecision(ref List<IBlock> blocks, ref string code)
 		{
+			code = DeleteSpaces(code);
 			// создание объекта типа неполное условие
 			Decision decision = new Decision(GetTextInBrackets(code, '(', ')'));
 			blocks.Add(decision);
@@ -237,6 +247,7 @@ namespace Modules
 		/// </summary>
 		public static void CreateDecisionFull(ref List<IBlock> blocks, ref string code)
 		{
+			code = DeleteSpaces(code);
 			// создание объекта типа полное условие
 			DecisionFull decisionFull = new DecisionFull(GetTextInBrackets(code, '(', ')'));
 			blocks.Add(decisionFull);
@@ -282,8 +293,28 @@ namespace Modules
 		/// </summary>
 		public static void CreateData(ref List<IBlock> blocks, ref string code)
 		{
-			Data data = new Data(GetTextInBrackets(code, '(', ')'));
-			blocks.Add(data);
+			// Если в строке есть знак присвоения, разделить ввод на два блока:
+			// вывод текста на экран и ввод в переменную
+			if (code.Substring(0,code.IndexOf("Console.")).Contains("=")) // ! сделать проверку, что "=" до операции Console. ...
+			{
+				code = DeleteSpaces(code);
+				// Создание объектов типа ввод/вывод данных
+				string textInData = GetTextInBrackets(code.Substring(code.IndexOf("=")), '(', ')');
+				if (textInData != "")
+				{
+					Data dataWrite = new Data(textInData);
+					blocks.Add(dataWrite);
+				}
+				code = DeleteSpaces(code);
+				Data dataRead = new Data(code.Substring(0, code.IndexOf("=")));
+				blocks.Add(dataRead);
+			}
+			else
+			{
+				// Создание объектов типа ввод/вывод данных
+				Data data = new Data(GetTextInBrackets(code, '(', ')'));
+				blocks.Add(data);
+			}
 
 			// срез строки. Обрезание начала кода, содержащего последний блок
 			code = code.Substring(code.IndexOf(";") + 1);
@@ -295,6 +326,7 @@ namespace Modules
 		/// </summary>
 		public static void CreateProcess(ref List<IBlock> blocks, ref string code)
 		{
+			code = DeleteSpaces(code);
 			Process process = new Process(code.Substring(0, code.IndexOf(";")));
 			blocks.Add(process);
 
