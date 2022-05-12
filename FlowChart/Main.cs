@@ -17,6 +17,8 @@ namespace FlowChart
 	{
         Bitmap bitmap;
         string textNameBD = "";
+        // переменная для хранения текста кода - временно
+        string code = "";
 
         public FormMain()
         // инициализация формы
@@ -27,9 +29,11 @@ namespace FlowChart
         private void btnCreateBD_Click(object sender, EventArgs e)
         // создание блок-схемы
 		{
-            // считывание текста кода из файла
-            string textNameFile = "code03";
-			string code = new StreamReader($@"..\..\..\Files\{ textNameFile }.txt").ReadToEnd();
+            //         // считывание текста кода из файла
+            //         string textNameFile = "code03";
+            //string code = new StreamReader($@"..\..\..\Files\{ textNameFile }.txt").ReadToEnd();
+            // считывание текста кода с элемента  управления
+            //code = rtxtBoxCode.Text;
 
             // создание массива блоков из кода
             List<IBlock> blocks = Module.CreateBlocks(code);
@@ -103,18 +107,22 @@ namespace FlowChart
         }
 
         private void label1_Click(object sender, EventArgs e)
+        // действие при нажатии на текст "Название" - пока ничего нет
         {
 
         }
 
-        private void btnDownloadFile_Click(object sender, EventArgs e)
+        private void btnDownload_Click(object sender, EventArgs e)
+        // загрузка кода из файла
         {
-
+            string textNameFile = "code03";      // название файла - нужно изменить
+            code = new StreamReader($@"..\..\..\Files\{textNameFile}.txt").ReadToEnd();
         }
 
-        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        private void rtxtBoxCode_TextChanged(object sender, EventArgs e)
+        // действие при изменении текста кода - пока ничего нет
         {
-
+            code = rtxtBoxCode.Text;
         }
     }
 }

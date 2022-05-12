@@ -129,7 +129,7 @@ namespace FlowChart
             this.rtxtBoxCode.Size = new System.Drawing.Size(267, 428);
             this.rtxtBoxCode.TabIndex = 4;
             this.rtxtBoxCode.Text = "";
-            this.rtxtBoxCode.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
+            this.rtxtBoxCode.TextChanged += new System.EventHandler(this.rtxtBoxCode_TextChanged);
             // 
             // nameLabel
             // 
@@ -153,7 +153,7 @@ namespace FlowChart
             this.btnDownload.TabIndex = 6;
             this.btnDownload.Text = "Download File";
             this.btnDownload.UseVisualStyleBackColor = true;
-            this.btnDownload.Click += new System.EventHandler(this.btnDownloadFile_Click);
+            this.btnDownload.Click += new System.EventHandler(this.btnDownload_Click);
             // 
             // FormMain
             // 
