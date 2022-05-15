@@ -1,8 +1,6 @@
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\obj\Debug\Modules.csproj.CoreCompileInputs.cache
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\bin\Debug\Module.dll
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\bin\Debug\Module.pdb
-C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\bin\Debug\Shapes.dll
-C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\bin\Debug\Shapes.pdb
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\obj\Debug\Modules.csproj.CopyComplete
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\obj\Debug\Module.dll
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\obj\Debug\Module.pdb
@@ -15,4 +13,6 @@ C:\Users\LENOVO\Source\Repos\FlowChart\Module\obj\Debug\Modules.csproj.CoreCompi
 C:\Users\LENOVO\Source\Repos\FlowChart\Module\obj\Debug\Modules.csproj.CopyComplete
 C:\Users\LENOVO\Source\Repos\FlowChart\Module\obj\Debug\Module.dll
 C:\Users\LENOVO\Source\Repos\FlowChart\Module\obj\Debug\Module.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\bin\Debug\Shapes.dll
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\bin\Debug\Shapes.pdb
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\obj\Debug\Modules.csproj.AssemblyReference.cache

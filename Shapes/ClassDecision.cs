@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modules;
 
 namespace Shapes
 {
@@ -22,6 +23,29 @@ namespace Shapes
         public Decision(string _text)
         {
             text = _text;
+        }
+
+        private int GetYDownBody(List<IBlock> blocks)
+        {
+            if (blocks.Count != 0)
+            {
+                IBlock lastBlock = Module.GetLast(blocks);
+                if (lastBlock is Process || lastBlock is Data)
+                {
+                    if (lastBlock.blocksPreparation.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksPreparation)))
+                        return this.yDown + this.shiftDown - this.yDistance;
+                    if (lastBlock.blocksDecisionLoop.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecisionLoop)))
+                        return this.yDown + this.shiftDown - this.yDistance;
+                    if (lastBlock.blocksDecision.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecision)))
+                        return this.yDown + this.shiftDown - this.yDistance;
+                    if (lastBlock.blocksDecisionFullThen.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecisionFullThen)))
+                        return this.yDown + this.shiftDown - this.yDistance; 
+                    if (lastBlock.blocksDecisionFullElse.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecisionFullElse)))
+                        return this.yDown + this.shiftDown - this.yDistance;
+                    return lastBlock.yDown;
+                }
+            }
+            return this.yDown + this.shiftDown - this.yDistance;
         }
 
         public void SetConnectorsPosition()
@@ -50,6 +74,12 @@ namespace Shapes
             {
                 new Point(xCenter, yDown + shiftDown - yDistance),
                 new Point(xCenter, yDown + shiftDown)
+            });
+
+            connectorsPoints.Add(new Point[]
+            {
+                new Point(xCenter, GetYDownBody(blocksBody)),
+                new Point(xCenter, yDown + shiftDown - yDistance)
             });
         }
 

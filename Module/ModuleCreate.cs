@@ -41,13 +41,32 @@ namespace Modules
 		public static bool IsDecisionFull(string code)
 		{
 			int indexBracketEnd = FindEndBracket(code, '{', '}');
-			if (code.StartsWith("if") && 
-				DeleteSpaces(code.Substring(indexBracketEnd + 1)).StartsWith("else"))
+			//if (code.StartsWith("if") && 
+			//	DeleteSpaces(code.Substring(indexBracketEnd + 1)).StartsWith("else"))
+			//{
+			//	return true;
+			//}
+			if (code.StartsWith("if"))
 			{
-				return true;
+				code = DeleteSpaces(code.Substring(indexBracketEnd + 1));
+				if (code.StartsWith("else"))
+				{
+					code = DeleteSpaces(code.Substring(4,  FindEndBracket(code, '{', '}')-4));
+					if (IsBlock(code))
+						return true;
+				}
 			}
 			return false;
 		}
+		//if()
+		//{
+		//k=1;
+		//}
+		//else
+		//{
+		//k=0;
+		//}
+
 
 		/// <summary>
 		/// Проверка, является ли начало текста кода неполным условием.
@@ -55,9 +74,20 @@ namespace Modules
 		public static bool IsDecision(string code)
 		{
 			int indexBracketEnd = FindEndBracket(code, '{', '}');
-			if (code.StartsWith("if") &&
-				!(DeleteSpaces(code.Substring(indexBracketEnd + 1)).StartsWith("else")))
+			//if (code.StartsWith("if") &&
+			//	!(DeleteSpaces(code.Substring(indexBracketEnd + 1)).StartsWith("else")))
+			//{
+			//	return true;
+			//}
+			if (code.StartsWith("if"))
 			{
+				code = DeleteSpaces(code.Substring(indexBracketEnd + 1));
+				if (code.StartsWith("else"))
+				{
+					code = DeleteSpaces(code.Substring(4, FindEndBracket(code, '{', '}') - 4));
+					if (IsBlock(code))
+						return false;
+				}
 				return true;
 			}
 			return false;
@@ -86,6 +116,20 @@ namespace Modules
 		public static bool IsProcess(string code)
 		{
 			return code.Count(x => x == ';') != 0;
+		}
+
+		/// <summary>
+		/// Проверка, является ли начало текста кода каким-либо блоком.
+		/// </summary>
+		public static bool IsBlock(string code)
+		{
+			if (IsPreparation(code)) return true;
+			if (IsDecisionLoop(code)) return true;
+			if (IsDecisionFull(code)) return true;
+			if (IsDecision(code)) return true;
+			if (IsData(code)) return true;
+			if (IsProcess(code)) return true;
+			return false;
 		}
 		#endregion
 

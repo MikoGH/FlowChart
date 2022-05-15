@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modules;
 
 namespace Shapes
 {
@@ -28,6 +29,29 @@ namespace Shapes
             text = _text;
         }
 
+        private int GetYDownBody(List<IBlock> blocks)
+		{
+			if (blocks.Count != 0)
+			{
+                IBlock lastBlock = Module.GetLast(blocks);
+                if (lastBlock is Process || lastBlock is Data)
+                {
+                    if (lastBlock.blocksPreparation.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksPreparation)))
+                        return this.yDown + this.shiftDown;
+                    if (lastBlock.blocksDecisionLoop.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecisionLoop)))
+                        return this.yDown + this.shiftDown;
+                    if (lastBlock.blocksDecision.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecision)))
+                        return this.yDown + this.shiftDown;
+                    if (lastBlock.blocksDecisionFullThen.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecisionFullThen)))
+                        return this.yDown + this.shiftDown;
+                    if (lastBlock.blocksDecisionFullElse.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecisionFullElse)))
+                        return this.yDown + this.shiftDown;
+                    return lastBlock.yDown;
+                }
+            }
+            return this.yDown + this.shiftDown;
+        }
+
         public void SetConnectorsPosition()
 		{
             connectorsPoints.Add(new Point[]
@@ -50,17 +74,28 @@ namespace Shapes
 					new Point(blocksBodyElse[0].xCenter, yDown + shiftDown - yDistance),
 					new Point(xCenter, yDown + shiftDown - yDistance)
 				});
-			connectorsPoints.Add(new Point[]
+
+            connectorsPoints.Add(new Point[]
 				{
-					new Point(xCenter, blocksBody[blocksBody.Count-1].yDown + yDistance),
+					new Point(xCenter, GetYDownBody(blocksBody) - yDistance),
 					new Point(xCenter, yDown + shiftDown)
 				});
-            connectorsPoints.Add(new Point[]
-                {
-                    new Point(blocksBodyElse[0].xCenter, blocksBodyElse[blocksBodyElse.Count-1].yDown + yDistance),
-                    new Point(blocksBodyElse[0].xCenter, yDown + shiftDown - yDistance)
-                });
-        }
+			connectorsPoints.Add(new Point[]
+				{
+					new Point(blocksBodyElse[0].xCenter, GetYDownBody(blocksBodyElse) - yDistance),
+					new Point(blocksBodyElse[0].xCenter, yDown + shiftDown - yDistance)
+				});
+			//         connectorsPoints.Add(new Point[]
+			//	{
+			//		new Point(xCenter, blocksBody[blocksBody.Count-1].yDown + yDistance),
+			//		new Point(xCenter, yDown + shiftDown)
+			//	});
+			//connectorsPoints.Add(new Point[]
+			//	{
+			//		new Point(blocksBodyElse[0].xCenter, blocksBodyElse[blocksBodyElse.Count-1].yDown + yDistance),
+			//		new Point(blocksBodyElse[0].xCenter, yDown + shiftDown - yDistance)
+			//	});
+		}
 
         public void DrawShape(Graphics graphic)
         // отрисовать фигуру

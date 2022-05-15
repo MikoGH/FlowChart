@@ -53,5 +53,11 @@
     <Compile Include="InterfaceBlock.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Module\Modules.csproj">
+      <Project>{fe09e546-9914-4be1-bbd9-c2aefcd90528}</Project>
+      <Name>Modules</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
