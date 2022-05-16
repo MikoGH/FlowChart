@@ -3,3 +3,7 @@ C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\Shapes.p
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.csproj.CoreCompileInputs.cache
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.dll
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\Module.dll
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\Module.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.csproj.AssemblyReference.cache
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.csproj.CopyComplete

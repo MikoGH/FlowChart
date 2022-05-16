@@ -9,7 +9,7 @@ namespace Modules
 {
 	public partial class Module
 	{
-		static IBlock GetLast(List<IBlock> lst)
+		public static IBlock GetLast(List<IBlock> lst)
 		// возвращает последний объект из заданного списка
 		{
 			return lst[lst.Count - 1];
