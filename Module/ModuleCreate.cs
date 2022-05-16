@@ -41,11 +41,6 @@ namespace Modules
 		public static bool IsDecisionFull(string code)
 		{
 			int indexBracketEnd = FindEndBracket(code, '{', '}');
-			//if (code.StartsWith("if") && 
-			//	DeleteSpaces(code.Substring(indexBracketEnd + 1)).StartsWith("else"))
-			//{
-			//	return true;
-			//}
 			if (code.StartsWith("if"))
 			{
 				code = DeleteSpaces(code.Substring(indexBracketEnd + 1));
@@ -58,15 +53,6 @@ namespace Modules
 			}
 			return false;
 		}
-		//if()
-		//{
-		//k=1;
-		//}
-		//else
-		//{
-		//k=0;
-		//}
-
 
 		/// <summary>
 		/// Проверка, является ли начало текста кода неполным условием.
@@ -74,11 +60,6 @@ namespace Modules
 		public static bool IsDecision(string code)
 		{
 			int indexBracketEnd = FindEndBracket(code, '{', '}');
-			//if (code.StartsWith("if") &&
-			//	!(DeleteSpaces(code.Substring(indexBracketEnd + 1)).StartsWith("else")))
-			//{
-			//	return true;
-			//}
 			if (code.StartsWith("if"))
 			{
 				code = DeleteSpaces(code.Substring(indexBracketEnd + 1));
@@ -105,7 +86,7 @@ namespace Modules
 				code.StartsWith("Console.Write") ||
 				code.StartsWith("Console.ReadLine") ||
 				code.StartsWith("Console.Read"))
-				&& code.Count(x => x == ';') != 0)
+				&& IsProcess(code))
 				return true;
 			return false;
 		}
@@ -115,7 +96,14 @@ namespace Modules
 		/// </summary>
 		public static bool IsProcess(string code)
 		{
-			return code.Count(x => x == ';') != 0;
+			int t = 0;
+			for (int i = 0; i < code.Count(x => x == ';'); i++)
+			{
+				t = code.IndexOf(';', t+1);
+				if (code.Substring(0, t).Count(x => x == '"') % 2 == 0)
+					return true;
+			}
+			return false;
 		}
 
 		/// <summary>
@@ -361,7 +349,14 @@ namespace Modules
 			}
 
 			// срез строки. Обрезание начала кода, содержащего последний блок
-			code = code.Substring(code.IndexOf(";") + 1);
+			int posEnd = 0;
+			for (int i = 0; i < code.Count(x => x == ';'); i++)
+			{
+				posEnd = code.IndexOf(';', posEnd + 1);
+				if (code.Substring(0, posEnd).Count(x => x == '"') % 2 == 0)
+					break;
+			}
+			code = code.Substring(posEnd + 1);
 			code = DeleteSpaces(code);
 		}
 
@@ -371,11 +366,18 @@ namespace Modules
 		public static void CreateProcess(ref List<IBlock> blocks, ref string code)
 		{
 			code = DeleteSpaces(code);
-			Process process = new Process(code.Substring(0, code.IndexOf(";")));
+			int posEnd = 0;
+			for (int i = 0; i < code.Count(x => x == ';'); i++)
+			{
+				posEnd = code.IndexOf(';', posEnd + 1);
+				if (code.Substring(0, posEnd).Count(x => x == '"') % 2 == 0)
+					break;
+			}
+			Process process = new Process(code.Substring(0, posEnd));
 			blocks.Add(process);
 
 			// срез строки. Обрезание начала кода, содержащего последний блок
-			code = code.Substring(code.IndexOf(";") + 1);
+			code = code.Substring(posEnd + 1);
 			code = DeleteSpaces(code);
 		}
 		#endregion
@@ -417,6 +419,9 @@ namespace Modules
 				}
 				else break;
 			}
+
+			SetTextBlocks(blocks);
+
 			return blocks;
 		}
 		#endregion

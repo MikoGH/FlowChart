@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Modules;
 
 namespace Shapes
 {
@@ -29,18 +28,18 @@ namespace Shapes
         {
             if (blocks.Count != 0)
             {
-                IBlock lastBlock = Module.GetLast(blocks);
+                IBlock lastBlock = GetLast(blocks);
                 if (lastBlock is Process || lastBlock is Data)
                 {
-                    if (lastBlock.blocksPreparation.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksPreparation)))
+                    if (lastBlock.blocksPreparation.Count > 0 && blocks.Contains(GetLast(lastBlock.blocksPreparation)))
                         return this.yDown + this.shiftDown - 2 * this.yDistance;
-                    if (lastBlock.blocksDecisionLoop.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecisionLoop)))
+                    if (lastBlock.blocksDecisionLoop.Count > 0 && blocks.Contains(GetLast(lastBlock.blocksDecisionLoop)))
                         return this.yDown + this.shiftDown - 2 * this.yDistance;
-                    if (lastBlock.blocksDecision.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecision)))
+                    if (lastBlock.blocksDecision.Count > 0 && blocks.Contains(GetLast(lastBlock.blocksDecision)))
                         return this.yDown + this.shiftDown - 2 * this.yDistance;
-                    if (lastBlock.blocksDecisionFullThen.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecisionFullThen)))
+                    if (lastBlock.blocksDecisionFullThen.Count > 0 && blocks.Contains(GetLast(lastBlock.blocksDecisionFullThen)))
                         return this.yDown + this.shiftDown - 2 * this.yDistance;
-                    if (lastBlock.blocksDecisionFullElse.Count > 0 && blocks.Contains(Module.GetLast(lastBlock.blocksDecisionFullElse)))
+                    if (lastBlock.blocksDecisionFullElse.Count > 0 && blocks.Contains(GetLast(lastBlock.blocksDecisionFullElse)))
                         return this.yDown + this.shiftDown - 2 * this.yDistance;
                     return lastBlock.yDown;
                 }

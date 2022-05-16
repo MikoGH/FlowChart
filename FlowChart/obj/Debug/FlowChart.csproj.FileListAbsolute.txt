@@ -57,4 +57,3 @@ C:\Users\LENOVO\Source\Repos\FlowChart\FlowChart\obj\Debug\FlowChart.csproj.Core
 C:\Users\LENOVO\Source\Repos\FlowChart\FlowChart\obj\Debug\FlowChart.csproj.CopyComplete
 C:\Users\LENOVO\Source\Repos\FlowChart\FlowChart\obj\Debug\BlockDiagram.exe
 C:\Users\LENOVO\Source\Repos\FlowChart\FlowChart\obj\Debug\BlockDiagram.pdb
-C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\bin\Debug\Shapes.dll

@@ -53,6 +53,12 @@ namespace Shapes
         public int xCenter { get; set; }
         public int yCenter { get; set; }
 
+        public static IBlock GetLast(List<IBlock> lst)
+        // возвращает последний объект из заданного списка
+        {
+            return lst[lst.Count - 1];
+        }
+
         public virtual void SetPositionX(int _xLeft)
         // установить позиции отрисовки
         {

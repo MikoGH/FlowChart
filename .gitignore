@@ -1,0 +1,6 @@
+
+*.dll
+*.cache
+*.cache
+*.pdb
+.vs/FlowChart/v16/.suo
