@@ -10,3 +10,10 @@ C:\Users\Polin\Documents\GitHub\FlowChart\FlowChart\obj\Debug\FlowChart.csproj.G
 C:\Users\Polin\Documents\GitHub\FlowChart\FlowChart\obj\Debug\FlowChart.csproj.CoreCompileInputs.cache
 C:\Users\Polin\Documents\GitHub\FlowChart\FlowChart\obj\Debug\BlockDiagram.exe
 C:\Users\Polin\Documents\GitHub\FlowChart\FlowChart\obj\Debug\BlockDiagram.pdb
+<<<<<<< Updated upstream
+=======
+=======
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\FlowChart\bin\Debug\Shapes.dll
+>>>>>>> 914c597c6e2d8dea0cd2167958f4a958c67748ec
+C:\Users\Polin\Documents\GitHub\FlowChart\FlowChart\obj\Debug\FlowChart.csproj.CopyComplete
+>>>>>>> Stashed changes
