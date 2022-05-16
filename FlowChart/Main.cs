@@ -72,32 +72,59 @@ namespace FlowChart
 		private void btnSave_Click(object sender, EventArgs e)
         // сохранение блок-схемы
 		{
-			if (textNameBD != "")
-			{
-                bitmap.Save($@"..\..\..\Saved Diagrams\{textNameBD}.jpeg");
-                MessageBox.Show(
-                    "Блок-схема успешно сохранена",
-                    "Сообщение",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
+            //if (textNameBD != "")
+            //{
+            //             bitmap.Save($@"..\..\..\Saved Diagrams\{textNameBD}.jpeg");
+            //             MessageBox.Show(
+            //                 "Блок-схема успешно сохранена",
+            //                 "Сообщение",
+            //                 MessageBoxButtons.YesNo,
+            //                 MessageBoxIcon.Information,
+            //                 MessageBoxDefaultButton.Button1,
+            //                 MessageBoxOptions.DefaultDesktopOnly);
+            //         }
+            //else
+            //{
+            //             MessageBox.Show(
+            //                 "Введите название блок-схемы",
+            //                 "Предупреждение",
+            //                 MessageBoxButtons.YesNo,
+            //                 MessageBoxIcon.Information,
+            //                 MessageBoxDefaultButton.Button1,
+            //                 MessageBoxOptions.DefaultDesktopOnly);
+            //         }
+
+            if (pictureBox.Image != null)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Title = "Сохранить как...";
+                sfd.OverwritePrompt = true;
+                sfd.CheckPathExists = true;
+                sfd.Filter = "JPEG файлы|*.jpeg|PNG файлы|*.png|Все файлы|*.*";
+                sfd.ShowHelp = true;
+
+                if(sfd.ShowDialog() == DialogResult.OK)
+                {
+                    try
+                    {
+                        pictureBox.Image.Save(sfd.FileName);
+                        MessageBox.Show("Блок-схема успешно сохранена", "Сообщение", MessageBoxButtons.OK);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Невозможно сохранить изображение", "Ошибка", MessageBoxButtons.OK);
+                    }
+                }
             }
-			else
-			{
-                MessageBox.Show(
-                    "Введите название блок-схемы",
-                    "Предупреждение",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Information,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
+            else
+            {
+                MessageBox.Show("Изображение пустое. Создайте блок-схему.", "Ошибка", MessageBoxButtons.OK);
             }
         }
 
-		private void txtboxName_TextChanged(object sender, EventArgs e)
+        private void txtboxName_TextChanged(object sender, EventArgs e)
         // изменение названия блок-схемы
-		{
+        {
             textNameBD = txtboxName.Text;
         }
 
@@ -110,9 +137,24 @@ namespace FlowChart
         private void btnDownload_Click(object sender, EventArgs e)
         // загрузка кода из файла
         {
-            string textNameFile = "code03";      // название файла - нужно изменить
-            string code = new StreamReader($@"..\..\..\Files\{textNameFile}.txt").ReadToEnd();
-            rtxtBoxCode.Text = code;
+            //string textNameFile = "code03";      // название файла - нужно изменить
+            //string code = new StreamReader($@"..\..\..\Files\{textNameFile}.txt").ReadToEnd();
+            //rtxtBoxCode.Text = code;
+
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Title = "Выбрать файл...";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            { 
+                if (Path.GetExtension(ofd.FileName) == ".txt" || Path.GetExtension(ofd.FileName) == ".cs")
+                {
+                    rtxtBoxCode.Text = File.ReadAllText(ofd.FileName);
+                }
+                else
+                {
+                    MessageBox.Show("Невозможно считать код из файла. Код считывается только из форматов txt и cs.", "Ошибка", MessageBoxButtons.OK);
+                    //rtxtBoxCode.Text = "Невозможно считать код из файла. Код считывается только из форматов txt и cs.";
+                }
+            }
         }
 
         private void rtxtBoxCode_TextChanged(object sender, EventArgs e)
