@@ -69,7 +69,8 @@ namespace FlowChart
             // 
             // txtboxName
             // 
-            this.txtboxName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtboxName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtboxName.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.txtboxName.Location = new System.Drawing.Point(67, 653);
             this.txtboxName.Margin = new System.Windows.Forms.Padding(4);
@@ -81,7 +82,8 @@ namespace FlowChart
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Font = new System.Drawing.Font("Century", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnSave.Location = new System.Drawing.Point(11, 700);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4);
@@ -94,7 +96,7 @@ namespace FlowChart
             // 
             // btnCreateBD
             // 
-            this.btnCreateBD.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnCreateBD.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.btnCreateBD.Font = new System.Drawing.Font("Century", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnCreateBD.Location = new System.Drawing.Point(12, 505);
             this.btnCreateBD.Margin = new System.Windows.Forms.Padding(4);
@@ -107,8 +109,7 @@ namespace FlowChart
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel2.AutoScroll = true;
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(31)))), ((int)(((byte)(41)))));
             this.panel2.Controls.Add(this.btnDownload);
             this.panel2.Controls.Add(this.nameLabel);
@@ -124,7 +125,8 @@ namespace FlowChart
             // 
             // btnDownload
             // 
-            this.btnDownload.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDownload.Font = new System.Drawing.Font("Century", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnDownload.Location = new System.Drawing.Point(12, 5);
             this.btnDownload.Margin = new System.Windows.Forms.Padding(4);
@@ -137,6 +139,8 @@ namespace FlowChart
             // 
             // nameLabel
             // 
+            this.nameLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.nameLabel.AutoSize = true;
             this.nameLabel.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.nameLabel.Location = new System.Drawing.Point(11, 660);
@@ -149,10 +153,13 @@ namespace FlowChart
             // rtxtBoxCode
             // 
             this.rtxtBoxCode.AcceptsTab = true;
+            this.rtxtBoxCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rtxtBoxCode.AutoWordSelection = true;
             this.rtxtBoxCode.Location = new System.Drawing.Point(12, 48);
             this.rtxtBoxCode.Name = "rtxtBoxCode";
-            this.rtxtBoxCode.Size = new System.Drawing.Size(267, 428);
+            this.rtxtBoxCode.Size = new System.Drawing.Size(267, 450);
             this.rtxtBoxCode.TabIndex = 4;
             this.rtxtBoxCode.Text = "";
             this.rtxtBoxCode.TextChanged += new System.EventHandler(this.rtxtBoxCode_TextChanged);
@@ -161,6 +168,7 @@ namespace FlowChart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(51)))), ((int)(((byte)(61)))));
             this.ClientSize = new System.Drawing.Size(1343, 811);
             this.Controls.Add(this.panelPicture);

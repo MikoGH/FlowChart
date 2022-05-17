@@ -47,9 +47,11 @@ namespace FlowChart
 			Module.SetPositionsX(blocks);
             // установка позиций блоков по Y
             Module.SetPositionsY(blocks);
+            // изменение текста в блоках
+            Module.SetTextBlocks(blocks);
 
-			// создание пустого рисунка
-			int pictureWidth = Module.GetPictureSizeX(blocks);
+            // создание пустого рисунка
+            int pictureWidth = Module.GetPictureSizeX(blocks);
             int pictureHeight = Module.GetPictureSizeY(blocks);
             pictureBox.Width = pictureWidth;
             pictureBox.Height = pictureHeight;

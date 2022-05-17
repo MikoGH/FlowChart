@@ -420,8 +420,6 @@ namespace Modules
 				else break;
 			}
 
-			SetTextBlocks(blocks);
-
 			return blocks;
 		}
 		#endregion
