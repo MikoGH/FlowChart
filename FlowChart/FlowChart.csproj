@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Shapes">
-      <HintPath>..\Shapes\obj\Debug\Shapes.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -86,6 +83,10 @@
     <ProjectReference Include="..\Module\Modules.csproj">
       <Project>{fe09e546-9914-4be1-bbd9-c2aefcd90528}</Project>
       <Name>Modules</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Shapes\Shapes.csproj">
+      <Project>{f74863cb-a700-4506-90ca-9d8dc54cd15a}</Project>
+      <Name>Shapes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
