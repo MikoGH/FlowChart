@@ -16,7 +16,6 @@ namespace FlowChart
     public partial class FormMain : Form
 	{
         Bitmap bitmap;
-        string textNameBD = "";
 
         public FormMain()
         // инициализация формы
@@ -122,12 +121,6 @@ namespace FlowChart
             {
                 MessageBox.Show("Изображение пустое. Создайте блок-схему.", "Ошибка", MessageBoxButtons.OK);
             }
-        }
-
-        private void txtboxName_TextChanged(object sender, EventArgs e)
-        // изменение названия блок-схемы
-        {
-            textNameBD = txtboxName.Text;
         }
 
         private void label1_Click(object sender, EventArgs e)
