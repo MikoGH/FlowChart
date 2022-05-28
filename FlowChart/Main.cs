@@ -24,27 +24,27 @@ namespace FlowChart
 			this.rtxtBoxCode.MouseWheel += rtxtBoxCode_MouseWheel;
         }
 
-		private void btnCreateBD_Click(object sender, EventArgs e)
-        // создание блок-схемы
-		{
+		#region Обработка кода и построение блок-схемы
+		public void MainCreate()
+        {
             // считывание текста кода с элемента  управления
             string code = rtxtBoxCode.Text;
 
             // создание массива блоков из кода
-            List<IBlock> blocks = Module.CreateBlocks(code);
-			blocks.Insert(0, new Terminator("Начало", true));
-			blocks.Add(new Terminator("Конец", false));
+            List<IBlock> blocks = Module.CreateBlocks(ref code);
+            blocks.Insert(0, new Terminator("Начало", true));
+            blocks.Add(new Terminator("Конец", false));
 
             blocks[0].SetPositionY(0);
             blocks[0].SetPositionX(blocks[1].xDistance);
             for (int i = 1; i < blocks.Count; i++) // временно, но теперь уже навсегда
-			{
-				blocks[i].SetPositionX(blocks[1].xDistance);
-				blocks[i].SetPositionY(blocks[1].ySizeShape + blocks[1].yDistance);
-			}
+            {
+                blocks[i].SetPositionX(blocks[1].xDistance);
+                blocks[i].SetPositionY(blocks[1].ySizeShape + blocks[1].yDistance);
+            }
 
-			// установка позиций блоков по X
-			Module.SetPositionsX(blocks);
+            // установка позиций блоков по X
+            Module.SetPositionsX(blocks);
             // установка позиций блоков по Y
             Module.SetPositionsY(blocks);
             // изменение текста в блоках
@@ -59,16 +59,30 @@ namespace FlowChart
             Graphics graphic = Graphics.FromImage(bitmap);
 
             // отрисовка элементов блок-схемы
-            for (int i = 0; i<blocks.Count; i++)
-			{
+            for (int i = 0; i < blocks.Count; i++)
+            {
                 blocks[i].SetConnectorsPosition();
                 blocks[i].DrawShape(graphic);
-				blocks[i].DrawText(graphic);
+                blocks[i].DrawText(graphic);
                 blocks[i].DrawConnectors(graphic);
             }
-            
+
             if (pictureBox.Image != null) pictureBox.Image.Dispose();
-			pictureBox.Image = bitmap;
+            pictureBox.Image = bitmap;
+        }
+		#endregion
+
+		private void btnCreateBD_Click(object sender, EventArgs e)
+        // создание блок-схемы
+		{
+			try
+			{
+                MainCreate();
+            }
+			catch (Exception)
+			{
+                MessageBox.Show("Некорректный код.", "Ошибка", MessageBoxButtons.OK);
+            }
 		}
 
 		private void btnSave_Click(object sender, EventArgs e)
