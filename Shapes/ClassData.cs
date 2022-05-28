@@ -10,19 +10,23 @@ namespace Shapes
 	public class Data : Shape, IBlock
     // элемент блок-схемы - ввод/вывод данных
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(120, 230, 150));
+		#region Атрибуты
+		public SolidBrush brush = new SolidBrush(Color.FromArgb(120, 230, 150));
 
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = false;
         public bool isBranchRight { get; set; } = false;
         public bool isBranchBody { get; set; } = false;
+		#endregion
 
-        public Data(string _text)
+		#region Конструктор
+		public Data(string _text) : base(_text)
         {
-            text = _text;
         }
+		#endregion
 
-        public void SetConnectorsPosition()
+		#region Методы
+		public void SetConnectorsPosition()
         {
             connectorsPoints.Add(new Point[]
                 {
@@ -44,5 +48,6 @@ namespace Shapes
             graphic.FillPolygon(brush, points);
             graphic.DrawPolygon(penMain, points);
         }
+        #endregion
     }
 }

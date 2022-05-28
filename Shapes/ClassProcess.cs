@@ -10,19 +10,23 @@ namespace Shapes
     public class Process : Shape, IBlock
     // элемент блок-схемы - процесс
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(180,230,250));
+		#region Атрибуты
+		public SolidBrush brush = new SolidBrush(Color.FromArgb(180,230,250));
 
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = false;
         public bool isBranchRight { get; set; } = false;
         public bool isBranchBody { get; set; } = false;
+		#endregion
 
-        public Process(string _text)
+		#region Конструктор
+		public Process(string _text) : base(_text)
         {
-            text = _text;
         }
+		#endregion
 
-        public void SetConnectorsPosition()
+		#region Методы
+		public void SetConnectorsPosition()
         {
             connectorsPoints.Add(new Point[]
                 {
@@ -38,6 +42,7 @@ namespace Shapes
             graphic.FillRectangle(brush, rect);
             graphic.DrawRectangle(penMain, rect);
         }
+        #endregion
     }
 
 }

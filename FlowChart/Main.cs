@@ -16,15 +16,15 @@ namespace FlowChart
     public partial class FormMain : Form
 	{
         Bitmap bitmap;
-        string textNameBD = "";
 
         public FormMain()
         // инициализация формы
 		{
 			InitializeComponent();
+			this.rtxtBoxCode.MouseWheel += rtxtBoxCode_MouseWheel;
         }
 
-        private void btnCreateBD_Click(object sender, EventArgs e)
+		private void btnCreateBD_Click(object sender, EventArgs e)
         // создание блок-схемы
 		{
             // считывание текста кода с элемента  управления
@@ -35,7 +35,7 @@ namespace FlowChart
 			blocks.Insert(0, new Terminator("Начало", true));
 			blocks.Add(new Terminator("Конец", false));
 
-			blocks[0].SetPositionY(0);
+            blocks[0].SetPositionY(0);
             blocks[0].SetPositionX(blocks[1].xDistance);
             for (int i = 1; i < blocks.Count; i++) // временно, но теперь уже навсегда
 			{
@@ -74,28 +74,6 @@ namespace FlowChart
 		private void btnSave_Click(object sender, EventArgs e)
         // сохранение блок-схемы
 		{
-            //if (textNameBD != "")
-            //{
-            //             bitmap.Save($@"..\..\..\Saved Diagrams\{textNameBD}.jpeg");
-            //             MessageBox.Show(
-            //                 "Блок-схема успешно сохранена",
-            //                 "Сообщение",
-            //                 MessageBoxButtons.YesNo,
-            //                 MessageBoxIcon.Information,
-            //                 MessageBoxDefaultButton.Button1,
-            //                 MessageBoxOptions.DefaultDesktopOnly);
-            //         }
-            //else
-            //{
-            //             MessageBox.Show(
-            //                 "Введите название блок-схемы",
-            //                 "Предупреждение",
-            //                 MessageBoxButtons.YesNo,
-            //                 MessageBoxIcon.Information,
-            //                 MessageBoxDefaultButton.Button1,
-            //                 MessageBoxOptions.DefaultDesktopOnly);
-            //         }
-
             if (pictureBox.Image != null)
             {
                 SaveFileDialog sfd = new SaveFileDialog();
@@ -124,25 +102,9 @@ namespace FlowChart
             }
         }
 
-        private void txtboxName_TextChanged(object sender, EventArgs e)
-        // изменение названия блок-схемы
-        {
-            textNameBD = txtboxName.Text;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        // действие при нажатии на текст "Название" - пока ничего нет
-        {
-
-        }
-
         private void btnDownload_Click(object sender, EventArgs e)
         // загрузка кода из файла
         {
-            //string textNameFile = "code03";      // название файла - нужно изменить
-            //string code = new StreamReader($@"..\..\..\Files\{textNameFile}.txt").ReadToEnd();
-            //rtxtBoxCode.Text = code;
-
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Выбрать файл...";
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -154,15 +116,41 @@ namespace FlowChart
                 else
                 {
                     MessageBox.Show("Невозможно считать код из файла. Код считывается только из форматов txt и cs.", "Ошибка", MessageBoxButtons.OK);
-                    //rtxtBoxCode.Text = "Невозможно считать код из файла. Код считывается только из форматов txt и cs.";
                 }
             }
         }
 
+        private void rtxtBoxCode_MouseWheel(object sender, MouseEventArgs e)
+        // изменение размера в окне с кодом
+		{
+			if (ModifierKeys == Keys.Control)
+            {
+                if (e.Delta > 0)
+                {
+                    if (this.rtxtBoxCode.ZoomFactor < 10)
+                        this.rtxtBoxCode.ZoomFactor += 1;
+                    else
+                        this.rtxtBoxCode.ZoomFactor = 10;
+                }
+                else
+                {
+                    if (this.rtxtBoxCode.ZoomFactor > 1)
+                        this.rtxtBoxCode.ZoomFactor -= 1;
+                    else
+                        this.rtxtBoxCode.ZoomFactor = 1;
+                }
+            }
+		}
+
         private void rtxtBoxCode_TextChanged(object sender, EventArgs e)
-        // действие при изменении текста кода - пока ничего нет
-        {
-            
-        }
-    }
+		{
+            this.rtxtBoxCode.Font = new Font("Microsoft Sans Serif", 8);
+		}
+
+		private void buttonSettings_Click(object sender, EventArgs e)
+		{
+            FormSettings fSettings = new FormSettings();
+            fSettings.ShowDialog();
+		}
+	}
 }

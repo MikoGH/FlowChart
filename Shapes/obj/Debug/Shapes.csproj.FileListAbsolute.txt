@@ -3,10 +3,7 @@ C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\Shapes.p
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.csproj.CoreCompileInputs.cache
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.dll
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.pdb
-C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\Module.dll
-C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\Module.pdb
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.csproj.AssemblyReference.cache
-C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.csproj.CopyComplete
 C:\Users\LENOVO\Documents\GitHub\FlowChart\Shapes\bin\Debug\Shapes.dll
 C:\Users\LENOVO\Documents\GitHub\FlowChart\Shapes\bin\Debug\Shapes.pdb
 C:\Users\LENOVO\Documents\GitHub\FlowChart\Shapes\bin\Debug\Module.dll
@@ -25,3 +22,7 @@ C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.csproj.CoreCom
 C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.csproj.CopyComplete
 C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.dll
 C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\AWSSDK.Core.dll
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\AWSSDK.Core.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\AWSSDK.Core.xml
+C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\obj\Debug\Shapes.csproj.CopyComplete
