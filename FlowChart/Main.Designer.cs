@@ -34,9 +34,9 @@ namespace FlowChart
 			this.btnSave = new System.Windows.Forms.Button();
 			this.btnCreateBD = new System.Windows.Forms.Button();
 			this.panel2 = new System.Windows.Forms.Panel();
+			this.buttonSettings = new System.Windows.Forms.Button();
 			this.btnDownload = new System.Windows.Forms.Button();
 			this.rtxtBoxCode = new System.Windows.Forms.RichTextBox();
-			this.buttonSettings = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
 			this.panelPicture.SuspendLayout();
 			this.panel2.SuspendLayout();
@@ -106,6 +106,19 @@ namespace FlowChart
 			this.panel2.Size = new System.Drawing.Size(299, 634);
 			this.panel2.TabIndex = 6;
 			// 
+			// buttonSettings
+			// 
+			this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.buttonSettings.Font = new System.Drawing.Font("Century", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+			this.buttonSettings.Location = new System.Drawing.Point(9, 471);
+			this.buttonSettings.Name = "buttonSettings";
+			this.buttonSettings.Size = new System.Drawing.Size(283, 35);
+			this.buttonSettings.TabIndex = 4;
+			this.buttonSettings.Text = "Настройки";
+			this.buttonSettings.UseVisualStyleBackColor = true;
+			this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
+			// 
 			// btnDownload
 			// 
 			this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -135,19 +148,6 @@ namespace FlowChart
 			this.rtxtBoxCode.TabStop = false;
 			this.rtxtBoxCode.Text = "";
 			this.rtxtBoxCode.TextChanged += new System.EventHandler(this.rtxtBoxCode_TextChanged);
-			// 
-			// buttonSettings
-			// 
-			this.buttonSettings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.buttonSettings.Font = new System.Drawing.Font("Century", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-			this.buttonSettings.Location = new System.Drawing.Point(9, 471);
-			this.buttonSettings.Name = "buttonSettings";
-			this.buttonSettings.Size = new System.Drawing.Size(283, 35);
-			this.buttonSettings.TabIndex = 4;
-			this.buttonSettings.Text = "Настройки";
-			this.buttonSettings.UseVisualStyleBackColor = true;
-			this.buttonSettings.Click += new System.EventHandler(this.buttonSettings_Click);
 			// 
 			// FormMain
 			// 

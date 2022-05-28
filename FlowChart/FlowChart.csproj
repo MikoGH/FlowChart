@@ -89,6 +89,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Ini\Ini.csproj">
+      <Project>{f6b9db36-bb66-4209-a57d-d1fd0bbfd71f}</Project>
+      <Name>Ini</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Module\Modules.csproj">
       <Project>{fe09e546-9914-4be1-bbd9-c2aefcd90528}</Project>
       <Name>Modules</Name>

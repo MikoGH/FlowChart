@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F74863CB-A700-4506-90CA-9D8DC54CD15A}</ProjectGuid>
+    <ProjectGuid>{F6B9DB36-BB66-4209-A57D-D1FD0BBFD71F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shapes</RootNamespace>
-    <AssemblyName>Shapes</AssemblyName>
+    <RootNamespace>Ini</RootNamespace>
+    <AssemblyName>Ini</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,12 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AWSSDK.Core, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604, processorArchitecture=MSIL">
-      <HintPath>..\packages\AWSSDK.Core.3.7.11.10\lib\net45\AWSSDK.Core.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,25 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClassData.cs" />
-    <Compile Include="ClassDecision.cs" />
-    <Compile Include="ClassDecisionFull.cs" />
-    <Compile Include="ClassDecisionLoop.cs" />
-    <Compile Include="ClassPreparation.cs" />
-    <Compile Include="ClassProcess.cs" />
-    <Compile Include="ClassShape.cs" />
-    <Compile Include="ClassTerminator.cs" />
-    <Compile Include="InterfaceBlock.cs" />
+    <Compile Include="FileIni.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Ini\Ini.csproj">
-      <Project>{f6b9db36-bb66-4209-a57d-d1fd0bbfd71f}</Project>
-      <Name>Ini</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

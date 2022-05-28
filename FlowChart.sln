@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shapes", "Shapes\Shapes.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modules", "Module\Modules.csproj", "{FE09E546-9914-4BE1-BBD9-C2AEFCD90528}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ini", "Ini\Ini.csproj", "{F6B9DB36-BB66-4209-A57D-D1FD0BBFD71F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{FE09E546-9914-4BE1-BBD9-C2AEFCD90528}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE09E546-9914-4BE1-BBD9-C2AEFCD90528}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE09E546-9914-4BE1-BBD9-C2AEFCD90528}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6B9DB36-BB66-4209-A57D-D1FD0BBFD71F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6B9DB36-BB66-4209-A57D-D1FD0BBFD71F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6B9DB36-BB66-4209-A57D-D1FD0BBFD71F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6B9DB36-BB66-4209-A57D-D1FD0BBFD71F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

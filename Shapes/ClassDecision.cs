@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ini;
 
 namespace Shapes
 {
@@ -25,10 +26,19 @@ namespace Shapes
 		public Decision(string _text) : base(_text)
         {
         }
-		#endregion
+        #endregion
 
-		#region Методы
-		private int GetYDownBody(List<IBlock> blocks)
+        #region ini
+        public void SetColor()
+        {
+            FileIni ini = new FileIni();
+            int[] colors = ini["ColorDecision"].Split(',').Select(x => int.Parse(x)).ToArray();
+            brush = new SolidBrush(Color.FromArgb(colors[0], colors[1], colors[2]));
+        }
+        #endregion
+
+        #region Методы
+        private int GetYDownBody(List<IBlock> blocks)
         {
             if (blocks.Count != 0)
             {

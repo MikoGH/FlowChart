@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ini;
 
 namespace Shapes
 {
@@ -23,10 +24,19 @@ namespace Shapes
 		public Data(string _text) : base(_text)
         {
         }
-		#endregion
+        #endregion
 
-		#region Методы
-		public void SetConnectorsPosition()
+        #region ini
+        public void SetColor()
+        {
+            FileIni ini = new FileIni();
+            int[] colors = ini["ColorData"].Split(',').Select(x => int.Parse(x)).ToArray();
+            brush = new SolidBrush(Color.FromArgb(colors[0], colors[1], colors[2]));
+        }
+        #endregion
+
+        #region Методы
+        public void SetConnectorsPosition()
         {
             connectorsPoints.Add(new Point[]
                 {

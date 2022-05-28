@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ini;
 
 namespace Shapes
 {
@@ -67,17 +68,11 @@ namespace Shapes
 		#region ini
 		public void SetSize()
         {
-            string ini = File.ReadAllText("settings.ini");
-            Dictionary<string, int> dct = new Dictionary<string, int>();
-            foreach (string item in ini.Split('\n'))
-            {
-                if (item.Contains('='))
-                    dct.Add(item.Split('=')[0], int.Parse(item.Split('=')[1]));
-            }
-            xSizeShape = dct["xSizeShape"];
-            ySizeShape = dct["ySizeShape"];
-            xDistance = dct["xDistance"];
-            yDistance = dct["yDistance"];
+            FileIni ini = new FileIni();
+            xSizeShape = int.Parse(ini["xSizeShape"]);
+            ySizeShape = int.Parse(ini["ySizeShape"]);
+            xDistance = int.Parse(ini["xDistance"]);
+            yDistance = int.Parse(ini["yDistance"]);
         }
 		#endregion
 
