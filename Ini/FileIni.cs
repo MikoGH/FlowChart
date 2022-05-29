@@ -16,9 +16,31 @@ namespace Ini
 			Read();
 		}
 
+		public void Create()
+		{
+			dct = new Dictionary<string, string>()
+			{
+				{ "xSizeShape" , "200" },
+				{ "ySizeShape" , "80" },
+				{ "xDistance" , "50" },
+				{ "yDistance" , "50" },
+				{ "colorProcess" , "180,230,250" },
+				{ "colorData" , "120,230,150" },
+				{ "colorDecision" , "240,250,130" },
+				{ "colorDecisionLoop" , "250,180,130" },
+				{ "colorPreparation" , "250,130,130" },
+				{ "colorTerminator" , "211,211,211" }
+			};
+			Write();
+		}
+
 		public Dictionary<string, string> Read()
 			// чтение с ini файла
 		{
+			if (!File.Exists("settings.ini"))
+			{
+				Create();
+			}
 			string ini = File.ReadAllText("settings.ini");
 			dct = new Dictionary<string, string>();
 			foreach (string item in ini.Split('\n'))
