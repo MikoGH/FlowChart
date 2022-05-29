@@ -75,15 +75,15 @@ namespace FlowChart
 		private void btnCreateBD_Click(object sender, EventArgs e)
         // создание блок-схемы
 		{
-			try
-			{
+            try
+            {
                 MainCreate();
             }
 			catch (Exception)
 			{
                 MessageBox.Show("Некорректный код.", "Ошибка", MessageBoxButtons.OK);
             }
-		}
+}
 
 		private void btnSave_Click(object sender, EventArgs e)
         // сохранение блок-схемы
