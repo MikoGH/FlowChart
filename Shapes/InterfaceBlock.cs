@@ -30,6 +30,7 @@ namespace Shapes
 		List<IBlock> blocksDecisionFullElse { get; set; }
 		List<IBlock> blocksDecisionLoop { get; set; }
 		List<IBlock> blocksPreparation { get; set; }
+		void SetSize();
 		void SetPositionX(int _xLeft);
 		void SetPositionY(int _yUp);
 		void DrawShape(Graphics graphic);

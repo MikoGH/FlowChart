@@ -4,13 +4,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ini;
 
 namespace Shapes
 {
     public class DecisionLoop : Shape, IBlock
     //элемент блок-схемы - цикл while
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(250, 180, 130));
+		#region Атрибуты
+		public SolidBrush brush = new SolidBrush(Color.FromArgb(250, 180, 130));
 
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = true;
@@ -18,11 +20,24 @@ namespace Shapes
         public bool isBranchBody { get; set; } = false;
 
         public List<IBlock> blocksBody = new List<IBlock> { }; // блоки, входящие в тело если
+		#endregion
 
-        public DecisionLoop(string _text)
+		#region Конструктор
+		public DecisionLoop(string _text) : base(_text)
         {
-            text = _text;
         }
+        #endregion
+
+        #region ini
+        public void SetColor()
+        {
+            FileIni ini = new FileIni();
+            int[] colors = ini["ColorDecisionLoop"].Split(',').Select(x => int.Parse(x)).ToArray();
+            brush = new SolidBrush(Color.FromArgb(colors[0], colors[1], colors[2]));
+        }
+        #endregion
+
+        #region Методы
         private int GetYDownBody(List<IBlock> blocks)
         {
             if (blocks.Count != 0)
@@ -111,5 +126,6 @@ namespace Shapes
             graphic.FillPolygon(brush, points);
             graphic.DrawPolygon(penMain, points);
         }
+        #endregion
     }
 }

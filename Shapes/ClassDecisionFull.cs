@@ -4,13 +4,15 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ini;
 
 namespace Shapes
 {
     public class DecisionFull : Shape, IBlock
     //элемент блок-схемы - полное условие
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(240, 250, 130));
+		#region Атрибуты
+		public SolidBrush brush = new SolidBrush(Color.FromArgb(240, 250, 130));
 
         public int tmpShiftDownThen = 0;
         public int tmpShiftDownElse = 0;
@@ -22,12 +24,24 @@ namespace Shapes
 
         public List<IBlock> blocksBody = new List<IBlock> { }; // блоки, входящие в тело если
         public List<IBlock> blocksBodyElse = new List<IBlock> { }; // блоки, входящие в тело иначе
+		#endregion
 
-        public DecisionFull(string _text)
+		#region Конструктор
+		public DecisionFull(string _text) : base(_text)
         {
-            text = _text;
         }
+        #endregion
 
+        #region ini
+        public void SetColor()
+        {
+            FileIni ini = new FileIni();
+            int[] colors = ini["ColorDecision"].Split(',').Select(x => int.Parse(x)).ToArray();
+            brush = new SolidBrush(Color.FromArgb(colors[0], colors[1], colors[2]));
+        }
+        #endregion
+
+        #region Методы
         private int GetYDownBody(List<IBlock> blocks)
 		{
 			if (blocks.Count != 0)
@@ -109,5 +123,6 @@ namespace Shapes
             graphic.FillPolygon(brush, points);
             graphic.DrawPolygon(penMain, points);
         }
+        #endregion
     }
 }

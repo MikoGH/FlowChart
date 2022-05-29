@@ -4,24 +4,38 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ini;
 
 namespace Shapes
 {
     public class Process : Shape, IBlock
     // элемент блок-схемы - процесс
     {
-        public SolidBrush brush = new SolidBrush(Color.FromArgb(180,230,250));
+		#region Атрибуты
+		public SolidBrush brush = new SolidBrush(Color.FromArgb(180,230,250));
 
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = false;
         public bool isBranchRight { get; set; } = false;
         public bool isBranchBody { get; set; } = false;
+		#endregion
 
-        public Process(string _text)
+		#region Конструктор
+		public Process(string _text) : base(_text)
         {
-            text = _text;
         }
+        #endregion
 
+        #region ini
+        public void SetColor()
+        {
+            FileIni ini = new FileIni();
+            int[] colors = ini["ColorProcess"].Split(',').Select(x => int.Parse(x)).ToArray();
+            brush = new SolidBrush(Color.FromArgb(colors[0], colors[1], colors[2]));
+        }
+        #endregion
+
+        #region Методы
         public void SetConnectorsPosition()
         {
             connectorsPoints.Add(new Point[]
@@ -38,6 +52,7 @@ namespace Shapes
             graphic.FillRectangle(brush, rect);
             graphic.DrawRectangle(penMain, rect);
         }
+        #endregion
     }
 
 }

@@ -4,27 +4,41 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ini;
 
 namespace Shapes
 {
     public class Terminator : Shape, IBlock
     //элемент блок-схемы - терминатор
     {
-        public SolidBrush brush = new SolidBrush(Color.LightGray);
+		#region Атрибуты
+		public SolidBrush brush = new SolidBrush(Color.LightGray);
         bool isStart;
 
         // наличие ветвлений справа/слева
         public bool isBranchLeft { get; set; } = false;
         public bool isBranchRight { get; set; } = false;
         public bool isBranchBody { get; set; } = false;
+		#endregion
 
-        public Terminator(string _text, bool _isStart = false)
+		#region Конструктор
+		public Terminator(string _text, bool _isStart = false) : base(_text)
         {
-            text = _text;
             ySizeShape = ySizeShape / 2; // по ГОСТу высота терминатора в 2 раза меньше других элементов
 			isStart = _isStart;
         }
+        #endregion
 
+        #region ini
+        public void SetColor()
+        {
+            FileIni ini = new FileIni();
+            int[] colors = ini["ColorPreparation"].Split(',').Select(x => int.Parse(x)).ToArray();
+            brush = new SolidBrush(Color.FromArgb(colors[0], colors[1], colors[2]));
+        }
+        #endregion
+
+        #region Методы
         public override void SetPositionY(int _yUp)
         // установить позиции отрисовки
         {
@@ -71,5 +85,6 @@ namespace Shapes
             graphic.DrawLine(penMain, xLeft + ellipseDiameter / 2, yUp, xRight - ellipseDiameter / 2, yUp);
             graphic.DrawLine(penMain, xLeft + ellipseDiameter / 2, yDown, xRight - ellipseDiameter / 2, yDown);
         }
+        #endregion
     }
 }

@@ -6,7 +6,6 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using Shapes;
 using System.Text.RegularExpressions;
 
@@ -199,19 +198,30 @@ namespace Modules
 			code = DeleteSpaces(code);
 
 			// создание коллекции из объектов в теле цикла for
-			string codeIn = code.Substring(0, FindEndBracket(code, '{', '}'));
-			codeIn = codeIn.Substring(codeIn.IndexOf("{") + 1);
-			codeIn = DeleteSpaces(codeIn);
-			List<IBlock> blocksIn = CreateBlocks(codeIn);
+			List<IBlock> blocksIn = new List<IBlock>();
+			// если нет {}
+			if (!code.StartsWith("{"))
+			{
+				blocksIn = CreateBlocks(ref code, true);
+			}
+			// если есть {}
+			else
+			{
+				string codeIn = code.Substring(0, FindEndBracket(code, '{', '}'));
+				codeIn = codeIn.Substring(codeIn.IndexOf("{") + 1);
+				codeIn = DeleteSpaces(codeIn);
+				blocksIn = CreateBlocks(ref codeIn);				
+
+				// срез строки. Обрезание начала кода, содержащего тело последнего блока
+				code = code.Substring(FindEndBracket(code, '{', '}') + 1);
+			}
+			code = DeleteSpaces(code);
+
 			preparation.blocksBody = blocksIn;
 			blocks = blocks.Concat(blocksIn).ToList();
 			// для всех блоков в теле цикла добавить в массив внешних циклов текущий цикл for
 			foreach (IBlock block in blocksIn)
 				block.blocksPreparation.Insert(0, preparation);
-
-			// срез строки. Обрезание начала кода, содержащего тело последнего блока
-			code = code.Substring(FindEndBracket(code, '{', '}') + 1);
-			code = DeleteSpaces(code);
 		}
 
 		/// <summary>
@@ -229,19 +239,30 @@ namespace Modules
 			code = DeleteSpaces(code);
 
 			// создание коллекции из объектов в теле цикла while
-			string codeIn = code.Substring(0, FindEndBracket(code, '{', '}'));
-			codeIn = codeIn.Substring(codeIn.IndexOf("{") + 1);
-			codeIn = DeleteSpaces(codeIn);
-			List<IBlock> blocksIn = CreateBlocks(codeIn);
+			List<IBlock> blocksIn = new List<IBlock>();
+			// если нет {}
+			if (!code.StartsWith("{"))
+			{
+				blocksIn = CreateBlocks(ref code, true);
+			}
+			// если есть {}
+			else
+			{
+				string codeIn = code.Substring(0, FindEndBracket(code, '{', '}'));
+				codeIn = codeIn.Substring(codeIn.IndexOf("{") + 1);
+				codeIn = DeleteSpaces(codeIn);
+				blocksIn = CreateBlocks(ref codeIn);
+
+				// срез строки. Обрезание начала кода, содержащего тело последнего блока
+				code = code.Substring(FindEndBracket(code, '{', '}') + 1);
+			}
+			code = DeleteSpaces(code);
+
 			decisionLoop.blocksBody = blocksIn;
 			blocks = blocks.Concat(blocksIn).ToList();
 			// для всех блоков в теле цикла добавить в массив внешних циклов текущий цикл while
 			foreach (IBlock block in blocksIn)
 				block.blocksDecisionLoop.Insert(0, decisionLoop);
-
-			// срез строки. Обрезание начала кода, содержащего тело последнего блока
-			code = code.Substring(FindEndBracket(code, '{', '}') + 1);
-			code = DeleteSpaces(code);
 		}
 		
 		/// <summary>
@@ -259,19 +280,30 @@ namespace Modules
 			code = DeleteSpaces(code);
 
 			// создание коллекции из объектов в теле неполного условия
-			string codeIn = code.Substring(0, FindEndBracket(code, '{', '}'));
-			codeIn = codeIn.Substring(codeIn.IndexOf("{") + 1);
-			codeIn = DeleteSpaces(codeIn);
-			List<IBlock> blocksIn = CreateBlocks(codeIn);
+			List<IBlock> blocksIn = new List<IBlock>();
+			// если нет {}
+			if (!code.StartsWith("{") && IsBlock(code))
+			{
+				blocksIn = CreateBlocks(ref code, true);
+			}
+			// если есть {}
+			else
+			{
+				string codeIn = code.Substring(0, FindEndBracket(code, '{', '}'));
+				codeIn = codeIn.Substring(codeIn.IndexOf("{") + 1);
+				codeIn = DeleteSpaces(codeIn);
+				blocksIn = CreateBlocks(ref codeIn);
+
+				// срез строки. Обрезание начала кода, содержащего тело последнего блока
+				code = code.Substring(FindEndBracket(code, '{', '}') + 1);
+			}
+			code = DeleteSpaces(code);
+
 			decision.blocksBody = blocksIn;
 			blocks = blocks.Concat(blocksIn).ToList();
 			// для всех блоков в теле добавить в массив внешних условий текущее неполное условие
 			foreach (IBlock block in blocksIn)
 				block.blocksDecision.Insert(0, decision);
-
-			// срез строки. Обрезание начала кода, содержащего тело последнего блока
-			code = code.Substring(FindEndBracket(code, '{', '}') + 1);
-			code = DeleteSpaces(code);
 		}
 
 		/// <summary>
@@ -288,36 +320,62 @@ namespace Modules
 			code = code.Substring(FindEndBracket(code, '(', ')') + 1);
 			code = DeleteSpaces(code);
 
+
 			// создание коллекции из объектов в теле если полного условия
-			string codeIn = code.Substring(0, FindEndBracket(code, '{', '}'));
-			codeIn = codeIn.Substring(codeIn.IndexOf("{") + 1);
-			codeIn = DeleteSpaces(codeIn);
-			List<IBlock> blocksIn = CreateBlocks(codeIn);
+			List<IBlock> blocksIn = new List<IBlock>();
+			// если нет {}
+			if (!code.StartsWith("{"))
+			{
+				blocksIn = CreateBlocks(ref code, true);
+			}
+			// если есть {}
+			else
+			{
+				string codeIn = code.Substring(0, FindEndBracket(code, '{', '}'));
+				codeIn = codeIn.Substring(codeIn.IndexOf("{") + 1);
+				codeIn = DeleteSpaces(codeIn);
+				blocksIn = CreateBlocks(ref codeIn);
+
+				// срез строки. Обрезание начала кода, содержащего тело последнего блока
+				code = code.Substring(FindEndBracket(code, '{', '}') + 1);
+			}
+			code = DeleteSpaces(code);
+
 			decisionFull.blocksBody = blocksIn;
 			blocks = blocks.Concat(blocksIn).ToList();
 			// для всех блоков в теле добавить в массив внешних условий текущее полное условие
 			foreach (IBlock block in blocksIn)
 				block.blocksDecisionFullThen.Insert(0, decisionFull);
 
-			// срез строки. Обрезание начала кода, содержащего тело последнего блока
-			code = code.Substring(FindEndBracket(code, '{', '}') + 1);
-			code = DeleteSpaces(code);
 
 			// создание коллекции из объектов в теле иначе полного условия
-			codeIn = code.Substring(code.IndexOf("{"));
-			codeIn = codeIn.Substring(0, FindEndBracket(codeIn, '{', '}'));
-			codeIn = codeIn.Substring(codeIn.IndexOf("{") + 1);
-			codeIn = DeleteSpaces(codeIn);
-			blocksIn = CreateBlocks(codeIn);
+			blocksIn = new List<IBlock>();
+			code = code.Substring(4);
+			code = DeleteSpaces(code);
+			// если нет {}
+			if (!code.StartsWith("{"))
+			{
+				blocksIn = CreateBlocks(ref code, true);
+			}
+			// если есть {}
+			else
+			{
+				string codeIn = code.Substring(code.IndexOf("{"));
+				codeIn = codeIn.Substring(0, FindEndBracket(codeIn, '{', '}'));
+				codeIn = codeIn.Substring(codeIn.IndexOf("{") + 1);
+				codeIn = DeleteSpaces(codeIn);
+				blocksIn = CreateBlocks(ref codeIn);
+
+				// срез строки. Обрезание начала кода, содержащего тело последнего блока
+				code = code.Substring(FindEndBracket(code, '{', '}') + 1);
+			}
+			code = DeleteSpaces(code);
+
 			decisionFull.blocksBodyElse = blocksIn;
 			blocks = blocks.Concat(blocksIn).ToList();
 			// для всех блоков в теле добавить в массив внешних условий текущее полное условие
 			foreach (IBlock block in blocksIn)
 				block.blocksDecisionFullElse.Insert(0, decisionFull);
-
-			// срез строки. Обрезание начала кода, содержащего тело последнего блока
-			code = code.Substring(FindEndBracket(code, '{', '}') + 1);
-			code = DeleteSpaces(code);
 		}
 		
 		/// <summary>
@@ -383,41 +441,53 @@ namespace Modules
 		#endregion
 
 		#region Создание массива блоков
-		public static List<IBlock> CreateBlocks(string code)
+		public static void CreateBlock(ref List<IBlock> blocks, ref string code)
+		{
+			if (IsPreparation(code)) // если цикл for
+			{
+				CreatePreparation(ref blocks, ref code);
+			}
+			else if (IsDecisionLoop(code)) // если цикл while
+			{
+				CreateDecisionLoop(ref blocks, ref code);
+			}
+			else if (IsDecision(code)) // если неполное условие
+			{
+				CreateDecision(ref blocks, ref code);
+			}
+			else if (IsDecisionFull(code)) // если полное условие
+			{
+				CreateDecisionFull(ref blocks, ref code);
+			}
+			else if (IsData(code)) // если ввод/вывод данных
+			{
+				CreateData(ref blocks, ref code);
+			}
+			else if (IsProcess(code)) // если процесс
+			{
+				CreateProcess(ref blocks, ref code);
+			}
+		}
+
+		/// <summary>
+		/// Создание массива блоков
+		/// </summary>
+		/// <param name="isOne">Брать только первый блок</param>
+		public static List<IBlock> CreateBlocks(ref string code, bool isOne = false)
 		{
 			List<IBlock> blocks = new List<IBlock>();
-			while (code!="")
+			if (code != "" && isOne)
 			{
-				if (IsPreparation(code)) // если цикл for
+				CreateBlock(ref blocks, ref code);
+			}
+			else
+			{
+				while (code != "")
 				{
-					CreatePreparation(ref blocks, ref code);
+					if (!IsBlock(code))
+						break;
+					CreateBlock(ref blocks, ref code);
 				}
-				else
-				if (IsDecisionLoop(code)) // если цикл while
-				{
-					CreateDecisionLoop(ref blocks, ref code);
-				}
-				else
-				if (IsDecision(code)) // если неполное условие
-				{
-					CreateDecision(ref blocks, ref code);
-				}
-				else
-				if (IsDecisionFull(code)) // если полное условие
-				{
-					CreateDecisionFull(ref blocks, ref code);
-				}
-				else
-				if (IsData(code)) // если ввод/вывод данных
-				{
-					CreateData(ref blocks, ref code);
-				}
-				else
-				if (IsProcess(code)) // если процесс
-				{
-					CreateProcess(ref blocks, ref code);
-				}
-				else break;
 			}
 
 			return blocks;

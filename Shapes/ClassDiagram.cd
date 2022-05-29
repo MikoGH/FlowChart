@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Shapes.Data">
+    <Position X="14.25" Y="3" Width="1.5" />
+    <InheritanceLine Type="Shapes.Shape" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.75" Y="2.75" />
+        <Point X="15.062" Y="2.75" />
+        <Point X="15.062" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAgAAAABAACAAAAIIAgAAAAAAAA=</HashCode>
+      <FileName>ClassData.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Shapes.Decision">
+    <Position X="14.25" Y="7" Width="1.5" />
+    <InheritanceLine Type="Shapes.Shape" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.75" Y="6.688" />
+        <Point X="15.062" Y="6.688" />
+        <Point X="15.062" Y="7" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAgAAAAAAAAiAAAABAACAAAAIIAgAAAAAAAA=</HashCode>
+      <FileName>ClassDecision.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Shapes.DecisionFull">
+    <Position X="10.75" Y="7" Width="1.5" />
+    <InheritanceLine Type="Shapes.Shape" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.75" Y="6.688" />
+        <Point X="11.438" Y="6.688" />
+        <Point X="11.438" Y="7" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAgAAAAAAAAiAAAAFAACAAAAIIAkAAAAgAAA=</HashCode>
+      <FileName>ClassDecisionFull.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Shapes.DecisionLoop">
+    <Position X="12.5" Y="7" Width="1.5" />
+    <InheritanceLine Type="Shapes.Shape" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.75" Y="6.688" />
+        <Point X="13.312" Y="6.688" />
+        <Point X="13.312" Y="7" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAgAAAAAAAAiAAAABAACAAAAIIAgAAAAAAAA=</HashCode>
+      <FileName>ClassDecisionLoop.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Shapes.Preparation">
+    <Position X="16" Y="7" Width="1.5" />
+    <InheritanceLine Type="Shapes.Shape" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.75" Y="6.688" />
+        <Point X="16.75" Y="6.688" />
+        <Point X="16.75" Y="7" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAgAAAAAAAAiAAAABAACAAAAIIAgAAAAAAAA=</HashCode>
+      <FileName>ClassPreparation.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Shapes.Process">
+    <Position X="16" Y="3" Width="1.5" />
+    <InheritanceLine Type="Shapes.Shape" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.75" Y="2.75" />
+        <Point X="16.75" Y="2.75" />
+        <Point X="16.75" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAgAAAABAACAAAAIIAgAAAAAAAA=</HashCode>
+      <FileName>ClassProcess.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Shapes.Shape">
+    <Position X="17.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAACIGKBAAAAUAAAAgg4iAAQEBgAAgAIAAAkAAAIQZA=</HashCode>
+      <FileName>ClassShape.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Shapes.Terminator">
+    <Position X="12.5" Y="3" Width="1.5" />
+    <InheritanceLine Type="Shapes.Shape" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="17.75" Y="2.75" />
+        <Point X="13.188" Y="2.75" />
+        <Point X="13.188" Y="3" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAgAAAABAACAAgCIIAgAAAAAAAA=</HashCode>
+      <FileName>ClassTerminator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Shapes.IBlock">
+    <Position X="19.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACIGABAAAAQAAAAggoiAAREBiAAgAIIAAEAAAIQYA=</HashCode>
+      <FileName>InterfaceBlock.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

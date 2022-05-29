@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Ini;
 
 namespace Shapes
 {
@@ -11,9 +13,10 @@ namespace Shapes
         // родительский класс для всех элементов блок-схемы
         // задает параметры, присущие всем элементам
     {
-        // размеры фигур
-        public int xSizeShape { get; set; } = 200;
-        public int ySizeShape { get; set; } = 80;
+		#region Атрибуты
+		// размеры фигур
+		public int xSizeShape { get; set; } = 200;
+		public int ySizeShape { get; set; } = 80;
 
         // дистанция между фигурами
         public int xDistance { get; set; } = 50;
@@ -52,8 +55,29 @@ namespace Shapes
         public int yDown { get; set; }
         public int xCenter { get; set; }
         public int yCenter { get; set; }
+		#endregion
 
-        public static IBlock GetLast(List<IBlock> lst)
+		#region Конструктор
+		public Shape(string _text)
+		{
+            text = _text;
+            SetSize();
+		}
+		#endregion
+
+		#region ini
+		public void SetSize()
+        {
+            FileIni ini = new FileIni();
+            xSizeShape = int.Parse(ini["xSizeShape"]);
+            ySizeShape = int.Parse(ini["ySizeShape"]);
+            xDistance = int.Parse(ini["xDistance"]);
+            yDistance = int.Parse(ini["yDistance"]);
+        }
+		#endregion
+
+		#region Методы
+		public static IBlock GetLast(List<IBlock> lst)
         // возвращает последний объект из заданного списка
         {
             return lst[lst.Count - 1];
@@ -106,5 +130,6 @@ namespace Shapes
 				}
 			}
         }
+        #endregion
     }
 }
