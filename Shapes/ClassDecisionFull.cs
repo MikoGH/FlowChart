@@ -110,6 +110,12 @@ namespace Shapes
 			//	});
 		}
 
+        public void DrawYesNo(Graphics graphic)
+		{
+            graphic.DrawString("да", fontMain, brushText, xCenter + 5, yDown + 5);
+            graphic.DrawString("нет", fontMain, brushText, xRight + xDistance + xSizeShape / 2 + 5, yDown + 5);
+        }
+
         public void DrawShape(Graphics graphic)
         // отрисовать фигуру
         {
@@ -122,6 +128,7 @@ namespace Shapes
             };
             graphic.FillPolygon(brush, points);
             graphic.DrawPolygon(penMain, points);
+            DrawYesNo(graphic);
         }
         #endregion
     }

@@ -130,6 +130,20 @@ namespace Shapes
 				}
 			}
         }
-        #endregion
-    }
+
+		public override bool Equals(object obj)
+		{
+            Shape other = obj as Shape;
+			if (this.xSizeShape == other.xSizeShape && 
+                this.ySizeShape == other.ySizeShape &&
+                this.xDistance == other.xDistance &&
+                this.yDistance == other.yDistance &&
+                this.text == other.text)
+			{
+                return true;
+			}
+			return false;
+		}
+		#endregion
+	}
 }

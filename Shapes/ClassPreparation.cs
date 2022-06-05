@@ -128,6 +128,11 @@ namespace Shapes
             graphic.FillPolygon(brush, points);
             graphic.DrawPolygon(penMain, points);
         }
-        #endregion
-    }
+
+		public override bool Equals(object obj)
+		{
+			return base.Equals(obj);
+		}
+		#endregion
+	}
 }

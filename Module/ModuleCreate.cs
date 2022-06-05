@@ -502,41 +502,41 @@ namespace Modules
 			// пока что объекты создаются вручную
 
 			// -4
-			blocks.Add(new Terminator("Начало", true)); // 0 begin
+			//blocks.Add(new Terminator("Начало", true)); // 0 begin
 
-			blocks.Add(new DecisionFull("123 > abc")); // 1 if
+			//blocks.Add(new DecisionFull("123 > abc")); // 1 if
 
-			blocks.Add(new DecisionFull("123 > 123")); // 2 then if
-			blocks[2].blocksDecisionFullThen.Add(blocks[1]);
-			((DecisionFull)blocks[1]).blocksBody.Add(blocks[2]);
+			//blocks.Add(new DecisionFull("123 > 123")); // 2 then if
+			//blocks[2].blocksDecisionFullThen.Add(blocks[1]);
+			//((DecisionFull)blocks[1]).blocksBody.Add(blocks[2]);
 
-			blocks.Add(new Process("int a = 0")); // 3 then then
-			blocks[3].blocksDecisionFullThen.Add(blocks[1]);
-			((DecisionFull)blocks[1]).blocksBody.Add(blocks[3]);
-			blocks[3].blocksDecisionFullThen.Add(blocks[2]);
-			((DecisionFull)blocks[2]).blocksBody.Add(blocks[3]);
+			//blocks.Add(new Process("int a = 0")); // 3 then then
+			//blocks[3].blocksDecisionFullThen.Add(blocks[1]);
+			//((DecisionFull)blocks[1]).blocksBody.Add(blocks[3]);
+			//blocks[3].blocksDecisionFullThen.Add(blocks[2]);
+			//((DecisionFull)blocks[2]).blocksBody.Add(blocks[3]);
 
-			blocks.Add(new Process("int a = 1")); // 4 then else
-			blocks[4].blocksDecisionFullThen.Add(blocks[1]);
-			((DecisionFull)blocks[1]).blocksBody.Add(blocks[4]);
-			blocks[4].blocksDecisionFullElse.Add(blocks[2]);
-			((DecisionFull)blocks[2]).blocksBodyElse.Add(blocks[4]);
+			//blocks.Add(new Process("int a = 1")); // 4 then else
+			//blocks[4].blocksDecisionFullThen.Add(blocks[1]);
+			//((DecisionFull)blocks[1]).blocksBody.Add(blocks[4]);
+			//blocks[4].blocksDecisionFullElse.Add(blocks[2]);
+			//((DecisionFull)blocks[2]).blocksBodyElse.Add(blocks[4]);
 
-			blocks.Add(new Process("int a = 1")); // 5 else
-			blocks[5].blocksDecisionFullElse.Add(blocks[1]);
-			((DecisionFull)blocks[1]).blocksBodyElse.Add(blocks[5]);
+			//blocks.Add(new Process("int a = 1")); // 5 else
+			//blocks[5].blocksDecisionFullElse.Add(blocks[1]);
+			//((DecisionFull)blocks[1]).blocksBodyElse.Add(blocks[5]);
 
-			blocks.Add(new Preparation("i = 0, i < n, i++")); // 6 else for
-			blocks[6].blocksDecisionFullElse.Add(blocks[1]);
-			((DecisionFull)blocks[1]).blocksBodyElse.Add(blocks[6]);
+			//blocks.Add(new Preparation("i = 0, i < n, i++")); // 6 else for
+			//blocks[6].blocksDecisionFullElse.Add(blocks[1]);
+			//((DecisionFull)blocks[1]).blocksBodyElse.Add(blocks[6]);
 
-			blocks.Add(new Process("int a = 2")); // 7 then else
-			blocks[7].blocksDecisionFullElse.Add(blocks[1]);
-			((DecisionFull)blocks[1]).blocksBodyElse.Add(blocks[7]);
-			blocks[7].blocksPreparation.Add(blocks[6]);
-			((Preparation)blocks[6]).blocksBody.Add(blocks[7]);
+			//blocks.Add(new Process("int a = 2")); // 7 then else
+			//blocks[7].blocksDecisionFullElse.Add(blocks[1]);
+			//((DecisionFull)blocks[1]).blocksBodyElse.Add(blocks[7]);
+			//blocks[7].blocksPreparation.Add(blocks[6]);
+			//((Preparation)blocks[6]).blocksBody.Add(blocks[7]);
 
-			blocks.Add(new Terminator("Конец", false)); // 8 end
+			//blocks.Add(new Terminator("Конец", false)); // 8 end
 			return blocks;
 
 			//-3
