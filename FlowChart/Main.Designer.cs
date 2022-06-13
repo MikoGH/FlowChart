@@ -74,7 +74,7 @@ namespace FlowChart
             this.button1.Font = new System.Drawing.Font("Century", 8F, System.Drawing.FontStyle.Bold);
             this.button1.Location = new System.Drawing.Point(4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 23);
+            this.button1.Size = new System.Drawing.Size(98, 39);
             this.button1.TabIndex = 7;
             this.button1.Text = "Помощь";
             this.button1.UseVisualStyleBackColor = false;
@@ -143,7 +143,7 @@ namespace FlowChart
             // 
             this.btnDownload.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDownload.Font = new System.Drawing.Font("Century", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnDownload.Font = new System.Drawing.Font("Century", 14F, System.Drawing.FontStyle.Bold);
             this.btnDownload.Location = new System.Drawing.Point(12, 5);
             this.btnDownload.Margin = new System.Windows.Forms.Padding(4);
             this.btnDownload.Name = "btnDownload";

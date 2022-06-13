@@ -21,5 +21,22 @@ namespace FlowChart
         {
 
         }
+
+        
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            //pictureBox1.Image = Image.FromFile("C:\Users\Polin\Downloads\Zdravstvuyte.gif");
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label19_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

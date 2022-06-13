@@ -153,17 +153,17 @@ namespace FlowChart
 		{
 			// создание блока
 			IBlock blockTest = new Process("");
-			if (blockType == "Процесс")
+			if (this.cmbBlockType.SelectedItem.ToString() == "Процесс")
 				blockTest = new Process("");
-			else if (blockType == "Ввод/вывод")
+			else if (this.cmbBlockType.SelectedItem.ToString() == "Ввод/вывод")
 				blockTest = new Data("");
-			else if (blockType == "Условие")
+			else if (this.cmbBlockType.SelectedItem.ToString() == "Условие")
 				blockTest = new Decision("");
-			else if (blockType == "Цикл for")
+			else if (this.cmbBlockType.SelectedItem.ToString() == "Цикл for")
 				blockTest = new Preparation("");
-			else if (blockType == "Цикл while")
+			else if (this.cmbBlockType.SelectedItem.ToString() == "Цикл while")
 				blockTest = new DecisionLoop("");
-			else if (blockType == "Терминатор")
+			else if (this.cmbBlockType.SelectedItem.ToString() == "Терминатор")
 				blockTest = new Terminator("");
 
 			// изменение координат блока на рисунке

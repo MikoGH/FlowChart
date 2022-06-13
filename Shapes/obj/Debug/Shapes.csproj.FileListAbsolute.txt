@@ -16,7 +16,6 @@ C:\Users\LENOVO\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.pdb
 C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\bin\Debug\Shapes.dll
 C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\bin\Debug\Shapes.pdb
 C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.csproj.CoreCompileInputs.cache
-C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.csproj.CopyComplete
 C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.dll
 C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.pdb
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Shapes\bin\Debug\AWSSDK.Core.dll

@@ -45,3 +45,4 @@ C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\bin\Debug\Ini.dll
 C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\bin\Debug\Ini.pdb
 C:\Users\Polin\Documents\GitHub\FlowChart\Module\bin\Debug\Ini.dll
 C:\Users\Polin\Documents\GitHub\FlowChart\Module\obj\Debug\Modules.csproj.CopyComplete
+C:\Users\Polin\Documents\GitHub\FlowChart\Module\bin\Debug\Ini.pdb
