@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Shapes;
 using Ini;
+using Modules;
 
 namespace FlowChart
 {
 	public partial class FormSettings : Form
 	{
 		string changedSizeParam = null;
+		string changedColourParam = null;
 		string blockType = null;
 
 		public FormSettings()
@@ -65,13 +67,83 @@ namespace FlowChart
 		#region Изменение цветов
 		private void cmbBlockType_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			blockType = cmbBlockType.SelectedItem.ToString();
+			if (this.cmbBlockType.SelectedItem.ToString() == "Процесс")
+			{
+				changedColourParam = "colorProcess";
+			}
+			else if (this.cmbBlockType.SelectedItem.ToString() == "Ввод/вывод")
+			{
+				changedColourParam = "colorData";
+			}
+			else if (this.cmbBlockType.SelectedItem.ToString() == "Условие")
+			{
+				changedColourParam = "colorDecision";
+			}
+			else if (this.cmbBlockType.SelectedItem.ToString() == "Цикл for")
+			{
+				changedColourParam = "colorDecisionLoop";
+			}
+			else if (this.cmbBlockType.SelectedItem.ToString() == "Цикл while")
+			{
+				changedColourParam = "colorPreparation";
+			}
+			else if (this.cmbBlockType.SelectedItem.ToString() == "Терминатор")
+			{
+				changedColourParam = "colorTerminator";
+			}
 			DrawTest();
 		}
 
 		private void btnChangeColor_Click(object sender, EventArgs e)
 		{
-			clrd.ShowDialog();
+			if (changedColourParam == null)
+				return; // если параметр не выбран
+			//clrd.ShowDialog();
+			DialogResult colorResult = clrd.ShowDialog();
+			FileIni ini = new FileIni();
+			if (colorResult == DialogResult.OK)
+            {
+				//pctboxTest.BackColor = clrd.Color;
+				string colour = null;
+				string r = clrd.Color.R.ToString();
+				string g = clrd.Color.G.ToString();
+				string b = clrd.Color.B.ToString();
+				colour = r + "," + g + "," + b;
+				ini[changedColourParam] = colour;
+				ini.Write();
+				DrawTest();
+			}
+		}
+
+		private void nmudColorR_ValueChanged(object sender, EventArgs e)
+		{
+			if (changedColourParam == null)
+				return; // если параметр не выбран
+			FileIni ini = new FileIni();
+			string[] colour = ini[changedColourParam].Split(new char[] { ',' });
+			ini[changedColourParam] = nmudColorR.Value.ToString() + ',' + colour[1] + ',' + colour[2];
+			ini.Write();
+			
+		}
+
+		private void nmudColorG_ValueChanged(object sender, EventArgs e)
+		{
+			if (changedColourParam == null)
+				return; // если параметр не выбран
+			FileIni ini = new FileIni();
+			string[] colour = ini[changedColourParam].Split(new char[] { ',' });
+			ini[changedColourParam] = colour[0] + ',' + nmudColorG.Value.ToString() + ',' + colour[2];
+			ini.Write();
+		}
+
+		private void nmudColorB_ValueChanged(object sender, EventArgs e)
+		{
+			if (changedColourParam == null)
+				return; // если параметр не выбран
+			FileIni ini = new FileIni();
+			string[] colour = ini[changedColourParam].Split(new char[] { ',' });
+			ini[changedColourParam] = colour[0] + ',' + colour[1] + ',' + nmudColorB.Value.ToString();
+			ini.Write();
 		}
 		#endregion
 
@@ -128,6 +200,11 @@ namespace FlowChart
 			ini["colorTerminator"] = "211,211,211";
 			ini.Write();
 		}
-		#endregion
-	}
+        #endregion
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+    }
 }

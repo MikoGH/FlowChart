@@ -166,5 +166,11 @@ namespace FlowChart
             FormSettings fSettings = new FormSettings();
             fSettings.ShowDialog();
 		}
-	}
+
+        private void buttonInstruction_Click(object sender, EventArgs e)
+        {
+            FormInstruction fInstruction = new FormInstruction();
+            fInstruction.ShowDialog();
+        }
+    }
 }
