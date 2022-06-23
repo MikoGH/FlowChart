@@ -30,3 +30,15 @@ C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\bin\Debug\AWSSDK.Core.pdb
 C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\bin\Debug\AWSSDK.Core.xml
 C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\bin\Debug\Ini.pdb
 C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.csproj.AssemblyReference.cache
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\bin\Debug\Shapes.dll
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\bin\Debug\Shapes.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\bin\Debug\AWSSDK.Core.dll
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\bin\Debug\Ini.dll
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\bin\Debug\Ini.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\bin\Debug\AWSSDK.Core.pdb
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\bin\Debug\AWSSDK.Core.xml
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.csproj.AssemblyReference.cache
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.csproj.CoreCompileInputs.cache
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.csproj.CopyComplete
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.dll
+C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.pdb
