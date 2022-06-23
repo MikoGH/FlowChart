@@ -42,3 +42,4 @@ C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.csproj.CoreCom
 C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.csproj.CopyComplete
 C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.dll
 C:\Users\Vlada\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.pdb
+C:\Users\Polin\Documents\GitHub\FlowChart\Shapes\obj\Debug\Shapes.csproj.CopyComplete

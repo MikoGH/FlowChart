@@ -18,7 +18,6 @@ C:\Users\Vlada\Documents\GitHub\FlowChart\BlockDiagram\Module\obj\Debug\Modules.
 C:\Users\Polin\Documents\GitHub\FlowChart\Module\bin\Debug\Module.dll
 C:\Users\Polin\Documents\GitHub\FlowChart\Module\bin\Debug\Module.pdb
 C:\Users\Polin\Documents\GitHub\FlowChart\Module\bin\Debug\Shapes.pdb
-C:\Users\Polin\Documents\GitHub\FlowChart\Module\obj\Debug\Modules.csproj.AssemblyReference.cache
 C:\Users\Polin\Documents\GitHub\FlowChart\Module\obj\Debug\Modules.csproj.CoreCompileInputs.cache
 C:\Users\Polin\Documents\GitHub\FlowChart\Module\obj\Debug\Module.dll
 C:\Users\Polin\Documents\GitHub\FlowChart\Module\obj\Debug\Module.pdb
@@ -48,3 +47,4 @@ C:\Users\Polin\Documents\GitHub\FlowChart\Module\obj\Debug\Modules.csproj.CopyCo
 C:\Users\Polin\Documents\GitHub\FlowChart\Module\bin\Debug\Ini.pdb
 C:\Users\Vlada\Documents\GitHub\FlowChart\Module\bin\Debug\Ini.dll
 C:\Users\Vlada\Documents\GitHub\FlowChart\Module\bin\Debug\Ini.pdb
+C:\Users\Polin\Documents\GitHub\FlowChart\Module\obj\Debug\Modules.csproj.AssemblyReference.cache
