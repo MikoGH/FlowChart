@@ -23,6 +23,7 @@ namespace Shapes
 		#region Конструктор
 		public Data(string _text) : base(_text)
         {
+            SetColor();
         }
         #endregion
 
@@ -30,7 +31,7 @@ namespace Shapes
         public void SetColor()
         {
             FileIni ini = new FileIni();
-            int[] colors = ini["ColorData"].Split(',').Select(x => int.Parse(x)).ToArray();
+            int[] colors = ini["colorData"].Split(',').Select(x => int.Parse(x)).ToArray();
             brush = new SolidBrush(Color.FromArgb(colors[0], colors[1], colors[2]));
         }
         #endregion

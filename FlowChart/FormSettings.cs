@@ -61,6 +61,7 @@ namespace FlowChart
 			FileIni ini = new FileIni();
 			ini[changedSizeParam] = nmudSize.Value.ToString();
 			ini.Write();
+			DrawTest();
 		}
 		#endregion
 
@@ -123,7 +124,7 @@ namespace FlowChart
 			string[] colour = ini[changedColourParam].Split(new char[] { ',' });
 			ini[changedColourParam] = nmudColorR.Value.ToString() + ',' + colour[1] + ',' + colour[2];
 			ini.Write();
-			
+			DrawTest();
 		}
 
 		private void nmudColorG_ValueChanged(object sender, EventArgs e)
@@ -134,6 +135,7 @@ namespace FlowChart
 			string[] colour = ini[changedColourParam].Split(new char[] { ',' });
 			ini[changedColourParam] = colour[0] + ',' + nmudColorG.Value.ToString() + ',' + colour[2];
 			ini.Write();
+			DrawTest();
 		}
 
 		private void nmudColorB_ValueChanged(object sender, EventArgs e)
@@ -144,6 +146,7 @@ namespace FlowChart
 			string[] colour = ini[changedColourParam].Split(new char[] { ',' });
 			ini[changedColourParam] = colour[0] + ',' + colour[1] + ',' + nmudColorB.Value.ToString();
 			ini.Write();
+			DrawTest();
 		}
 		#endregion
 
@@ -199,6 +202,7 @@ namespace FlowChart
 			ini["colorPreparation"] = "250,130,130";
 			ini["colorTerminator"] = "211,211,211";
 			ini.Write();
+			DrawTest();
 		}
         #endregion
 

@@ -26,6 +26,7 @@ namespace Shapes
         {
             ySizeShape = ySizeShape / 2; // по ГОСТу высота терминатора в 2 раза меньше других элементов
 			isStart = _isStart;
+            SetColor();
         }
         #endregion
 
@@ -33,7 +34,7 @@ namespace Shapes
         public void SetColor()
         {
             FileIni ini = new FileIni();
-            int[] colors = ini["ColorPreparation"].Split(',').Select(x => int.Parse(x)).ToArray();
+            int[] colors = ini["colorTerminator"].Split(',').Select(x => int.Parse(x)).ToArray();
             brush = new SolidBrush(Color.FromArgb(colors[0], colors[1], colors[2]));
         }
         #endregion
