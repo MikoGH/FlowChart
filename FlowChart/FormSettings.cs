@@ -205,6 +205,7 @@ namespace FlowChart
 			ini["colorPreparation"] = "250,130,130";
 			ini["colorTerminator"] = "211,211,211";
 			ini.Write();
+			DrawTest();
 		}
         #endregion
 
