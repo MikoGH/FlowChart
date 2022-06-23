@@ -82,11 +82,11 @@ namespace FlowChart
 			}
 			else if (this.cmbBlockType.SelectedItem.ToString() == "Цикл for")
 			{
-				changedColourParam = "colorDecisionLoop";
+				changedColourParam = "colorPreparation";
 			}
 			else if (this.cmbBlockType.SelectedItem.ToString() == "Цикл while")
 			{
-				changedColourParam = "colorPreparation";
+				changedColourParam = "colorDecisionLoop";
 			}
 			else if (this.cmbBlockType.SelectedItem.ToString() == "Терминатор")
 			{
@@ -156,18 +156,21 @@ namespace FlowChart
 		{
 			// создание блока
 			IBlock blockTest = new Process("");
-			if (this.cmbBlockType.SelectedItem.ToString() == "Процесс")
-				blockTest = new Process("");
-			else if (this.cmbBlockType.SelectedItem.ToString() == "Ввод/вывод")
-				blockTest = new Data("");
-			else if (this.cmbBlockType.SelectedItem.ToString() == "Условие")
-				blockTest = new Decision("");
-			else if (this.cmbBlockType.SelectedItem.ToString() == "Цикл for")
-				blockTest = new Preparation("");
-			else if (this.cmbBlockType.SelectedItem.ToString() == "Цикл while")
-				blockTest = new DecisionLoop("");
-			else if (this.cmbBlockType.SelectedItem.ToString() == "Терминатор")
-				blockTest = new Terminator("");
+			if (this.cmbBlockType.SelectedItem != null)
+			{
+				if (this.cmbBlockType.SelectedItem.ToString() == "Процесс")
+					blockTest = new Process("");
+				else if (this.cmbBlockType.SelectedItem.ToString() == "Ввод/вывод")
+					blockTest = new Data("");
+				else if (this.cmbBlockType.SelectedItem.ToString() == "Условие")
+					blockTest = new Decision("");
+				else if (this.cmbBlockType.SelectedItem.ToString() == "Цикл for")
+					blockTest = new Preparation("");
+				else if (this.cmbBlockType.SelectedItem.ToString() == "Цикл while")
+					blockTest = new DecisionLoop("");
+				else if (this.cmbBlockType.SelectedItem.ToString() == "Терминатор")
+					blockTest = new Terminator("");
+			}
 
 			// изменение координат блока на рисунке
 			blockTest.SetPositionX(pctboxTest.Width / 2 - blockTest.xSizeShape / 2);
