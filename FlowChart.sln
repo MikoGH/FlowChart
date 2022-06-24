@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ini", "Ini\Ini.csproj", "{F
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProjectFC", "UnitTestProjectFC\UnitTestProjectFC.csproj", "{23876159-8D5D-42C9-8319-FE52CE8FD006}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupFlowChart", "SetupFlowChart\SetupFlowChart.vdproj", "{CD5EE614-F775-44E8-A2A0-BCBB72EF9CE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,8 @@ Global
 		{23876159-8D5D-42C9-8319-FE52CE8FD006}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23876159-8D5D-42C9-8319-FE52CE8FD006}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23876159-8D5D-42C9-8319-FE52CE8FD006}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD5EE614-F775-44E8-A2A0-BCBB72EF9CE4}.Debug|Any CPU.ActiveCfg = Debug
+		{CD5EE614-F775-44E8-A2A0-BCBB72EF9CE4}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
