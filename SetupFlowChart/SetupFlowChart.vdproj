@@ -15,6 +15,12 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_0CD2099F25E143A3B7B16AC44CDD40E1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_32E092097307BAD561C4044C67F1E6E7"
         "OwnerKey" = "8:_6C92AE125E44B8C15710F9BF30650C1D"
         "MsmSig" = "8:_UNDEFINED"
@@ -45,8 +51,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BB28CF89E99B41B29EB2848827EABB5D"
+        "MsmKey" = "8:_F1363D939B6B6AA2192418774868875A"
+        "OwnerKey" = "8:_AE962BF29DD24ADAB310845ECD9D0194"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_F1363D939B6B6AA2192418774868875A"
+        "OwnerKey" = "8:_32E092097307BAD561C4044C67F1E6E7"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -67,6 +79,18 @@
         "OwnerKey" = "8:_32E092097307BAD561C4044C67F1E6E7"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F1363D939B6B6AA2192418774868875A"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BB28CF89E99B41B29EB2848827EABB5D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -85,6 +109,22 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
+            }
         }
         "Release"
         {
@@ -101,6 +141,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
     }
     "Deployable"
@@ -130,6 +178,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0CD2099F25E143A3B7B16AC44CDD40E1"
+            {
+            "SourcePath" = "8:..\\..\\..\\ВШЭ\\Курсовой проект 1\\Иконки\\Ico.ico"
+            "TargetName" = "8:Ico.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_A2B7C6925F8F4C6F8E74D96C7549EDDD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_32E092097307BAD561C4044C67F1E6E7"
             {
             "AssemblyRegister" = "3:1"
@@ -223,6 +291,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F1363D939B6B6AA2192418774868875A"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Ini, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_F1363D939B6B6AA2192418774868875A"
+                    {
+                    "Name" = "8:Ini.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Ini.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_A2B7C6925F8F4C6F8E74D96C7549EDDD"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
         }
         "FileType"
         {
@@ -291,7 +390,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SetupFlowChart"
         "ProductCode" = "8:{402398F7-7048-4196-9DAD-9944729B919D}"
-        "PackageCode" = "8:{F81A226C-AA22-4A56-BB7A-B3F1A51CD1DF}"
+        "PackageCode" = "8:{15E318A0-73EE-4FC0-B67A-61801F30C1E1}"
         "UpgradeCode" = "8:{73DF8C11-79A1-46E4-A654-549D83A1A1E6}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
@@ -299,12 +398,12 @@
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
         "ProductVersion" = "8:1.0.0"
-        "Manufacturer" = "8:Default Company Name"
+        "Manufacturer" = "8:BEG-In Studios"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
         "Title" = "8:SetupFlowChart"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Default Company Name"
+        "ARPCONTACT" = "8:BEG-In Studios"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
@@ -413,7 +512,7 @@
         {
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1079F74CC23C4386A046AC45426ACF83"
             {
-            "Name" = "8:FlowChart Installer"
+            "Name" = "8:FlowChart"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -422,12 +521,12 @@
             "Target" = "8:_AE962BF29DD24ADAB310845ECD9D0194"
             "Folder" = "8:_59E96E6B79F54917BDEAE90142EA74E7"
             "WorkingFolder" = "8:_A2B7C6925F8F4C6F8E74D96C7549EDDD"
-            "Icon" = "8:"
+            "Icon" = "8:_0CD2099F25E143A3B7B16AC44CDD40E1"
             "Feature" = "8:"
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D0666F82BE34465C9F1ADB5E7CAB61ED"
             {
-            "Name" = "8:FlowChart Installer"
+            "Name" = "8:FlowChart"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -436,7 +535,7 @@
             "Target" = "8:_AE962BF29DD24ADAB310845ECD9D0194"
             "Folder" = "8:_226877D0D8F24673BA73E87A6F24FA42"
             "WorkingFolder" = "8:_A2B7C6925F8F4C6F8E74D96C7549EDDD"
-            "Icon" = "8:"
+            "Icon" = "8:_0CD2099F25E143A3B7B16AC44CDD40E1"
             "Feature" = "8:"
             }
         }
